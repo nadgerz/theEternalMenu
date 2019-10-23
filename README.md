@@ -2,9 +2,9 @@
 
 ## The Eternal Menu
 
-This is will (hopefullt) one day be a fully fleshed out recipe & menu creation App. There are two basic ideas behind it:
+This is will (hopefully) one day be a fully fleshed out recipe & menu creation App. There are two basic ideas behind it:
 
-###1. improving one's cooking skills through iteration
+### 1. improving one's cooking skills through iteration
 
 There are enough recipe sites/app out there already. But what a lot of them don't seem to focus on, is customising/tweaking a recipe to your specific tastes and skills. Not only that, but if I look at the amazing dishes my grandma regularly makes, I noticed she only really has about 20-30 recipes she knows by heart, doesn't need to look up in a book and that are family favourites. 
 
@@ -16,7 +16,7 @@ No social aspect, just a highly personal collection of recipes you love, or are 
 
 This is the first part I'll try to build.
 
-### 2. easily generating/maintainig an 'Eternal Menu'
+### 2. easily generating/maintaining an 'Eternal Menu'
 
 Assuming you've used the iterative approach to cooking to generate recipes you truly love, then over time you will have built up a cook book filled with personal favourites. The next logical step for me would be to create weekly menus from your recipes. Several factors are important for this, though: 
 
