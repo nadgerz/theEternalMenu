@@ -1,19 +1,18 @@
 module.exports = class Person {
-  constructor( name, age ) {
+  constructor(name, age) {
     this.name = name;
     this.age = age;
-    
   }
-  
-  greet( person ) {
-    console.log( 'Hello ' + person.name, 'my name is ', this.name );
+
+  greet(person) {
+    console.log('Hello ' + person.name, 'my name is ', this.name);
   }
-  
-  attend( meetup ) {
+
+  attend(meetup) {
     this.meetup = meetup.name;
-    meetup.attendees.push( this );
+    meetup.attendees.push(this);
   }
-  
+
   // printName() {
   //   console.log( this.name );
   // }

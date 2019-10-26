@@ -1,23 +1,19 @@
 // console.log( 'hello Debora! 😀' );
-const Person = require( './person.js' );
-const Meetup = require( './meetup' );
-const Chalk = require( 'chalk' );
-const Database = require( './database' );
+const Person = require('./person.js');
+const Meetup = require('./meetup');
+const Chalk = require('chalk');
+const Database = require('./database');
 
-const add = ( ...args ) => {
-  return (
-    args.reduce( ( acc, cur ) => acc + cur )
-  );
+const add = (...args) => {
+  return args.reduce((acc, cur) => acc + cur);
 };
 
-const additionResult = add( 5, 7 );
+const additionResult = add(5, 7);
 
-const multiply = ( ...args ) => {
-  return (
-    args.reduce( ( acc, cur ) => acc * cur )
-  );
+const multiply = (...args) => {
+  return args.reduce((acc, cur) => acc * cur);
 };
-const multiplyResult = multiply( additionResult, 2 );
+const multiplyResult = multiply(additionResult, 2);
 
 // const mert = new Person( 'Mert', 34 );
 // const armagan = new Person( 'Armagan', 35 );
@@ -32,5 +28,5 @@ const multiplyResult = multiply( additionResult, 2 );
 // Database.save( 'meetup.json', wtmb );
 // saving multiple people!
 // Database.save( 'persons.json', [mert, armagan] );
-const loadedFile = Database.load( 'meetup.json' );
-console.log( loadedFile.name );
+const loadedFile = Database.load('meetup.json');
+console.log(loadedFile.name);

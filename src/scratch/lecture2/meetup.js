@@ -1,14 +1,14 @@
-const Chalk = require( 'chalk' );
+const Chalk = require('chalk');
 
 module.exports = class Meetup {
-  constructor( name ) {
+  constructor(name) {
     this.name = name;
     this.attendees = [];
   }
-  
+
   printAttendeeNames() {
-    this.attendees.forEach( printName );
+    this.attendees.forEach(printName);
   }
 };
 
-let printName = person => console.log( Chalk.bgGreenBright(person.name) );
+let printName = person => console.log(Chalk.bgGreenBright(person.name));
