@@ -86,10 +86,15 @@ const honeyLemonShrimp = {
         {
           amount: 3,
           unit: 'tablespoons',
-          name: ' low sodium soy sauce',
+          name: 'low sodium soy sauce',
           sub: [],
         },
-        { amount: 1, unit: 'tablespoon', name: 'garlic, minced', sub: [] },
+        {
+          amount: 1,
+          unit: 'tablespoon',
+          name: 'garlic, minced',
+          sub: [],
+        },
         { amount: 0, unit: '', name: 'juice from 1 lemon', sub: [] },
         { amount: 2, unit: 'tablespoons', name: 'raw honey', sub: [] },
         { amount: 2, unit: 'tablespoons', name: 'water', sub: [] },

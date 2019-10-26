@@ -39,15 +39,7 @@ const User = class {
 };
 
 const Recipe = class {
-  constructor(
-    title,
-    cookingTime = 0,
-    servingSize = 0,
-    ingredients = [],
-    instructions = [],
-    notes = [],
-    tags = [],
-  ) {
+  constructor(title, cookingTime = 0, servingSize = 0, ingredients = [], instructions = [], notes = [], tags = []) {
     this.title = title;
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
