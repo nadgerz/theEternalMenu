@@ -48,7 +48,7 @@ const Recipe = class {
     const currentVersion = this.versions[this.getVersionIndexById(versionId)];
     const arrLength = currentVersion.ingredients.length;
 
-    return arrLength === 0 ? 1 : currentVersion.ingredients[currentVersion.ingredients.length - 1].id + 1;
+    return arrLength === 0 ? 1 : currentVersion.ingredients[arrLength - 1].id + 1;
   };
 
   addIngredient(versionId, ingredient) {
