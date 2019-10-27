@@ -66,7 +66,7 @@ const Recipe = class {
     this.title = title;
     // this.id // TODO: ID (should include the id of the user who generated the recipe),
     // this.images = [] // TODO: implement an images array
-    // TODO: SOLVE problem with version ID
+    // TODO: SOLVE problem with version ID (e.g. what to do in case of a deletion?)
     this.versions = [new RecipeVersion(howTo, 1)]; // TODO: limit versions array to... 15?
   }
 
@@ -75,19 +75,27 @@ const Recipe = class {
   }
 
   //templateCopy : use in different function, to FILL form fields from
-  // TODO: make sure that the newVersion is DIFFERENT to old version - KEY!
+  // TODO: does the newVersion HAVE to be different from old version?
   addVersion(newVersion) {
-    let id = this.versions.length + 1;
+    // let id = this.versions.length + 1;
+    // idea for fix: when a new Version is generated, an older version was used as a template, so there already existed an id
+    let id = newVersion.id + 1;
+
     this.versions.push(new RecipeVersion(newVersion, id));
   }
 
   getVersion(versionNo) {
     return this.versions[versionNo - 1];
   }
+
+  deleteVersion(toDelete) {
+
+  }
+
   // TODO: hide this function
   getVersionIndex(version) {
+    // add all ids of existing versions to an array, find index of the version ID you're looking for in it
     let index = this.versions.map(elem => elem.id).indexOf(version.id);
-    // get all
     return index;
   }
 
@@ -253,3 +261,4 @@ console.log(recipe2.versions);
 // addVersion: works
 // addIngredient: works
 // getVersion: works
+// getVersionID: works
