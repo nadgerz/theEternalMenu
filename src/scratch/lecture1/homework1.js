@@ -47,7 +47,8 @@ const RecipeVersion = class {
                 instructions = [],
                 notes = [],
                 tags = [],
-              }) {
+              }, id) {
+    this.id = id;
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
     this.ingredients = ingredients;
@@ -61,24 +62,38 @@ const Recipe = class {
   constructor(title, howTo) {
     this.title = title;
     // this.id // TODO: ID (should include the id of the user who generated the recipe),
-    this.versions = [new RecipeVersion(howTo)];
+    // this.images = [] // TODO: implement an images array
+    // TODO: SOLVE problem with version ID
+    this.versions = [new RecipeVersion(howTo, 1)]; // TODO: limit versions array to... 15?
   }
 
   setTitle(newTitle) {
     this.title = newTitle;
   }
+
   //templateCopy : use in different function, to FILL form fields from
+  // TODO: make sure that the newVersion is DIFFERENT to old version - KEY!
   addVersion(newVersion) {
-    this.versions.push(new RecipeVersion(newVersion));
+    let id = this.versions.length + 1;
+    this.versions.push(new RecipeVersion(newVersion, id));
   }
 
+  getVersion(versionNo) {
+    return this.versions[versionNo - 1];
+  }
+  // TODO: hide this function
   getVersionIndex(version) {
-    return this.versions.indexOf(version);
+    let index = this.versions.map((elem) => elem.id).indexOf(version.id);
+    // get all
+    return index;
   }
 
   addIngredient(version, ingredient) {
+    console.log(version);
     let index = this.getVersionIndex(version);
-    this.versions[index].ingredients.push(new Ingredient(ingredient));
+
+    console.log('index:' + index);
+    index < 0 ? console.log('index out of bounds') : this.versions[index].ingredients.push(new Ingredient(ingredient));
   }
 
   deleteIngredient(version, toDelete) {
@@ -183,17 +198,39 @@ let user3 = new User('Chris', 'Chris@mail.com', 'qwertz');
 //   mockRecipes[1].tags,
 // );
 let recipe2 = new Recipe(mockRecipes[1].title, mockRecipes[1].versions[0]);
-let test = {
 
+let testVersion = {
+  id: 2,
+  cookingTime: 10,
+  servingSize: 4,
+
+  ingredients: [],
+
+  instructions: [],
+
+  notes: [],
+
+  tags: {
+    mealType: [],
+    dishType: [],
+    season: [],
+    worldRegion: [],
+    healthDiet: [],
+  },
 };
-// console.log( recipe2 );
+recipe2.addVersion(testVersion);
+// console.log(recipe2.versions);
 
+let testIngredient = { amount: 1, unit: 'tablespoon', name: 'garlic, minced', sub: [] };
 
-recipe2.addIngredient(test);
-console.log('changed');
-console.log( recipe2.versions );
+console.log('==============');
+// console.log(recipe2.getVersionIndex(testVersion));
+
+recipe2.addIngredient(testVersion, testIngredient);
+console.log(recipe2.versions);
 
 
 // TESTS
 // addVersion: works
-// addIngredient:
+// addIngredient: works
+// getVersion: works
