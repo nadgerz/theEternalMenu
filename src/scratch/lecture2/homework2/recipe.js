@@ -43,11 +43,12 @@ const Recipe = class {
     this.versions.push(new RecipeVersion(newVersion, id));
   }
 
-  getNextVersionId = () => this.versions[this.versions.length - 1].id + 1;
+  getNextVersionId() {
+    return this.versions[this.versions.length - 1].id + 1;
+  };
 
-  getNextIngredientId = (versionId) => {
+  getNextIngredientId(versionId) {
     let currentVersion = this.versions[this.getVersionIndexById(versionId)];
-
     return (currentVersion.ingredients[currentVersion.ingredients.length - 1].id + 1);
   };
 
@@ -60,10 +61,13 @@ const Recipe = class {
   }
 
   // TODO: hide these functions?
-  getVersionIndexById = (id) => this.versions.map(version => version.id).indexOf(id);
+  getVersionIndexById(id) {
+    return this.versions.map(version => version.id).indexOf(id);
+  }
 
-  getIngredientIndexById = (id) => this.versions.ingredients.map(ingredient => ingredient.id).indexOf(id);
-
+  getIngredientIndexById(id) {
+    return this.versions.ingredients.map(ingredient => ingredient.id).indexOf(id);
+  }
 
   addIngredient(versionId, ingredient) {
     let index = this.getVersionIndexById(versionId);
