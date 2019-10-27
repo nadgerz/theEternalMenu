@@ -1,7 +1,6 @@
 const mockRecipes = require('./recipes');
 const Recipe = require('./recipe');
 
-
 let recipe1 = new Recipe(mockRecipes[1].title, mockRecipes[1].versions[0]);
 
 let testVersion = {

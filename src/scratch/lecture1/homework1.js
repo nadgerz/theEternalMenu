@@ -88,9 +88,7 @@ const Recipe = class {
     return this.versions[versionNo - 1];
   }
 
-  deleteVersion(toDelete) {
-
-  }
+  deleteVersion(toDelete) {}
 
   // TODO: hide this function
   getVersionIndex(version) {

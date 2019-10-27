@@ -1,4 +1,3 @@
-
 const User = class {
   constructor(name, email, password) {
     this.name = name;
@@ -35,6 +34,5 @@ const User = class {
     this.password = newPassword;
   }
 };
-
 
 module.exports = User;
