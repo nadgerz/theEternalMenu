@@ -1,5 +1,6 @@
-const users = [];
 const mockRecipes = require('./recipes');
+const users = [];
+// TODO: set up for language switch
 
 const User = class {
   constructor(name, email, password) {
@@ -48,11 +49,14 @@ const Recipe = class {
     this.notes = notes;
     this.tags = tags;
 
+    // TODO: ID (should include the id of the use who generated the recipe),
+    //  Version History
+    // this.id =
     // this.version = 1;
   }
 
-  addIngredient(amount, unit, name, sub) {
-    this.ingredients.push(new Ingredient(amount, unit, name, sub));
+  addIngredient(ingredient) {
+    this.ingredients.push(new Ingredient(ingredient));
   }
 
   deleteIngredient(toDelete) {
@@ -74,13 +78,81 @@ const Recipe = class {
 };
 
 const Ingredient = class {
-  constructor(amount = 0.0, unit = '', name, sub = []) {
+  constructor({ amount = 0.0, unit = '', name, sub = [] }) {
     this.amount = amount;
     this.unit = unit;
     this.name = name;
     this.sub = sub;
   }
 };
+
+const tags = {
+  mealType: [
+    'Breakfast and Brunch',
+    'Lunch',
+    'Dinner',
+    'Desserts',
+  ],
+  dishType: [
+    'Appetizers & Snacks',
+    'Bread Recipes',
+    'Cake Recipes',
+    'Candy and Fudge',
+    'Casserole Recipes',
+    'Cocktails',
+    'Cookies',
+    'Fish Recipes',
+    'Main Dishes',
+    'Pasta',
+    'Pie',
+    'Pizza',
+    'Salads',
+    'Sandwiches',
+    'Sauces and Condiments',
+    'Side Dishes',
+    'Smoothies',
+    'Soups, Stews, and Chilis',
+  ],
+  season: [
+    'Spring',
+    'Easter ',
+    'Summer',
+    'Autumn',
+    'Halloween',
+    'Thanksgiving',
+    'Winter',
+    'Christmas',
+    'More',
+  ],
+
+  worldRegion: [
+    'Chinese',
+    'Indian',
+    'Italian',
+    'Mexican',
+    'Southern',
+    'Thai',
+  ],
+
+  healthDiet: [
+    'Dairy Free',
+    'Diabetic',
+    'Gluten Free',
+    'Low Calorie',
+    'Low Carb',
+    'Pescatarian',
+    'Vegetarian',
+    'Vegan',
+    'Add More',
+  ],
+};
+
+
+// let test = { amount: 1, unit: 'lb', name: 'carrot', sub: [] };
+// let testIngr = new Ingredient(test);
+//
+// console.log(testIngr);
+
 
 let user1 = new User('Antonia', 'Antonia@mail.com', '1234');
 let user2 = new User('Berta', 'Berta@mail.com', 'qwerty');
@@ -98,4 +170,4 @@ let recipe1 = new Recipe(
   mockRecipes[1].tags,
 );
 
-console.log(recipe1);
+// console.log(recipe1);
