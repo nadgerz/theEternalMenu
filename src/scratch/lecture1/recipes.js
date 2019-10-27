@@ -152,5 +152,5 @@ const honeyLemonShrimp = {
   },
 };
 
-const recipes = [misoOrangeSalmon];
+const recipes = [misoOrangeSalmon, garlickyAsparagus, honeyLemonShrimp];
 module.exports = recipes;
