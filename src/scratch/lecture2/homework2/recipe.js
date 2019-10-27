@@ -1,3 +1,5 @@
+const Ingredient = require('./ingredient');
+
 const RecipeVersion = class {
   constructor(
     {
@@ -20,22 +22,15 @@ const RecipeVersion = class {
   }
 };
 
-const Ingredient = class {
-  constructor({ amount = 0.0, unit = '', name, sub = [] }) {
-    this.amount = amount;
-    this.unit = unit;
-    this.name = name;
-    this.sub = sub;
-  }
-};
-
 const Recipe = class {
   constructor(title, howTo) {
     this.title = title;
-    // this.id // TODO: ID (should include the id of the user who generated the recipe),
+    // this.id // TODO: UUID
     // this.images = [] // TODO: implement an images array
     // TODO: SOLVE problem with version ID (e.g. what to do in case of a deletion?)
-    this.versions = [new RecipeVersion(howTo, 1)]; // TODO: limit versions array to... 15?
+    // TODO: limit versions array to... 15?
+    this.versions = [];
+    this.versions.push(new RecipeVersion(howTo), this.versions.length + 1);
   }
 
   setTitle(newTitle) {
@@ -43,59 +38,66 @@ const Recipe = class {
   }
 
   //templateCopy : use in different function, to FILL form fields from
-  // TODO: does the newVersion HAVE to be different from old version?
   addVersion(newVersion) {
-    // let id = this.versions.length + 1;
-    // idea for fix: when a new Version is generated, an older version was used as a template, so there already existed an id
-    let id = newVersion.id + 1;
-
+    let id = this.getNextVersionId();
     this.versions.push(new RecipeVersion(newVersion, id));
   }
+
+  getNextVersionId = () => this.versions[this.versions.length - 1].id + 1;
+
+  getNextIngredientId = (versionId) => {
+    let currentVersion = this.versions[this.getVersionIndexById(versionId)];
+
+    return (currentVersion.ingredients[currentVersion.ingredients.length - 1].id + 1);
+  };
 
   getVersion(versionNo) {
     return this.versions[versionNo - 1];
   }
 
-  deleteVersion(toDelete) {}
-
-  // TODO: hide this function
-  getVersionIndex(version) {
-    // add all ids of existing versions to an array, find index of the version ID you're looking for in it
-    let index = this.versions.map(elem => elem.id).indexOf(version.id);
-    return index;
+  deleteVersionById(id) {
+    this.versions = this.versions.filter(version => version.id !== id);
   }
 
-  addIngredient(version, ingredient) {
-    console.log(version);
-    let index = this.getVersionIndex(version);
+  // TODO: hide these functions?
+  getVersionIndexById = (id) => this.versions.map(version => version.id).indexOf(id);
 
-    console.log('index:' + index);
+  getIngredientIndexById = (id) => this.versions.ingredients.map(ingredient => ingredient.id).indexOf(id);
+
+
+  addIngredient(versionId, ingredient) {
+    let index = this.getVersionIndexById(versionId);
+
     index < 0
       ? console.log('index out of bounds')
-      : this.versions[index].ingredients.push(new Ingredient(ingredient));
+      : this.versions[index].ingredients.push(new Ingredient(ingredient, getNextIngredientId(versionId)));
   }
 
-  deleteIngredient(version, toDelete) {
-    let versionIndex = this.getVersionIndex(version);
-    let ingredientIndex = this.versions[versionIndex].ingredients.indexOf(
-      toDelete,
-    );
+  deleteIngredient(versionId, ingredientId) {
+    const versionIndex = this.getVersionIndexById(versionId);
+    const ingredientIndex = this.getIngredientIndexById(ingredientId);
+    let targetIngredientsArray = this.versions[versionIndex].ingredients;
 
-    this.versions[versionIndex].ingredients.splice(ingredientIndex, 1);
+    targetIngredientsArray = targetIngredientsArray.filter((ingredient) => ingredient.id !== ingredientIndex);
+  }
+
+  addIngredients(ingredients, versionId) {
+    // push?
+    this.versions[this.getVersionIndexById(versionId)].ingredients = [ingredients];
   }
 
   setCookingTime(version, time) {
-    let index = this.getVersionIndex(version);
+    let index = this.getVersionIndexById(version);
     this.versions[index].cookingTime = time;
   }
 
   addInstructions(version, instructions) {
-    let index = this.getVersionIndex(version);
+    let index = this.getVersionIndexById(version);
     this.versions[index].instructions = instructions;
   }
 
   addNotes(version, note) {
-    let index = this.getVersionIndex(version);
+    let index = this.getVersionIndexById(version);
     this.versions[index].notes = note;
   }
 };
