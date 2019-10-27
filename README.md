@@ -1,6 +1,12 @@
-# READ ME
+# 🍜 🥦 🥘 🥪 🍝 🌶 🌮 🍡 🥐 🍧 🥙 🍤 🍲 🥗 🍳 🍎 🌯 
 
-## The Eternal Menu
+# 🍘 The Eternal Menu 🍅 🥞 🍠  🍔 🍱 🍚 🧁 🥓 🍆
+
+# 🥒 🥧 🍒 🍕 🍰 🍮 🥟 🥬 🍗 🍛 🌽 🍐 🍞 🥑 🥨 🥕 🥮 
+
+
+
+##  Objective
 
 This will (hopefully) one day be a fully fleshed out recipe & menu creation App. There are two basic ideas behind it:
 
@@ -33,15 +39,16 @@ All these filters make your recipe collection a prime candidate for creative pro
 
 ## Other objectives
 
-Besides wishing for an App like the Eternal Menu, I also wanted to use the opportunity to get better/learn about several skills:
-
 - finally learn about the back-end of front-end programming 
   - Promises and Async Programming
   - HTTP APIs
   - Adding a MongoDB Datastore
   - Testing
   - Deploying & Scaling Apps with Docker
-  - improve on / extend my knowledge of React
-  - Hooks
-  - 
+- improve on / extend my knowledge of React
+  - Hooks / Effects
+  - Reach Router
+  - React Context
+  - Error Boundaries
+  - Portals
 
