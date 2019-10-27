@@ -9,6 +9,7 @@ const User = class {
   }
 
   addRecipe(newRecipe) {
+    // TODO: check recipe name - NO DUPLICATES
     this.recipes.push(newRecipe);
   }
 
