@@ -39,24 +39,38 @@ const User = class {
   }
 };
 
-const Recipe = class {
-  constructor(title, cookingTime = 0, servingSize = 0, ingredients = [], instructions = [], notes = [], tags = []) {
-    this.title = title;
+const RecipeVersion = class {
+  constructor({
+                cookingTime = 0,
+                servingSize = 0,
+                ingredients = [],
+                instructions = [],
+                notes = [],
+                tags = [],
+              }) {
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
     this.ingredients = ingredients;
     this.instructions = instructions;
     this.notes = notes;
     this.tags = tags;
+  }
+};
 
-    // TODO: ID (should include the id of the use who generated the recipe),
-    //  Version History
-    // this.id =
-    // this.version = 1;
+const Recipe = class {
+  constructor(title, howTo) {
+    this.title = title;
+    // this.id // TODO: ID (should include the id of the user who generated the recipe),
+    this.versions = [new RecipeVersion(howTo)];
   }
 
-  addIngredient(ingredient) {
-    this.ingredients.push(new Ingredient(ingredient));
+  getVersionIndex(version) {
+    return this.versions.indexOf(version);
+  }
+
+  addIngredient(version, ingredient) {
+    let index = this.getVersionIndex(version);
+    this.versions[index].ingredients.push(new Ingredient(ingredient));
   }
 
   deleteIngredient(toDelete) {
@@ -87,12 +101,7 @@ const Ingredient = class {
 };
 
 const tags = {
-  mealType: [
-    'Breakfast and Brunch',
-    'Lunch',
-    'Dinner',
-    'Desserts',
-  ],
+  mealType: ['Breakfast & Brunch', 'Lunch', 'Dinner', 'Desserts'],
   dishType: [
     'Appetizers & Snacks',
     'Bread Recipes',
@@ -125,14 +134,7 @@ const tags = {
     'More',
   ],
 
-  worldRegion: [
-    'Chinese',
-    'Indian',
-    'Italian',
-    'Mexican',
-    'Southern',
-    'Thai',
-  ],
+  worldRegion: ['Chinese', 'Indian', 'Italian', 'Mexican', 'Southern', 'Thai'],
 
   healthDiet: [
     'Dairy Free',
@@ -147,12 +149,10 @@ const tags = {
   ],
 };
 
-
 // let test = { amount: 1, unit: 'lb', name: 'carrot', sub: [] };
 // let testIngr = new Ingredient(test);
 //
 // console.log(testIngr);
-
 
 let user1 = new User('Antonia', 'Antonia@mail.com', '1234');
 let user2 = new User('Berta', 'Berta@mail.com', 'qwerty');
@@ -160,14 +160,15 @@ let user3 = new User('Chris', 'Chris@mail.com', 'qwertz');
 
 // console.log( user1, user2, user3 );
 
-let recipe1 = new Recipe(
-  mockRecipes[1].title,
-  mockRecipes[1].cookingTime,
-  mockRecipes[1].servingSize,
-  mockRecipes[1].ingredients,
-  mockRecipes[1].instructions,
-  mockRecipes[1].notes,
-  mockRecipes[1].tags,
-);
+// let recipe1 = new Recipe(
+//   mockRecipes[1].title,
+//   mockRecipes[1].cookingTime,
+//   mockRecipes[1].servingSize,
+//   mockRecipes[1].ingredients,
+//   mockRecipes[1].instructions,
+//   mockRecipes[1].notes,
+//   mockRecipes[1].tags,
+// );
+let recipe2 = new Recipe(mockRecipes[1].title, mockRecipes[1].versions[0]);
 
-// console.log(recipe1);
+console.log(recipe2);
