@@ -1,6 +1,6 @@
-# READ ME
+# 🍜 🥦 🥘 🥪 🍝 🌶 🌮 🍡 🥐 🍧 🥙 🍲 🥗 🍳 🍎 🍘 The Eternal Menu 🥒 🥮 🥧 🍨 🍕 🍰 🍮 🥟 🥬 🍗 🍛 🥯 🍐 🍞 🥑 🥨 🍤 🥕🍅 🥞 🌽 🍒 🌯🍠 
 
-## The Eternal Menu
+##  Objective
 
 This will (hopefully) one day be a fully fleshed out recipe & menu creation App. There are two basic ideas behind it:
 
