@@ -1,4 +1,5 @@
 const misoOrangeSalmon = {
+  id: 1,
   title: 'Miso Orange Salmon',
   versions: [
     {
@@ -55,6 +56,7 @@ const misoOrangeSalmon = {
 };
 
 const garlickyAsparagus = {
+  id: 2,
   title: 'Garlicky Asparagus OR Green Beans',
   versions: [
     {
@@ -87,6 +89,7 @@ const garlickyAsparagus = {
 };
 
 const honeyLemonShrimp = {
+  id: 2,
   title: 'Honey Lemon Shrimp Recipe With Veggies',
   versions: [
     {
