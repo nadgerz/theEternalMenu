@@ -64,6 +64,14 @@ const Recipe = class {
     this.versions = [new RecipeVersion(howTo)];
   }
 
+  setTitle(newTitle) {
+    this.title = newTitle;
+  }
+  //templateCopy : use in different function, to FILL form fields from
+  addVersion(newVersion) {
+    this.versions.push(new RecipeVersion(newVersion));
+  }
+
   getVersionIndex(version) {
     return this.versions.indexOf(version);
   }
@@ -73,21 +81,26 @@ const Recipe = class {
     this.versions[index].ingredients.push(new Ingredient(ingredient));
   }
 
-  deleteIngredient(toDelete) {
-    let index = this.ingredients.indexOf(toDelete);
-    this.ingredients.splice(index, 1);
+  deleteIngredient(version, toDelete) {
+    let versionIndex = this.getVersionIndex(version);
+    let ingredientIndex = this.versions[versionIndex].ingredients.indexOf(toDelete);
+
+    this.versions[versionIndex].ingredients.splice(ingredientIndex, 1);
   }
 
-  setCookingTime(time) {
-    this.cookingTime = time;
+  setCookingTime(version, time) {
+    let index = this.getVersionIndex(version);
+    this.versions[index].cookingTime = time;
   }
 
-  addInstructions(instructions) {
-    this.instructions = instructions;
+  addInstructions(version, instructions) {
+    let index = this.getVersionIndex(version);
+    this.versions[index].instructions = instructions;
   }
 
-  addNotes(note) {
-    this.notes = note;
+  addNotes(version, note) {
+    let index = this.getVersionIndex(version);
+    this.versions[index].notes = note;
   }
 };
 
@@ -131,10 +144,10 @@ const tags = {
     'Thanksgiving',
     'Winter',
     'Christmas',
-    'More',
+    'Add More',
   ],
 
-  worldRegion: ['Chinese', 'Indian', 'Italian', 'Mexican', 'Southern', 'Thai'],
+  worldRegion: ['Chinese', 'Indian', 'Italian', 'Mexican', 'Southern', 'Thai', 'add more'],
 
   healthDiet: [
     'Dairy Free',
@@ -170,5 +183,17 @@ let user3 = new User('Chris', 'Chris@mail.com', 'qwertz');
 //   mockRecipes[1].tags,
 // );
 let recipe2 = new Recipe(mockRecipes[1].title, mockRecipes[1].versions[0]);
+let test = {
 
-console.log(recipe2);
+};
+// console.log( recipe2 );
+
+
+recipe2.addIngredient(test);
+console.log('changed');
+console.log( recipe2.versions );
+
+
+// TESTS
+// addVersion: works
+// addIngredient:
