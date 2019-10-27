@@ -40,14 +40,17 @@ const User = class {
 };
 
 const RecipeVersion = class {
-  constructor({
-                cookingTime = 0,
-                servingSize = 0,
-                ingredients = [],
-                instructions = [],
-                notes = [],
-                tags = [],
-              }, id) {
+  constructor(
+    {
+      cookingTime = 0,
+      servingSize = 0,
+      ingredients = [],
+      instructions = [],
+      notes = [],
+      tags = [],
+    },
+    id,
+  ) {
     this.id = id;
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
@@ -83,7 +86,7 @@ const Recipe = class {
   }
   // TODO: hide this function
   getVersionIndex(version) {
-    let index = this.versions.map((elem) => elem.id).indexOf(version.id);
+    let index = this.versions.map(elem => elem.id).indexOf(version.id);
     // get all
     return index;
   }
@@ -93,12 +96,16 @@ const Recipe = class {
     let index = this.getVersionIndex(version);
 
     console.log('index:' + index);
-    index < 0 ? console.log('index out of bounds') : this.versions[index].ingredients.push(new Ingredient(ingredient));
+    index < 0
+      ? console.log('index out of bounds')
+      : this.versions[index].ingredients.push(new Ingredient(ingredient));
   }
 
   deleteIngredient(version, toDelete) {
     let versionIndex = this.getVersionIndex(version);
-    let ingredientIndex = this.versions[versionIndex].ingredients.indexOf(toDelete);
+    let ingredientIndex = this.versions[versionIndex].ingredients.indexOf(
+      toDelete,
+    );
 
     this.versions[versionIndex].ingredients.splice(ingredientIndex, 1);
   }
@@ -162,7 +169,15 @@ const tags = {
     'Add More',
   ],
 
-  worldRegion: ['Chinese', 'Indian', 'Italian', 'Mexican', 'Southern', 'Thai', 'add more'],
+  worldRegion: [
+    'Chinese',
+    'Indian',
+    'Italian',
+    'Mexican',
+    'Southern',
+    'Thai',
+    'add more',
+  ],
 
   healthDiet: [
     'Dairy Free',
@@ -221,14 +236,18 @@ let testVersion = {
 recipe2.addVersion(testVersion);
 // console.log(recipe2.versions);
 
-let testIngredient = { amount: 1, unit: 'tablespoon', name: 'garlic, minced', sub: [] };
+let testIngredient = {
+  amount: 1,
+  unit: 'tablespoon',
+  name: 'garlic, minced',
+  sub: [],
+};
 
 console.log('==============');
 // console.log(recipe2.getVersionIndex(testVersion));
 
 recipe2.addIngredient(testVersion, testIngredient);
 console.log(recipe2.versions);
-
 
 // TESTS
 // addVersion: works
