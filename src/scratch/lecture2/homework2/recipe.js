@@ -1,26 +1,6 @@
 const Ingredient = require('./ingredient');
+const RecipeVersion = require('./recipeVersion');
 
-const RecipeVersion = class {
-  constructor(
-    {
-      cookingTime = 0,
-      servingSize = 0,
-      ingredients = [],
-      instructions = [],
-      notes = [],
-      tags = [],
-    },
-    id,
-  ) {
-    this.id = id;
-    this.cookingTime = cookingTime;
-    this.servingSize = servingSize;
-    this.ingredients = ingredients;
-    this.instructions = instructions;
-    this.notes = notes;
-    this.tags = tags;
-  }
-};
 
 const Recipe = class {
   constructor(title, howTo) {
@@ -30,7 +10,7 @@ const Recipe = class {
     // TODO: SOLVE problem with version ID (e.g. what to do in case of a deletion?)
     // TODO: limit versions array to... 15?
     this.versions = [];
-    this.versions.push(new RecipeVersion(howTo), this.versions.length + 1);
+    this.versions.push(new RecipeVersion(howTo, this.versions.length + 1));
   }
 
   setTitle(newTitle) {
@@ -45,11 +25,6 @@ const Recipe = class {
 
   getNextVersionId() {
     return this.versions[this.versions.length - 1].id + 1;
-  };
-
-  getNextIngredientId(versionId) {
-    let currentVersion = this.versions[this.getVersionIndexById(versionId)];
-    return (currentVersion.ingredients[currentVersion.ingredients.length - 1].id + 1);
   };
 
   getVersion(versionNo) {
@@ -69,12 +44,19 @@ const Recipe = class {
     return this.versions.ingredients.map(ingredient => ingredient.id).indexOf(id);
   }
 
+  getNextIngredientId(versionId) {
+    const currentVersion = this.versions[this.getVersionIndexById(versionId)];
+    const arrLength = currentVersion.ingredients.length;
+
+    return arrLength === 0 ? 1 : currentVersion.ingredients[currentVersion.ingredients.length - 1].id + 1;
+  };
+
   addIngredient(versionId, ingredient) {
     let index = this.getVersionIndexById(versionId);
 
     index < 0
       ? console.log('index out of bounds')
-      : this.versions[index].ingredients.push(new Ingredient(ingredient, getNextIngredientId(versionId)));
+      : this.versions[index].ingredients.push(new Ingredient(ingredient, this.getNextIngredientId(versionId)));
   }
 
   deleteIngredient(versionId, ingredientId) {
