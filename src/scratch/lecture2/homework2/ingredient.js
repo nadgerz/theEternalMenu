@@ -8,4 +8,4 @@ const Ingredient = class {
   }
 };
 
-module.exports(Ingredient);
+module.exports = Ingredient;
