@@ -56,7 +56,6 @@ const misoOrangeSalmon = {
 };
 
 const garlickyAsparagus = {
-  id: 2,
   title: 'Garlicky Asparagus OR Green Beans',
   versions: [
     {
