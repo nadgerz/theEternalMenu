@@ -15,7 +15,6 @@ const Ingredient = require('./ingredient');
 // addIngredient:
 // deleteIngredient:
 
-
 let recipe1 = new Recipe(mockRecipes[1].title, mockRecipes[1].versions[0]);
 // console.log(recipe1);
 
@@ -60,5 +59,3 @@ let testIngredient = {
 console.log('======================================');
 recipe1.addIngredient(recipe1.versions[1].id, testIngredient);
 console.log(recipe1.versions[1].ingredients);
-
-

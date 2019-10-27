@@ -1,3 +1,4 @@
+// TODO move to a 'data' or 'seed' folder?
 const misoOrangeSalmon = {
   id: 1,
   title: 'Miso Orange Salmon',
@@ -8,12 +9,19 @@ const misoOrangeSalmon = {
 
       ingredients: [
         { id: 1, amount: 3, unit: '', name: 'salmon fillets', sub: [] },
-        { id: 2,
+        {
+          id: 2,
           amount: 0,
           unit: '',
           name: 'Orange glaze',
           sub: [
-            { id: 1, amount: 1, unit: 'tbsp', name: 'tahini or miso paste', sub: [] },
+            {
+              id: 1,
+              amount: 1,
+              unit: 'tbsp',
+              name: 'tahini or miso paste',
+              sub: [],
+            },
             { amount: 1, unit: 'tbsp', name: 'coconut sugar', sub: [] },
             { amount: 0, unit: '', name: 'rice vinegar', sub: [] },
             { amount: 0, unit: '', name: 'orange zest', sub: [] },
@@ -64,9 +72,21 @@ const garlickyAsparagus = {
 
       ingredients: [
         { id: 1, amount: 0, unit: '', name: 'olive oil spray', sub: [] },
-        { id: 2, amount: 1, unit: 'bundle (15 spears)', name: 'asparagus', sub: [] },
+        {
+          id: 2,
+          amount: 1,
+          unit: 'bundle (15 spears)',
+          name: 'asparagus',
+          sub: [],
+        },
         { id: 3, amount: 1, unit: 'tablespoon', name: 'water', sub: [] },
-        { id: 4, amount: 1, unit: 'tablespoon', name: 'garlic, minced', sub: [] },
+        {
+          id: 4,
+          amount: 1,
+          unit: 'tablespoon',
+          name: 'garlic, minced',
+          sub: [],
+        },
       ],
 
       instructions: [

@@ -1,9 +1,14 @@
 const User = class {
   constructor(name, email, password) {
-    this.name = name;
     this.id = `user-${name.replace(' ', '').toLowerCase()}`; // TODO: UUID
+
+    this.name = name;
     this.email = email;
-    this.password = password;
+
+    // TODO actually we will never store the password... we use a login
+    //      for the user to authenticate *with* a password
+    //      Perhaps the user has a 'loggedIn' boolean field?
+    this._password = password;
 
     this.recipes = [];
   }

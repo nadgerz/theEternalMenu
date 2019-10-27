@@ -10,13 +10,32 @@ const RecipeVersion = class {
     },
     id,
   ) {
-    this.id = id;
+    this._id = id;
+
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
-    this.ingredients = ingredients;
+    this._ingredients = ingredients;
     this.instructions = instructions;
     this.notes = notes;
     this.tags = tags;
+  }
+
+  get id() {
+    return this._id;
+  }
+
+  set id(id) {
+    // TODO - check for integrity?
+    this._id = id;
+  }
+
+  get instructions() {
+    return this._instructions;
+  }
+
+  set instructions(instructions) {
+    // TODO - check for integrity?
+    this._instructions = instructions;
   }
 };
 
