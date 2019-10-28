@@ -50,7 +50,7 @@ console.log(recipe1.getVersionIndexById(recipe1.versions[0].id));
 
 // RecipeVersion.get
 console.log('======================================');
-console.log(recipe1.versions[1].get());
+console.log(recipe1.versions[0].get());
 
 
 

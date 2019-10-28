@@ -1,3 +1,6 @@
+const Ingredient = require('./ingredient');
+
+
 const RecipeVersion = class {
   constructor(
     {
@@ -13,7 +16,11 @@ const RecipeVersion = class {
     this.id = id;
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
-    this.ingredients = ingredients;
+
+    this.ingredients = ingredients.map((ingredient, index) => {
+      return new Ingredient(ingredient, index + 1);
+    });
+
     this.instructions = instructions;
     this.notes = notes;
     this.tags = tags;
@@ -23,29 +30,6 @@ const RecipeVersion = class {
     return this;
   }
 
-  // setVersion({
-  //              cookingTime,
-  //              servingSize,
-  //              ingredients,
-  //              instructions,
-  //              notes,
-  //              tags,
-  //            }) {
-  //   this.cookingTime = cookingTime;
-  //   this.servingSize = servingSize;
-  //   this.ingredients = ingredients;
-  //   this.instructions = instructions;
-  //   this.notes = notes;
-  //   this.tags = tags;
-  // };
-  //
-  // setIngredients(ingredients) {
-  //   this.ingredients = ingredients;
-  // }
-  //
-  // getIngredientIndexById(id) {
-  //   return this.ingredients.map(ingredient => ingredient.id).indexOf(id);
-  // }
 };
 
 module.exports = RecipeVersion;
