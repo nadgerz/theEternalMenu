@@ -15,13 +15,7 @@ const misoOrangeSalmon = {
           unit: '',
           name: 'Orange glaze',
           sub: [
-            {
-              id: 1,
-              amount: 1,
-              unit: 'tbsp',
-              name: 'tahini or miso paste',
-              sub: [],
-            },
+            { amount: 1, unit: 'tbsp', name: 'tahini or miso paste', sub: [] },
             { amount: 1, unit: 'tbsp', name: 'coconut sugar', sub: [] },
             { amount: 0, unit: '', name: 'rice vinegar', sub: [] },
             { amount: 0, unit: '', name: 'orange zest', sub: [] },
@@ -71,22 +65,10 @@ const garlickyAsparagus = {
       servingSize: 3,
 
       ingredients: [
-        { id: 1, amount: 0, unit: '', name: 'olive oil spray', sub: [] },
-        {
-          id: 2,
-          amount: 1,
-          unit: 'bundle (15 spears)',
-          name: 'asparagus',
-          sub: [],
-        },
-        { id: 3, amount: 1, unit: 'tablespoon', name: 'water', sub: [] },
-        {
-          id: 4,
-          amount: 1,
-          unit: 'tablespoon',
-          name: 'garlic, minced',
-          sub: [],
-        },
+        { amount: 0, unit: '', name: 'olive oil spray', sub: [] },
+        { amount: 1, unit: 'bundle (15 spears)', name: 'asparagus', sub: [] },
+        { amount: 1, unit: 'tablespoon', name: 'water', sub: [] },
+        { amount: 1, unit: 'tablespoon', name: 'garlic, minced', sub: [] },
       ],
 
       instructions: [
