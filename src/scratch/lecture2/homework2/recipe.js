@@ -17,7 +17,6 @@ const Recipe = class {
     this._title = title;
   }
 
-  //templateCopy : use in different function, to FILL form fields from
   addVersion(newVersion) {
     const id = this.getNextVersionId();
     this.versions.push(new RecipeVersion(newVersion, id));
@@ -40,69 +39,36 @@ const Recipe = class {
     return this.versions.map(version => version.id).indexOf(id);
   }
 
-  getIngredientIndexById(id) {
-    return this.versions.ingredients
-      .map(ingredient => ingredient.id)
-      .indexOf(id);
-  }
+  // getIngredientIndexById(id) {
+  //   return this.versions.ingredients.map(ingredient => ingredient.id).indexOf(id);
+  // }
+  //
+  // getNextIngredientId(versionId) {
+  //   const currentVersion = this.versions[this.getVersionIndexById(versionId)];
+  //   const arrLength = currentVersion.ingredients.length;
+  //
+  //   return arrLength === 0 ? 1 : currentVersion.ingredients[arrLength - 1].id + 1;
+  // };
+  //
+  // addIngredient(versionId, ingredient) {
+  //   let index = this.getVersionIndexById(versionId);
+  //
+  //   index < 0
+  //     ? console.log('index out of bounds')
+  //     : this.versions[index].ingredients.push(new Ingredient(ingredient, this.getNextIngredientId(versionId)));
+  // }
 
-  getNextIngredientId(versionId) {
-    const currentVersion = this.versions[this.getVersionIndexById(versionId)];
-    const arrLength = currentVersion.ingredients.length;
-
-    return arrLength === 0
-      ? 1
-      : currentVersion.ingredients[arrLength - 1].id + 1;
-  }
-
-  addIngredient(versionId, ingredient) {
-    let index = this.getVersionIndexById(versionId);
-
-    index < 0
-      ? console.log('index out of bounds')
-      : this.versions[index].ingredients.push(
-          new Ingredient(ingredient, this.getNextIngredientId(versionId)),
-        );
-  }
-
-  deleteIngredient(versionId, ingredientId) {
-    const versionIndex = this.getVersionIndexById(versionId);
-    const ingredientIndex = this.getIngredientIndexById(ingredientId);
-    let targetIngredientsArray = this.versions[versionIndex].ingredients;
-
-    targetIngredientsArray = targetIngredientsArray.filter(
-      ingredient => ingredient.id !== ingredientIndex,
-    );
-  }
-
-  addIngredients(ingredients, versionId) {
-    // push?
-    this.versions[this.getVersionIndexById(versionId)].ingredients = [
-      ingredients,
-    ];
-  }
-
-  setCookingTime(version, time) {
-    let index = this.getVersionIndexById(version);
-
-    // TODO check cookingTime is a typeof number
-    this.versions[index].cookingTime = time;
-  }
-
-  // TODO set instructions
-  addInstructions(version, instructions) {
-    // TODO const?
-    let index = this.getVersionIndexById(version);
-    // TODO what if not found?
-
-    this.versions[index].instructions = instructions;
-  }
-
-  // TODO set notes - as per instructions...
-  addNotes(version, note) {
-    let index = this.getVersionIndexById(version);
-    this.versions[index].notes = note;
-  }
+  // deleteIngredient(versionId, ingredientId) {
+  //   const versionIndex = this.getVersionIndexById(versionId);
+  //   const ingredientIndex = this.getIngredientIndexById(ingredientId);
+  //   let targetIngredientsArray = this.versions[versionIndex].ingredients;
+  //
+  //   targetIngredientsArray = targetIngredientsArray.filter((ingredient) => ingredient.id !== ingredientIndex);
+  // }
+  //
+  // setIngredients(versionId, ingredients) {
+  //   this.versions[this.getVersionIndexById(versionId)].setIngredients(ingredients);
+  // }
 };
 
 module.exports = Recipe;
