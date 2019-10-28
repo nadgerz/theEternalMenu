@@ -1,14 +1,14 @@
 [
   {
     "name": "Antonia",
-    "id": "user-antonia",
+    "id": "antonia-defa38c0-f993-11e9-94e1-ef632b1c6a6c",
     "email": "Antonia@mail.com",
     "password": "1234",
     "recipes": [
       {
         "title": "Garlicky Asparagus OR Green Beans",
-        "id": 2,
-        "dateCreated": "2019-10-28T09:12:50.518Z",
+        "id": "garlickyasparagus or green beans-defbbf60-f993-11e9-94e1-ef632b1c6a6c",
+        "dateCreated": "2019-10-28T15:01:50.806Z",
         "versions": [
           {
             "id": 1,
@@ -74,8 +74,8 @@
       },
       {
         "title": "Honey Lemon Shrimp Recipe With Veggies",
-        "id": 3,
-        "dateCreated": "2019-10-28T09:12:50.518Z",
+        "id": "honeylemon shrimp recipe with veggies-defbbf61-f993-11e9-94e1-ef632b1c6a6c",
+        "dateCreated": "2019-10-28T15:01:50.806Z",
         "versions": [
           {
             "id": 1,
@@ -83,6 +83,7 @@
             "servingSize": 4,
             "ingredients": [
               {
+                "id": 1,
                 "amount": 0,
                 "unit": "",
                 "name": "Sauce",
@@ -120,12 +121,14 @@
                 ]
               },
               {
+                "id": 2,
                 "amount": 1.5,
                 "unit": "lb",
                 "name": "raw shrimp",
                 "sub": []
               },
               {
+                "id": 3,
                 "amount": 0,
                 "unit": "",
                 "name": "Rice",
@@ -163,42 +166,49 @@
                 ]
               },
               {
+                "id": 4,
                 "amount": 2,
                 "unit": "cups",
                 "name": "raw (or frozen) broccoli florets",
                 "sub": []
               },
               {
+                "id": 5,
                 "amount": 0.5,
                 "unit": "cup",
                 "name": "chopped onion",
                 "sub": []
               },
               {
+                "id": 6,
                 "amount": 1,
                 "unit": "",
                 "name": "red bell pepper, sliced",
                 "sub": []
               },
               {
+                "id": 7,
                 "amount": 1,
                 "unit": "tablespoon",
                 "name": "olive oil",
                 "sub": []
               },
               {
+                "id": 8,
                 "amount": 1,
                 "unit": "tablespoon",
                 "name": "arrowroot",
                 "sub": []
               },
               {
+                "id": 9,
                 "amount": 1,
                 "unit": "tablespoon",
                 "name": "water",
                 "sub": []
               },
               {
+                "id": 10,
                 "amount": 1,
                 "unit": "tablespoon",
                 "name": "remaining sauce",
@@ -235,14 +245,14 @@
   },
   {
     "name": "Berta",
-    "id": "user-berta",
+    "id": "berta-defa38c1-f993-11e9-94e1-ef632b1c6a6c",
     "email": "Berta@mail.com",
     "password": "qwerty",
     "recipes": [
       {
         "title": "Miso Orange Salmon",
-        "id": 1,
-        "dateCreated": "2019-10-28T09:12:50.531Z",
+        "id": "misoorange salmon-defbbf62-f993-11e9-94e1-ef632b1c6a6c",
+        "dateCreated": "2019-10-28T15:01:50.806Z",
         "versions": [
           {
             "id": 1,
@@ -263,7 +273,6 @@
                 "name": "Orange glaze",
                 "sub": [
                   {
-                    "id": 1,
                     "amount": 1,
                     "unit": "tbsp",
                     "name": "tahini or miso paste",
@@ -336,8 +345,8 @@
       },
       {
         "title": "Garlicky Asparagus OR Green Beans",
-        "id": 2,
-        "dateCreated": "2019-10-28T09:12:50.531Z",
+        "id": "garlickyasparagus or green beans-defbbf63-f993-11e9-94e1-ef632b1c6a6c",
+        "dateCreated": "2019-10-28T15:01:50.806Z",
         "versions": [
           {
             "id": 1,
@@ -403,8 +412,8 @@
       },
       {
         "title": "Honey Lemon Shrimp Recipe With Veggies",
-        "id": 3,
-        "dateCreated": "2019-10-28T09:12:50.531Z",
+        "id": "honeylemon shrimp recipe with veggies-defbbf64-f993-11e9-94e1-ef632b1c6a6c",
+        "dateCreated": "2019-10-28T15:01:50.806Z",
         "versions": [
           {
             "id": 1,
@@ -412,6 +421,7 @@
             "servingSize": 4,
             "ingredients": [
               {
+                "id": 1,
                 "amount": 0,
                 "unit": "",
                 "name": "Sauce",
@@ -449,12 +459,14 @@
                 ]
               },
               {
+                "id": 2,
                 "amount": 1.5,
                 "unit": "lb",
                 "name": "raw shrimp",
                 "sub": []
               },
               {
+                "id": 3,
                 "amount": 0,
                 "unit": "",
                 "name": "Rice",
@@ -492,42 +504,49 @@
                 ]
               },
               {
+                "id": 4,
                 "amount": 2,
                 "unit": "cups",
                 "name": "raw (or frozen) broccoli florets",
                 "sub": []
               },
               {
+                "id": 5,
                 "amount": 0.5,
                 "unit": "cup",
                 "name": "chopped onion",
                 "sub": []
               },
               {
+                "id": 6,
                 "amount": 1,
                 "unit": "",
                 "name": "red bell pepper, sliced",
                 "sub": []
               },
               {
+                "id": 7,
                 "amount": 1,
                 "unit": "tablespoon",
                 "name": "olive oil",
                 "sub": []
               },
               {
+                "id": 8,
                 "amount": 1,
                 "unit": "tablespoon",
                 "name": "arrowroot",
                 "sub": []
               },
               {
+                "id": 9,
                 "amount": 1,
                 "unit": "tablespoon",
                 "name": "water",
                 "sub": []
               },
               {
+                "id": 10,
                 "amount": 1,
                 "unit": "tablespoon",
                 "name": "remaining sauce",
@@ -563,8 +582,8 @@
     ]
   },
   {
-    "name": "Chris",
-    "id": "user-chris",
+    "name": "Chris Christofferson",
+    "id": "chrischristofferson-defa38c2-f993-11e9-94e1-ef632b1c6a6c",
     "email": "Chris@mail.com",
     "password": "qwertz",
     "recipes": []
