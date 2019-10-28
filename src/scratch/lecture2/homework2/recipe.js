@@ -6,7 +6,7 @@ const Recipe = class {
     this._title = title;
     // this.id // TODO: UUID
     // this.images = [] // TODO: implement an images array
-    // TODO: SOLVE problem with version ID (e.g. what to do in case of a deletion?)
+    this.dateCreated = new Date;
     // TODO: limit versions array to... 15?
     this._versions = [];
     this._versions.push(new RecipeVersion(howTo, this._versions.length + 1));
