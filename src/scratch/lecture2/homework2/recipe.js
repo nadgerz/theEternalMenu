@@ -1,10 +1,10 @@
-const Ingredient = require('./ingredient');
+const uuidv1 = require('uuid/v1');
 const RecipeVersion = require('./recipeVersion');
 
 const Recipe = class {
-  constructor(title, details, id) {
+  constructor(title, details) {
     this.title = title;
-    this.id = id; // TODO: UUID
+    this.id = `${this.title}-${uuidv1()}`;
     // this.images = [] // TODO: implement an images array
     this.dateCreated = new Date;
     // TODO: limit versions array to... 15?
