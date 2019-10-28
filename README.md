@@ -45,10 +45,11 @@ All these filters make your recipe collection a prime candidate for creative pro
   - Adding a MongoDB Datastore
   - Testing
   - Deploying & Scaling Apps with Docker
-- improve on / extend my knowledge of React
+- improve my knowledge of React
   - Hooks / Effects
   - Reach Router
   - React Context
   - Error Boundaries
   - Portals
+- practice using git
 
