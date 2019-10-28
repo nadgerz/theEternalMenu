@@ -19,18 +19,14 @@ const User = class {
     return this.recipes.map(recipe => recipe.id).indexOf(id);
   }
 
-  getNextRecipeId() {
-    return this.recipes[this.recipes.length - 1].id + 1;
-  }
+  // getNextRecipeId() {
+  //   return this.recipes[this.recipes.length - 1].id + 1;
+  // }
 
   addRecipe(title, details) {
-    if (this.recipes.length === 0) {
-      this.recipes.push(new Recipe(title, details, 1));
-    } else if (this.recipes.map(recipe => recipe.title).includes(title)) {
+    this.recipes.map(recipe => recipe.title).includes(title) ?
       console.log('no duplicated recipe title allowed')
-    } else {
-      this.recipes.push(new Recipe(title, details, this.getNextRecipeId()))
-    }
+      : this.recipes.push(new Recipe(title, details));
   }
 
   deleteRecipeById(id) {
