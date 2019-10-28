@@ -2,18 +2,16 @@ const mockRecipes = require('./recipes');
 const Recipe = require('./recipe');
 const Ingredient = require('./ingredient');
 
+
 // TESTS
-// new Recipe: works
+// new Recipe: ok
 
-// addVersion: works
-// getVersion: works
-// getVersionId: works
-// deleteVersionById: works
+// addVersion: ok
+// getVersion: ok
+// getVersionId: ok
+// deleteVersionById: ok
 
-// addIngredient: works
-// getIngredientIndexById:
-// addIngredient:
-// deleteIngredient:
+// RecipeVersion.get:
 
 
 let recipe1 = new Recipe(mockRecipes[1].title, mockRecipes[1].versions[0]);
@@ -48,17 +46,12 @@ recipe1.addVersion(testVersion);
 
 // getVersionIndexById
 // console.log('======================================');
-// console.log(recipe1.getVersionIndexById(recipe1.versions[0].id));
+console.log(recipe1.getVersionIndexById(recipe1.versions[0].id));
 
-let testIngredient = {
-  amount: 1,
-  unit: 'tablespoon',
-  name: 'garlic',
-  sub: [],
-};
-
+// RecipeVersion.get
 console.log('======================================');
-recipe1.addIngredient(recipe1.versions[1].id, testIngredient);
-console.log(recipe1.versions[1].ingredients);
+console.log(recipe1.versions[1].get());
+
+
 
 
