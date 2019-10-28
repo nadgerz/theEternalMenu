@@ -6,8 +6,6 @@
 
 
 
-##  Objective
-
 This will (hopefully) one day be a fully fleshed out recipe & menu creation App. 
 There are two basic ideas behind it:
 
@@ -25,7 +23,7 @@ My grandma cooks fantastic meals for the whole family. One day I noticed though,
 
 I am assuming that most people won't want to try out new recipes every week, but instead would want to build up a cook book filled with favourites they know they can cook well. The next step then is to help users create weekly/biweekly menus from their recipe collections. 
 
-####Factors:
+#### Factors:
 
 - what season is it and what vegetables are available right now?
 - how much time do you have that week?
