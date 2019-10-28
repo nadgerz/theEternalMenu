@@ -3,14 +3,14 @@ const RecipeVersion = require('./recipeVersion');
 
 
 const Recipe = class {
-  constructor(title, howTo) {
+  constructor(title, details, id) {
     this.title = title;
-    // this.id // TODO: UUID
+    this.id = id; // TODO: UUID
     // this.images = [] // TODO: implement an images array
     this.dateCreated = new Date;
     // TODO: limit versions array to... 15?
     this.versions = [];
-    this.versions.push(new RecipeVersion(howTo, this.versions.length + 1));
+    this.versions.push(new RecipeVersion(details, this.versions.length + 1));
   }
 
   setTitle(newTitle) {
