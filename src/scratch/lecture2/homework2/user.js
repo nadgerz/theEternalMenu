@@ -1,9 +1,10 @@
+const uuidv1 = require('uuid/v1');
 const Recipe = require('./recipe');
 
 const User = class {
   constructor(name, email, password) {
     this.name = name;
-    this.id = `user-${name.replace(' ', '').toLowerCase()}`; // TODO: UUID
+    this.id = `${name.replace(' ', '').toLowerCase()}-${uuidv1()}`;
     this.email = email;
     this.password = password;
 
