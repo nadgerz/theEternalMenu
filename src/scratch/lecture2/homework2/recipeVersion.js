@@ -20,23 +20,33 @@ const RecipeVersion = class {
     this.tags = tags;
   }
 
-  get id() {
-    return this._id;
+  get() {
+    return this;
   }
 
-  set id(id) {
-    // TODO - check for integrity?
-    this._id = id;
-  }
-
-  get instructions() {
-    return this._instructions;
-  }
-
-  set instructions(instructions) {
-    // TODO - check for integrity?
-    this._instructions = instructions;
-  }
+  // setVersion({
+  //              cookingTime,
+  //              servingSize,
+  //              ingredients,
+  //              instructions,
+  //              notes,
+  //              tags,
+  //            }) {
+  //   this.cookingTime = cookingTime;
+  //   this.servingSize = servingSize;
+  //   this.ingredients = ingredients;
+  //   this.instructions = instructions;
+  //   this.notes = notes;
+  //   this.tags = tags;
+  // };
+  //
+  // setIngredients(ingredients) {
+  //   this.ingredients = ingredients;
+  // }
+  //
+  // getIngredientIndexById(id) {
+  //   return this.ingredients.map(ingredient => ingredient.id).indexOf(id);
+  // }
 };
 
 module.exports = RecipeVersion;
