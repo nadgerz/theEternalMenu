@@ -96,8 +96,6 @@ header {
 }
 
 .burger-menu .bars {
-    /*border: 1px solid red;*/
-
     position: absolute;
     bottom: 0;
     right: 0;
@@ -109,4 +107,48 @@ header {
     height: .3rem;
     margin-top: .5rem;
 }
+
+/*****************************************************/
+
+.add-and-recents {
+    background-color: var(--color-light-grey);
+    height: 20rem;
+    margin: 3rem 0;
+    width: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+    /*align-items: center;*/
+}
+
+/*  A D D  */
+
+.add-new {
+    align-self: center;
+    border: 1px solid red;
+    flex: 0 0 25%;
+
+    text-align: center;
+}
+
+.add-new .icon {
+    margin: 0px auto;
+    background-color: var(--color-dark);
+    border-radius: 50%;
+    color: white;
+    font-size: 4rem;
+
+    /*transform: translateY(50%);*/
+    height: 6rem;
+    width: 6rem;
+}
+
+/*  R E C E N T S  */
+
+.recents {
+    border: 1px solid black;
+    flex: 1 1 75%;
+}
+
+
 

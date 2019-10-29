@@ -28,11 +28,26 @@ const App = () => {
       </header>
 
       <main id={'main'}>
-        {/*<Router>*/}
-        {/*<SearchParams path={'/'}/>*/}
-        {/*<Recipe path={'/details/:id'}/>*/}
-        {/*</Router>*/}
+        <div className={'add-and-recents'}>
 
+          <div className="add-new">
+            <Link to="/">
+              <div className="icon">+</div>
+              Create New Recipe
+            </Link>
+          </div>
+
+          <div className="recents">
+            <div className="recent-dish"></div>
+            <div className="recent-dish"></div>
+            <div className="recent-dish"></div>
+          </div>
+          {/*<Router>*/}
+          {/*<SearchParams path={'/'}/>*/}
+          {/*<Recipe path={'/details/:id'}/>*/}
+          {/*</Router>*/}
+
+        </div>
       </main>
     </React.StrictMode>
   );
