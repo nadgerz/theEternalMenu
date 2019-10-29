@@ -38,9 +38,12 @@ const App = () => {
           </div>
 
           <div className="recents">
-            <div className="recent-dish"></div>
-            <div className="recent-dish"></div>
-            <div className="recent-dish"></div>
+            <h3>RECENTLY EDITED</h3>
+            <div className="recent-dishes">
+              <div className="recent-dish"></div>
+              <div className="recent-dish"></div>
+              <div className="recent-dish"></div>
+            </div>
           </div>
           {/*<Router>*/}
           {/*<SearchParams path={'/'}/>*/}

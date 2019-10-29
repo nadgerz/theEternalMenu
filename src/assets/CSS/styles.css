@@ -114,6 +114,7 @@ header {
     background-color: var(--color-light-grey);
     height: 20rem;
     margin: 3rem 0;
+    padding: 1.5rem 3rem;
     width: 100%;
 
     display: flex;
@@ -125,14 +126,14 @@ header {
 
 .add-new {
     align-self: center;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     flex: 0 0 25%;
 
     text-align: center;
 }
 
 .add-new .icon {
-    margin: 0px auto;
+    margin: 0 auto;
     background-color: var(--color-dark);
     border-radius: 50%;
     color: white;
@@ -146,8 +147,26 @@ header {
 /*  R E C E N T S  */
 
 .recents {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     flex: 1 1 75%;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.recents .recent-dishes {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.recents .recent-dish {
+    background-color: var(--color-medium-grey);
+    border-radius: 11px;
+    height: 10rem;
+    flex: 0 0 31%;
 }
 
 
