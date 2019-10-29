@@ -18,6 +18,10 @@ html {
     --color-light-grey: #E6E7E8;
     --color-white: #FFF;
     --color-highlight: #D4E0E4;
+
+    /*  S I Z E S  */
+    --main-width: 1024px;
+    --burger-menu-small: 5rem;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -52,9 +56,57 @@ a.btn.secondary {
 
 /* ------------------------------------------------------------------ */
 
-.main {
+main {
     min-height: 100vh;
-    width: 100%;
+    width: var(--main-width);
+    max-width: 100%;
+    padding-top: calc(var(--burger-menu-small) + 1rem);
+
+    /*display: flex;*/
+    border: 2px solid red;
+
+}
+
+header {
+    background-color: var(--color-light-grey);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: calc(var(--burger-menu-small) + 30rem);
+    height: calc(var(--burger-menu-small) + 1rem);
+    padding-bottom: 1rem;
 
     display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 }
+
+.site-branding {
+    margin-left: 2rem;
+}
+
+
+.burger-menu {
+    height: 100%;
+    width: var(--burger-menu-small);
+    /*border: 1px solid black;*/
+
+    position: relative;
+}
+
+.burger-menu .bars {
+    /*border: 1px solid red;*/
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.burger-menu .bar {
+    background-color: var(--color-dark-grey);
+    width: 3rem;
+    height: .3rem;
+    margin-top: .5rem;
+}
+
