@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Link } from '@reach/router';
+import './assets/CSS/app.css';
+
 // import SearchParams from './SearchParams';
 // import Recipe from './Recipe';
 
@@ -10,17 +12,22 @@ const App = () => {
     // strictMode will warn you if you try to use a react feature they want to deprecate soon
     // will do nothing in production
     <React.StrictMode>
-      <div>
-        <header>
-          <Link to={'/'}>
-            The Eternal Menu
-          </Link>
-        </header>
+      <nav className="burger-menu">
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+      </nav>
+      <header>
+        <Link to={'/'}>
+          <h1>The Eternal Menu</h1>
+        </Link>
+      </header>
 
-        <Router>
-          <SearchParams path={'/'}/>
-          {/*<Recipe path={'/details/:id'}/>*/}
-        </Router>
+      <div id={'main'}>
+        {/*<Router>*/}
+        {/*<SearchParams path={'/'}/>*/}
+        {/*<Recipe path={'/details/:id'}/>*/}
+        {/*</Router>*/}
 
       </div>
     </React.StrictMode>
