@@ -47,7 +47,7 @@ module.exports = class Service {
 
     allItems.splice(personIndex, 1);
 
-    this.saveAll(allItems);
+    await this.saveAll(allItems);
   }
 
   async find(itemId = 1) {
