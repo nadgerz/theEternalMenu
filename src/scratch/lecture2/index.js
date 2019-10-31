@@ -30,3 +30,5 @@ const multiplyResult = multiply(additionResult, 2);
 // Database.save( 'persons.json', [mert, armagan] );
 const loadedFile = Database.load('meetup.json');
 console.log(loadedFile.name);
+
+const wtmb = Meetup.create(loadedFile);
