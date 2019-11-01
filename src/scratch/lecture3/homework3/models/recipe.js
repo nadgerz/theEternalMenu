@@ -1,9 +1,26 @@
+const uuidv1 = require('uuid/v1');
+const Version = require('./version');
+
 module.exports = class Recipe {
+  constructor(title, details = [], id, dateCreated) {
+    this.title = title;
+    this.versions = details.map(versionDetails => new Version(versionDetails, versionDetails.id));
+    // this.versions = [];
+    // this.versions.push(new RecipeVersion(details, this.versions.length + 1));
 
 
-  // const lastItem = allItems[allItems.length - 1];
-  // const lastItemsId = lastItem && lastItem.id || 0;
-  // item.id = lastItemsId + 1;
+    // TODO: discuss
+    this.id = id || `${this.title.replace(' ', '').toLowerCase()}-${uuidv1()}`;
+
+    // TODO: discuss
+    this.dateCreated = dateCreated || new Date;
+    // TODO: limit versions array to... 15?
+    // this.images = [] // TODO: implement an images array
+  }
+
+  static create({ title, details, id, dateCreated }) {
+    return new Recipe(title, details, id, dateCreated);
+  }
 };
 
 
