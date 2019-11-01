@@ -1,4 +1,4 @@
-const Ingredient = require('./recipeIngredient');
+const Ingredient = require('./ingredient');
 
 
 const Version = class {
@@ -30,8 +30,12 @@ const Version = class {
     return this;
   }
 
-  static create({ details }, id) {
-    return new Recipe({ details }, id);
+  static create({ cookingTime, servingSize, ingredients, instructions, notes, tags, id }) {
+    const version = new Version({ cookingTime, servingSize, ingredients, instructions, notes, tags }, id);
+
+    version.ingredients = ingredients.map(ingredient => Ingredient.create(ingredient));
+
+    return version;
   }
 };
 
