@@ -1,6 +1,9 @@
 module.exports = class Recipe {
 
 
+  // const lastItem = allItems[allItems.length - 1];
+  // const lastItemsId = lastItem && lastItem.id || 0;
+  // item.id = lastItemsId + 1;
 };
 
 
