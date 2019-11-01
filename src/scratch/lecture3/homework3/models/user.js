@@ -14,7 +14,7 @@ module.exports = class User {
 
 
   static create({ name, email, password, id, recipes }) {
-    const user = new User(name, email, password, id, recipes);
+    const user = new User(name, email, password, id);
 
     user.recipes = recipes.map(recipe => Recipe.create(recipe));
 
