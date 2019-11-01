@@ -17,17 +17,11 @@ const Version = class {
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
 
-    this.ingredients = ingredients.map((ingredient, index) => {
-      return new Ingredient(ingredient, index + 1);
-    });
+    this.ingredients = ingredients.map(ingredient => new Ingredient(ingredient));
 
     this.instructions = instructions;
     this.notes = notes;
     this.tags = tags;
-  }
-
-  get() {
-    return this;
   }
 
   static create({ cookingTime, servingSize, ingredients, instructions, notes, tags, id }) {
