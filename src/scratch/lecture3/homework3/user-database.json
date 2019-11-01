@@ -1,0 +1,23 @@
+[[
+  "1",
+  "2",
+  "3"
+],{
+  "name": "4",
+  "id": "5",
+  "email": "6",
+  "password": "7",
+  "recipes": "8"
+},{
+  "name": "9",
+  "id": "10",
+  "email": "11",
+  "password": "12",
+  "recipes": "13"
+},{
+  "name": "14",
+  "id": "15",
+  "email": "16",
+  "password": "17",
+  "recipes": "18"
+},"Antonia","antonia-20b0e640-fc9d-11e9-8e83-d3e728f93059","Antonia@mail.com","1234",[],"Berta","berta-20b0e641-fc9d-11e9-8e83-d3e728f93059","Berta@mail.com","qwerty",[],"Chris Christofferson","chrischristofferson-20b0e642-fc9d-11e9-8e83-d3e728f93059","Chris@mail.com","qwertz",[]]
