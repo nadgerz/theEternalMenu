@@ -1,9 +1,9 @@
 const BaseService = require('./base-service');
-const UserModel = require('../models/recipe');
+const UserModel = require('../models/user');
 
 class UserService extends BaseService {
   constructor() {
-    super(UserModel, `${__dirname}/../meetup-database.json`);
+    super(UserModel, `${__dirname}/../user-database.json`);
   }
 }
 
