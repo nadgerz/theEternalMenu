@@ -12,12 +12,12 @@ module.exports = class User {
     this.recipes = recipes;
   }
 
-  // static create({ name, age, meetups, id }) {
-  //   return new Person(name, age, meetups, id);
-  // }
 
   static create({ name, email, password, id, recipes }) {
-    return new User(name, email, password, id, recipes);
-  }
+    const user = new User(name, email, password, id, recipes);
 
+    user.recipes = recipes.map(recipe => Recipe.create(recipe));
+
+    return user;
+  }
 };
