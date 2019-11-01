@@ -13,6 +13,7 @@ module.exports = class Service {
       fs.readFile(this.dbPath, 'utf8', async (err, file) => {
         if (err) {
           if (err.code === 'ENOENT') {
+            // TODO: dont understand this part very well
             await this.saveAll([]);
             return resolve([]);
           }
@@ -29,11 +30,16 @@ module.exports = class Service {
 
   async add(item) {
     const allItems = await this.findAll();
-    const lastItem = allItems[allItems.length - 1];
-    const lastItemsId = lastItem && lastItem.id || 0;
-    item.id = lastItemsId + 1;
+    // console.log('ADD ================');
+    // console.log(allItems);
+    // console.log(item);
+    // const lastItem = allItems[allItems.length - 1];
+    // const lastItemsId = lastItem && lastItem.id || 0;
+    // item.id = lastItemsId + 1;
 
     allItems.push(item);
+    // console.log(allItems);
+
 
     await this.saveAll(allItems);
 
@@ -43,26 +49,32 @@ module.exports = class Service {
 
   async delete(itemId) {
     const allItems = await this.findAll();
-    const personIndex = allItems.findIndex(p => p.id === itemId);
-    if (personIndex < 0) return;
+    const itemIndex = allItems.findIndex(item => item.id === itemId);
+    if (itemIndex < 0) return;
 
-    allItems.splice(personIndex, 1);
+    allItems.splice(itemIndex, 1);
 
     await this.saveAll(allItems);
   }
 
-  async find(itemId = 1) {
+  async find(itemId) {
     const allItems = await this.findAll();
 
-    return allItems.find(p => p.id === itemId);
+    return allItems.find(item => item.id === itemId);
   }
 
   async saveAll(items) {
     return new Promise((resolve, reject) => {
-      fs.writeFile(this.dbPath, Flatted.stringify(items), (err, file) => {
+      // console.log('SAVE ALL =================');
+      // console.log(JSON.stringify(items, null, 2));
+      // console.log(items);
+
+      // TODO: Flatted produced weird results that couldn't be reaad back in again...
+      fs.writeFile(this.dbPath, Flatted.stringify(items, null, 2), (err) => {
         if (err) return reject(err);
 
-        resolve();
+        // TODO: what happened to 'file' *used after 'err"?
+        resolve(items);
       });
     });
   }
