@@ -30,21 +30,22 @@ module.exports = class Service {
 
   async add(item) {
     const allItems = await this.findAll();
-    // console.log('ADD ================');
-    // console.log(allItems);
-    // console.log(item);
-    // const lastItem = allItems[allItems.length - 1];
-    // const lastItemsId = lastItem && lastItem.id || 0;
-    // item.id = lastItemsId + 1;
 
     allItems.push(item);
-    // console.log(allItems);
-
 
     await this.saveAll(allItems);
 
-    // common practice to return the added item
     return item;
+  }
+
+  async update(updatedItem) {
+    const allItems = await this.findAll();
+    const itemIndex = allItems.findIndex(item => item.id === updatedItem.id);
+    if (itemIndex < 0) return;
+
+    allItems.splice(itemIndex, 1, updatedItem);
+
+    await this.saveAll(allItems);
   }
 
   async delete(itemId) {
@@ -65,15 +66,9 @@ module.exports = class Service {
 
   async saveAll(items) {
     return new Promise((resolve, reject) => {
-      // console.log('SAVE ALL =================');
-      // console.log(JSON.stringify(items, null, 2));
-      // console.log(items);
-
-      // TODO: Flatted produced weird results that couldn't be reaad back in again...
       fs.writeFile(this.dbPath, Flatted.stringify(items, null, 2), (err) => {
         if (err) return reject(err);
 
-        // TODO: what happened to 'file' *used after 'err"?
         resolve(items);
       });
     });
