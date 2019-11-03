@@ -1,5 +1,6 @@
 const uuid = require('uuid/v1');
 const Version = require('./version');
+const RecipeService = require('../services/recipe-service');
 
 module.exports = class Recipe {
   constructor(title, id, dateCreated) {
@@ -15,9 +16,20 @@ module.exports = class Recipe {
     const allItems = this.versions;
     const lastItem = allItems[allItems.length - 1];
     const lastItemsId = (lastItem && lastItem.id) || 0;
-    // version.id = lastItemsId + 1;
 
     this.versions.push(new Version(version, (lastItemsId + 1)));
+
+    RecipeService.update(this);
+  }
+
+  getVersion(versionNo) {
+    return this.versions[versionNo - 1];
+  }
+
+  deleteVersionById(id) {
+    this.versions = this.versions.filter(version => version.id !== id);
+
+    RecipeService.update(this);
   }
 
   static create({ title, id, dateCreated, versions }) {
