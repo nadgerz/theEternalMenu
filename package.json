@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/MoppetX/theEternalMenu#readme",
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "chalk": "^2.4.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

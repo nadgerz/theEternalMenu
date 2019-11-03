@@ -1,0 +1,202 @@
+@import url("./typography.css");
+@import url("./resets.css");
+
+
+/* ------------------------------------------------------------------------- */
+/*      V A R I A B L E S       */
+/* ------------------------------------------------------------------------- */
+
+html {
+    /*  C O L O R S  */
+
+    --color-bg: #F1F2F2;
+    --color-text-primary: black;
+    --color-text-secondary: #808285;
+    --color-dark: black;
+    --color-dark-grey: #5D5D5D;
+    --color-medium-grey: #BCBEC0;
+    --color-light-grey: #E6E7E8;
+    --color-white: #FFF;
+    --color-highlight: #D4E0E4;
+
+    /*  S I Z E S  */
+    --main-width: 1024px;
+    --burger-menu-small: 5rem;
+}
+
+/* ------------------------------------------------------------------------- */
+/*      S H A R E D       */
+/* ------------------------------------------------------------------------- */
+
+
+/*  B U T T O N S  */
+
+a.btn {
+    /*border: 1.5px solid var(--color-dark-grey);*/
+    /*height: 3rem;*/
+    /*width: 100%;*/
+    /*padding: 0 3rem;*/
+}
+
+a.btn.primary {
+    /*background-color: var(--color-text-primary);*/
+}
+
+a.btn.secondary {
+
+}
+
+
+/* ------------------------------------------------------------------------- */
+/*      F O R M S       */
+/* ------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------ */
+
+main {
+    min-height: 100vh;
+    margin: 0 auto;
+    width: var(--main-width);
+    max-width: 100%;
+    padding-top: calc(var(--burger-menu-small) + 1rem);
+
+    /*display: flex;*/
+    border: 2px solid red;
+
+}
+
+/* --------------------------------------------------------- */
+/*   RESPONSIVE    */
+
+@media screen and (max-width: var(--main-width)) {
+    main {
+        font-size: 8px;
+    }
+}
+
+/*@media screen and (min-width: 1280px) {*/
+/*    html {*/
+/*        font-size: 13px;*/
+/*    }*/
+/*}*/
+
+/* --------------------------------------------------------- */
+
+header {
+    background-color: var(--color-light-grey);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: calc(var(--burger-menu-small) + 30rem);
+    height: calc(var(--burger-menu-small) + 1rem);
+    padding-bottom: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.site-branding {
+    margin-left: 2rem;
+}
+
+
+.burger-menu {
+    height: 100%;
+    width: var(--burger-menu-small);
+    /*border: 1px solid black;*/
+
+    position: relative;
+}
+
+.burger-menu .bars {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.burger-menu .bar {
+    background-color: var(--color-dark-grey);
+    width: 3rem;
+    height: .3rem;
+    margin-top: .5rem;
+}
+
+/*****************************************************/
+
+.add-and-recents {
+    background-color: var(--color-light-grey);
+    min-height: 20rem;
+    margin: 3rem 0;
+    padding: 1.5rem 3rem;
+    width: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+    /*align-items: center;*/
+    /*border: 2px dashed red;*/
+
+}
+
+/*  A D D  */
+
+.add-new {
+    align-self: center;
+    /*border: 1px solid red;*/
+    flex: 0 1 25%;
+
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.add-new .icon {
+    margin: 0 auto;
+    background-color: var(--color-dark);
+    border-radius: 50%;
+    color: white;
+    font-size: 4rem;
+
+    /*transform: translateY(50%);*/
+    height: 6rem;
+    width: 6rem;
+}
+
+/*  R E C E N T S  */
+
+.recents {
+    /*border: 1px solid black;*/
+    /*border: 1px solid black;*/
+    flex: 1 0 75%;
+    min-height: 15rem;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.recents .recent-dishes {
+    display: flex;
+    flex-flow: row;
+    /*flex-flow: row wrap;*/
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.recents .recent-dish {
+    background-color: var(--color-medium-grey);
+    border-radius: 11px;
+    height: 10rem;
+    flex: 0 1 22.8rem;
+    min-width: 20rem;
+}
+
+.recent-dish:nth-child(2) {
+    margin: 0 1rem;
+}
+
+
+

@@ -38,6 +38,7 @@ const Recipe = class {
   getNextVersionId() {
     return this.versions[this.versions.length - 1].id + 1;
   };
+
 };
 
 module.exports = Recipe;
