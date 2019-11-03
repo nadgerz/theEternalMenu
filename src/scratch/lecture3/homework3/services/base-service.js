@@ -7,7 +7,6 @@ module.exports = class Service {
     this.dbPath = dbPath;
   }
 
-
   async findAll() {
     return new Promise((resolve, reject) => {
       fs.readFile(this.dbPath, 'utf8', async (err, file) => {
@@ -66,7 +65,7 @@ module.exports = class Service {
 
   async saveAll(items) {
     return new Promise((resolve, reject) => {
-      fs.writeFile(this.dbPath, Flatted.stringify(items, null, 2), (err) => {
+      fs.writeFile(this.dbPath, Flatted.stringify(items, null, 2), err => {
         if (err) return reject(err);
 
         resolve(items);

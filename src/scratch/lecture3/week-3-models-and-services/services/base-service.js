@@ -7,7 +7,6 @@ module.exports = class Service {
     this.dbPath = dbPath;
   }
 
-
   async findAll() {
     return new Promise((resolve, reject) => {
       fs.readFile(this.dbPath, 'utf8', async (err, file) => {
@@ -30,7 +29,7 @@ module.exports = class Service {
   async add(item) {
     const allItems = await this.findAll();
     const lastItem = allItems[allItems.length - 1];
-    const lastItemsId = lastItem && lastItem.id || 0;
+    const lastItemsId = (lastItem && lastItem.id) || 0;
     item.id = lastItemsId + 1;
 
     allItems.push(item);

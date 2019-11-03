@@ -5,36 +5,36 @@ A CSS file like this goes through the build pipeline, and can reference fonts an
 */
 
 @font-face {
-    font-family: 'MainRegular';
-    font-weight: normal;
-    src: local('MainRegular'), url(../fonts/Roboto-Regular.ttf) format('truetype');
+  font-family: 'MainRegular';
+  font-weight: normal;
+  src: local('MainRegular'), url(../fonts/Roboto-Regular.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'MainBold';
-    font-weight: bold;
-    src:local('MainBold'), url(../fonts/Roboto-Bold.ttf) format('truetype');
+  font-family: 'MainBold';
+  font-weight: bold;
+  src: local('MainBold'), url(../fonts/Roboto-Bold.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'MainItalic';
-    font-weight: normal;
-    src: local('MainItalic'), url(../fonts/Roboto-Italic.ttf) format('truetype');
+  font-family: 'MainItalic';
+  font-weight: normal;
+  src: local('MainItalic'), url(../fonts/Roboto-Italic.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'DisplayRegular';
-    font-weight: normal;
-    src: local('DisplayRegular'), url(../fonts/RobotoCondensed-Regular.ttf) format('truetype');
+  font-family: 'DisplayRegular';
+  font-weight: normal;
+  src: local('DisplayRegular'),
+    url(../fonts/RobotoCondensed-Regular.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'DisplayBold';
-    font-weight: bold;
-    src: local('DisplayBold'), url(../fonts/RobotoCondensed-Bold.ttf) format('truetype');
+  font-family: 'DisplayBold';
+  font-weight: bold;
+  src: local('DisplayBold'),
+    url(../fonts/RobotoCondensed-Bold.ttf) format('truetype');
 }
-
-
 
 /*---------------------------------------------------------
    SITE FONT STANDARDS
@@ -42,85 +42,85 @@ A CSS file like this goes through the build pipeline, and can reference fonts an
 
 /* VARIABLES */
 html {
-    --line-height-standard: 2.1rem;
-    --line-height-double: 4.2rem;
+  --line-height-standard: 2.1rem;
+  --line-height-double: 4.2rem;
 
-    font-size: 10px;
-    line-height: var(--line-height-standard);
-    /*Safari specific change*/
-    -webkit-text-size-adjust: none;
+  font-size: 10px;
+  line-height: var(--line-height-standard);
+  /*Safari specific change*/
+  -webkit-text-size-adjust: none;
 }
 
 body {
-    color: var(--color-text-primary);
-    font-family: MainRegular, 'Helvetica', 'Arial', sans-serif;
-    font-size: 1.6rem;
-    line-height: var(--line-height-standard);
-    margin: auto;
+  color: var(--color-text-primary);
+  font-family: MainRegular, 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.6rem;
+  line-height: var(--line-height-standard);
+  margin: auto;
 }
 
 /* --------------------------------------------------------- */
 /*   RESPONSIVE    */
 
 @media screen and (max-width: 860px) {
-    html {
-        font-size: 8px;
-    }
+  html {
+    font-size: 8px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    html {
-        font-size: 13px;
-    }
+  html {
+    font-size: 13px;
+  }
 }
 
 /* --------------------------------------------------------- */
 
 h1 {
-    font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-    font-size: 2.5rem;
-    letter-spacing: 1px;
-    /*line-height: 1.2;*/
-    /*margin-top: $line-height-standard;*/
-    /*margin-bottom: var(--line-height-standard);*/
-    text-transform: uppercase;
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  /*line-height: 1.2;*/
+  /*margin-top: $line-height-standard;*/
+  /*margin-bottom: var(--line-height-standard);*/
+  text-transform: uppercase;
 }
 
 h2 {
-    font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-    /*font-family: inherit;*/
-    font-size: 4rem;
-    letter-spacing: 1px;
-    /*line-height: var(--line-height-double);*/
-    /*margin-top: $line-height-standard;*/
-    /*margin-bottom: var(--line-height-double);*/
-    text-transform: uppercase;
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  /*font-family: inherit;*/
+  font-size: 4rem;
+  letter-spacing: 1px;
+  /*line-height: var(--line-height-double);*/
+  /*margin-top: $line-height-standard;*/
+  /*margin-bottom: var(--line-height-double);*/
+  text-transform: uppercase;
 }
 
 h3 {
-    font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-    font-size: 2.5rem;
-    letter-spacing: 1px;
-    /*line-height: var(--line-height-standard);*/
-    /* margin-top: --line-height-standard;*/
-    /*margin-bottom: var(--line-height-standard);*/
-    text-transform: uppercase;
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  /*line-height: var(--line-height-standard);*/
+  /* margin-top: --line-height-standard;*/
+  /*margin-bottom: var(--line-height-standard);*/
+  text-transform: uppercase;
 }
 
 h4 {
-    font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
-    font-size: 2rem;
-    /*line-height: var(--line-height-standard);*/
-    /* margin-top: --line-height-standard;*/
-    /* margin-bottom: 0;*/
+  font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
+  font-size: 2rem;
+  /*line-height: var(--line-height-standard);*/
+  /* margin-top: --line-height-standard;*/
+  /* margin-bottom: 0;*/
 }
 
 h5 {
-    font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
-    font-size: 1.6rem;
-    /*line-height: var(--line-height-standard);*/
-    /* margin-top: --line-height-standard;*/
-    /* margin-bottom: 0;*/
+  font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.6rem;
+  /*line-height: var(--line-height-standard);*/
+  /* margin-top: --line-height-standard;*/
+  /* margin-bottom: 0;*/
 }
 
 ul,
@@ -128,28 +128,28 @@ ol,
 pre,
 table,
 blockquote {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 p {
-    /*margin: 0.5rem 0;*/
+  /*margin: 0.5rem 0;*/
 }
 
 /*//---------------------------------------------------------*/
 /*//  SHARED ELEMENTS*/
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a.btn {
-    /*color: var(--color-dark-grey);*/
-    font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-    font-size: 1.6rem;
-    /*margin-top: var(--line-height-standard);*/
-    /*margin-bottom: var(--line-height-standard);*/
-    text-align: center;
+  /*color: var(--color-dark-grey);*/
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.6rem;
+  /*margin-top: var(--line-height-standard);*/
+  /*margin-bottom: var(--line-height-standard);*/
+  text-align: center;
 }
 
 /*//---------------------------------------------------------*/

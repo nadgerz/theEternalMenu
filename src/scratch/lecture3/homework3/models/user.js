@@ -14,10 +14,10 @@ module.exports = class User {
   }
 
   addRecipe(title, version) {
-    const fresh = (new Recipe(title)).addVersion(version);
+    const fresh = new Recipe(title).addVersion(version);
 
-    this.recipes.map(recipe => recipe.title).includes(title) ?
-      console.log('no duplicated recipe title allowed')
+    this.recipes.map(recipe => recipe.title).includes(title)
+      ? console.log('no duplicated recipe title allowed')
       : this.recipes.push(fresh);
 
     RecipeService.add(fresh);

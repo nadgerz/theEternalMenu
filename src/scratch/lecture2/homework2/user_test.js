@@ -3,7 +3,6 @@ const User = require('./user');
 const Recipe = require('./recipe');
 let mockRecipes = require('./recipes');
 
-
 // TESTS
 // addRecipe: ok
 // getRecipeById: ok
@@ -36,7 +35,6 @@ let mockRecipes = require('./recipes');
 // console.log('======================================');
 // console.log(user1.getRecipeById(user1.recipes[0].id));
 
-
 // save
 // console.log('======================================');
 // mockRecipes.forEach(recipe => user2.addRecipe(recipe.title, recipe.versions[0]));
@@ -44,7 +42,3 @@ let mockRecipes = require('./recipes');
 
 // Database.save('users', users);
 console.log(Database.load('users'));
-
-
-
-

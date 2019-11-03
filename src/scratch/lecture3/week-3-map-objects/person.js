@@ -1,14 +1,14 @@
 module.exports = class Person {
-    constructor(name, age) {
-        this.name = name
-        this.age = age
-    }
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
 
-    attend(meetup) {
-        meetup.attendees.push(this)
-    }
+  attend(meetup) {
+    meetup.attendees.push(this);
+  }
 
-    static create({ name, age }) {
-        return new Person(name, age)
-    }
-}
+  static create({ name, age }) {
+    return new Person(name, age);
+  }
+};

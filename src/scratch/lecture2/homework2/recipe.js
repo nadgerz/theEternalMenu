@@ -6,7 +6,7 @@ const Recipe = class {
     this.title = title;
     this.id = `${this.title.replace(' ', '').toLowerCase()}-${uuidv1()}`;
     // this.images = [] // TODO: implement an images array
-    this.dateCreated = new Date;
+    this.dateCreated = new Date();
     // TODO: limit versions array to... 15?
     this.versions = [];
     this.versions.push(new RecipeVersion(details, this.versions.length + 1));
@@ -37,8 +37,7 @@ const Recipe = class {
 
   getNextVersionId() {
     return this.versions[this.versions.length - 1].id + 1;
-  };
-
+  }
 };
 
 module.exports = Recipe;

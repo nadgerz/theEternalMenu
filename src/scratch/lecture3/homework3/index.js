@@ -4,12 +4,10 @@ const Recipe = require('./models/recipe');
 const UserService = require('./services/user-service');
 let mockRecipes = require('./models/recipes');
 
-
 console.log('The Eternal Menu!');
 console.log('===========================');
 
 async function main() {
-
   let user1 = new User('Antonia', 'Antonia@mail.com', '1234');
   let user2 = new User('Berta', 'Berta@mail.com', 'qwerty');
   let user3 = new User('Chris Christofferson', 'Chris@mail.com', 'qwertz');
@@ -28,7 +26,6 @@ async function main() {
 
   // console.log(user1.recipes[0]);
 
-
   // below now works
   // console.log(await UserService.add(user1));
   // no await: returns a promise <pending>
@@ -44,10 +41,10 @@ async function main() {
   // console.log(loadedUsers);
 
   // addRecipe
-// console.log('======================================');
-// console.log(recipe1.versions[0]);
-// user1.addRecipe(recipe1.title, recipe1.versions[0]);
-// console.log(user1.recipes);
+  // console.log('======================================');
+  // console.log(recipe1.versions[0]);
+  // user1.addRecipe(recipe1.title, recipe1.versions[0]);
+  // console.log(user1.recipes);
 
   // const wtmb = new Meetup('Women Techmakers Berlin', 'Wayfair');
   // armagan.attend(wtmb);

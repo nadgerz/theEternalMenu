@@ -24,8 +24,8 @@ const User = class {
   // }
 
   addRecipe(title, details) {
-    this.recipes.map(recipe => recipe.title).includes(title) ?
-      console.log('no duplicated recipe title allowed')
+    this.recipes.map(recipe => recipe.title).includes(title)
+      ? console.log('no duplicated recipe title allowed')
       : this.recipes.push(new Recipe(title, details));
   }
 

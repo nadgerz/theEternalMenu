@@ -13,7 +13,6 @@ console.log(file2);
 const file3 = fs.readFileSync(__dirname + '/files/3.txt', 'utf8');
 console.log(file3);
 
-
 /*
 Second version, asynchronous
 */
@@ -28,12 +27,11 @@ fs.readFile(__dirname + '/files/1.txt', 'utf8', (err, contents1) => {
   });
 });
 
-
 /*
 Third version, promises
 */
 
-let readFile = (filename) => {
+let readFile = filename => {
   return new Promise((resolve, reject) => {
     fs.readFile(filename, 'utf8', (err, contents) => {
       if (err) return reject(err);

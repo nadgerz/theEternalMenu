@@ -1,6 +1,5 @@
 const Ingredient = require('./ingredient');
 
-
 const RecipeVersion = class {
   constructor(
     {
@@ -30,7 +29,6 @@ const RecipeVersion = class {
   get() {
     return this;
   }
-
 };
 
 module.exports = RecipeVersion;
