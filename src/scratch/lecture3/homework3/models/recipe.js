@@ -12,12 +12,12 @@ module.exports = class Recipe {
     // this.images = [] // TODO: implement an images array
   }
 
-  addVersion(version) {
+  addVersion(version, ingredients) {
     const allItems = this.versions;
     const lastItem = allItems[allItems.length - 1];
     const lastItemsId = (lastItem && lastItem.id) || 0;
 
-    this.versions.push(new Version(version, (lastItemsId + 1)));
+    this.versions.push(new Version(version, (lastItemsId + 1)).addIngredients(ingredients));
 
     RecipeService.update(this);
   }
