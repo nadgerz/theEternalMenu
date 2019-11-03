@@ -49,11 +49,11 @@ module.exports = class Service {
   }
 
   async delete(itemId) {
-    const allItems = await this.findAll();
+    let allItems = await this.findAll();
     const itemIndex = allItems.findIndex(item => item.id === itemId);
     if (itemIndex < 0) return;
 
-    allItems.splice(itemIndex, 1);
+    allItems = allItems.filter(item => item.id !== itemIndex);
 
     await this.saveAll(allItems);
   }
