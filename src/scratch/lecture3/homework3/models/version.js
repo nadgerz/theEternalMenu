@@ -6,7 +6,6 @@ const Version = class {
     {
       cookingTime = 0,
       servingSize = 0,
-      ingredients = [],
       instructions = [],
       notes = [],
       tags = [],
@@ -16,16 +15,18 @@ const Version = class {
     this.id = id;
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
-
-    this.ingredients = ingredients.map(ingredient => new Ingredient(ingredient));
-
     this.instructions = instructions;
     this.notes = notes;
     this.tags = tags;
+    this.ingredients = [];
+  }
+
+  addIngredients(ingredients) {
+    this.ingredients = ingredients.map(ingredient => new Ingredient(ingredient));
   }
 
   static create({ cookingTime, servingSize, ingredients, instructions, notes, tags, id }) {
-    const version = new Version({ cookingTime, servingSize, ingredients, instructions, notes, tags }, id);
+    const version = new Version({ cookingTime, servingSize, instructions, notes, tags }, id);
 
     version.ingredients = ingredients.map(ingredient => Ingredient.create(ingredient));
 
