@@ -21,7 +21,7 @@ async function main() {
   let [recipe1, recipe2, recipe3] = mockRecipes;
 
   // let users = [user1, user2, user3];
-  console.log(user1);
+  // console.log(user1);
 
   const eggVersion1 = {
     cookingTime: 7,
@@ -29,7 +29,17 @@ async function main() {
   };
 
   const eggVersion2 = {
-    cookingTime: 7,
+    cookingTime: 8.5,
+    ingredients: [],
+  };
+
+  const eggVersion3 = {
+    cookingTime: 5,
+    ingredients: [],
+  };
+
+  const eggVersion4 = {
+    cookingTime: 10,
     ingredients: [],
   };
 
@@ -44,18 +54,20 @@ async function main() {
 
   const eggRecipe = user1.getRecipeById(user1.recipes[0].id);
   // console.log('version 2 ===========================');
-  eggRecipe.addVersion(eggVersion2);
+  eggRecipe.saveVersion(eggVersion2);
+  eggRecipe.saveVersion(eggVersion3);
+  eggRecipe.saveVersion(eggVersion4);
 
   // console.log('delete version 2 ===========================');
-  eggRecipe.deleteVersionById(3);
+  // eggRecipe.deleteVersionById(3);
 
-  console.log('save ingredients  ===========================');
+  // console.log('save ingredients  ===========================');
   const version1 = eggRecipe.versions[0];
   version1.saveIngredients(eggIngredients);
 
+  // eggRecipe.newVersion(2);
 
-
-  console.log(eggRecipe.versions);
+  // console.log(eggRecipe.versions);
 
   // below now works
   // console.log(await UserService.add(user1));

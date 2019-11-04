@@ -12,13 +12,13 @@ module.exports = class Recipe {
     // this.images = [] // TODO: implement an images array
   }
 
-  addVersion(recipeDetails) {
+  saveVersion(recipeDetails) {
     const allItems = this.versions;
     const lastItem = allItems[allItems.length - 1];
     const lastItemsId = (lastItem && lastItem.id) || 0;
 
     let version = new Version(recipeDetails, (lastItemsId + 1));
-    // console.log(version);
+
     if (recipeDetails.ingredients.length > 0) {
       version.saveIngredients(recipeDetails.ingredients);
     }
@@ -27,8 +27,14 @@ module.exports = class Recipe {
   }
 
   getVersion(versionNo) {
+    // add check: does the version exist?
     return this.versions[versionNo - 1];
   }
+
+  // newVersion(currentId) {
+  //   console.log('new Version ===================');
+  //   console.log(this.getVersion(currentId));
+  // }
 
   deleteVersionById(id) {
     this.versions = this.versions.filter(version => version.id !== id);

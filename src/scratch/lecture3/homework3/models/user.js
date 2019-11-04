@@ -16,7 +16,7 @@ module.exports = class User {
 
   saveRecipe(title, version) {
     const recipe = new Recipe(title);
-    recipe.addVersion(version);
+    recipe.saveVersion(version);
 
     if (this.titleExists(title)) {
       console.log('no recipe title duplicate allowed');
