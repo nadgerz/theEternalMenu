@@ -21,7 +21,9 @@ const Version = class {
   }
 
   saveIngredients(ingredients) {
-    this.ingredients = ingredients.map(ingredient => new Ingredient(ingredient));
+    this.ingredients = ingredients.map(
+      ingredient => new Ingredient(ingredient),
+    );
   }
 
   static create({

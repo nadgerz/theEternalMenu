@@ -41,10 +41,12 @@ async function main() {
     ingredients: [],
   };
 
-  const eggIngredients = [{
-    amount: 1,
-    name: 'egg',
-  }];
+  const eggIngredients = [
+    {
+      amount: 1,
+      name: 'egg',
+    },
+  ];
 
   // console.log('adding recipe ===========================');
   user1.saveRecipe('eggs', eggVersion1);

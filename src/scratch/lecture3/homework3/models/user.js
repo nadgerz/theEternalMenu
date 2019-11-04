@@ -14,6 +14,8 @@ module.exports = class User {
     this.recipes = recipes;
   }
 
+  save() {}
+
   saveRecipe(title, version) {
     const recipe = new Recipe(title);
     recipe.saveVersion(version);
