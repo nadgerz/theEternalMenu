@@ -1,5 +1,5 @@
 // import validator from 'validator';
-import isEmail from 'validator/lib/isEmail';
+const isEmail = require('validator/lib/isEmail');
 
 const BaseService = require('./base-service');
 const UserModel = require('../models/user');
