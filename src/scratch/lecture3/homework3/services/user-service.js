@@ -3,6 +3,7 @@ const isEmail = require('validator/lib/isEmail');
 
 const BaseService = require('./base-service');
 const UserModel = require('../models/user');
+// console.log(UserModel)
 
 class UserService extends BaseService {
   constructor() {

@@ -12,25 +12,6 @@ module.exports = class Service {
       fs.readFile(this.dbPath, 'utf8', async (err, file) => {
         if (err) {
           if (err.code === 'ENOENT') {
-            await this.saveAll([]);
-            return resolve([]);
-          }
-
-          return reject(err);
-        }
-
-        const items = Flatted.parse(file).map(this.model.create);
-
-        resolve(items);
-      });
-    });
-  }
-
-  async findAll2() {
-    return new Promise((resolve, reject) => {
-      fs.readFile(this.dbPath, 'utf8', async (err, file) => {
-        if (err) {
-          if (err.code === 'ENOENT') {
             // TODO: dont understand this part very well
             // MOPPET: What is happening here is that ENOENT indicates an error
             //         specifically that the file supplied (this.dbPath) does not exist.
@@ -70,18 +51,15 @@ module.exports = class Service {
   }
 
   async update(updatedItem) {
-    console.log('In update() - base-service');
-    console.log(updatedItem);
-    console.log('---');
-
     const allItems = await this.findAll();
     const itemIndex = allItems.findIndex(item => item.id === updatedItem.id);
 
-    if (itemIndex < 0) return;
-
-    allItems.splice(itemIndex, 1, updatedItem);
-
-    await this.saveAll(allItems);
+    if (itemIndex < 0) {
+      await this.add(updatedItem);
+    } else {
+      allItems.splice(itemIndex, 1, updatedItem);
+      await this.saveAll(allItems);
+    }
   }
 
   async delete(itemId) {
@@ -103,10 +81,6 @@ module.exports = class Service {
   }
 
   async saveAll(items) {
-    console.log('In saveAll() - base-service');
-    console.log(items);
-    console.log('---');
-
     return new Promise((resolve, reject) => {
       fs.writeFile(this.dbPath, Flatted.stringify(items), (err, file) => {
         if (err) return reject(err);

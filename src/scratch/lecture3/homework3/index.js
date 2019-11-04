@@ -1,7 +1,9 @@
 const User = require('./models/user');
 const Recipe = require('./models/recipe');
+
 // const RecipeService = require('./services/recipe-service');
 const UserService = require('./services/user-service');
+
 let mockRecipes = require('./models/recipes');
 
 console.log('The Eternal Menu!');
@@ -64,6 +66,8 @@ async function main() {
   // console.log('save ingredients  ===========================');
   const version1 = eggRecipe.versions[0];
   version1.saveIngredients(eggIngredients);
+
+  await UserService.update(user1);
 
   // eggRecipe.newVersion(2);
 
