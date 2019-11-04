@@ -1,6 +1,7 @@
 const uuidv1 = require('uuid/v1');
 const Recipe = require('./recipe');
-const RecipeService = require('../services/recipe-service');
+// const RecipeService = require('../services/recipe-service');
+const UserService = require('../services/user-service');
 
 module.exports = class User {
   constructor(name, email, password, id, recipes = []) {
@@ -13,14 +14,21 @@ module.exports = class User {
     this.recipes = recipes;
   }
 
-  addRecipe(title, version) {
-    const fresh = new Recipe(title).addVersion(version);
+  saveRecipe(title, version) {
+    const recipe = new Recipe(title);
+    recipe.saveVersion(version);
 
-    this.recipes.map(recipe => recipe.title).includes(title)
-      ? console.log('no duplicated recipe title allowed')
-      : this.recipes.push(fresh);
+    if (this.titleExists(title)) {
+      console.log('no recipe title duplicate allowed');
+      return;
+    }
 
-    RecipeService.add(fresh);
+    this.recipes.push(recipe);
+    // UserService.update(this);
+  }
+
+  titleExists(title) {
+    return this.recipes.map(recipe => recipe.title).includes(title);
   }
 
   deleteRecipeById(id) {

@@ -1,6 +1,6 @@
 const uuid = require('uuid/v1');
 const Version = require('./version');
-const RecipeService = require('../services/recipe-service');
+// const RecipeService = require('../services/recipe-service');
 
 module.exports = class Recipe {
   constructor(title, id, dateCreated) {
@@ -12,26 +12,34 @@ module.exports = class Recipe {
     // this.images = [] // TODO: implement an images array
   }
 
-  addVersion(version, ingredients) {
+  saveVersion(recipeDetails) {
     const allItems = this.versions;
     const lastItem = allItems[allItems.length - 1];
     const lastItemsId = (lastItem && lastItem.id) || 0;
 
-    this.versions.push(
-      new Version(version, lastItemsId + 1).addIngredients(ingredients),
-    );
+    let version = new Version(recipeDetails, (lastItemsId + 1));
 
-    RecipeService.update(this);
+    if (recipeDetails.ingredients.length > 0) {
+      version.saveIngredients(recipeDetails.ingredients);
+    }
+
+    this.versions.push(version);
   }
 
   getVersion(versionNo) {
+    // add check: does the version exist?
     return this.versions[versionNo - 1];
   }
+
+  // newVersion(currentId) {
+  //   console.log('new Version ===================');
+  //   console.log(this.getVersion(currentId));
+  // }
 
   deleteVersionById(id) {
     this.versions = this.versions.filter(version => version.id !== id);
 
-    RecipeService.update(this);
+    // RecipeService.update(this);
   }
 
   static create({ title, id, dateCreated, versions }) {

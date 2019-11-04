@@ -20,10 +20,8 @@ const Version = class {
     this.ingredients = [];
   }
 
-  addIngredients(ingredients) {
-    this.ingredients = ingredients.map(
-      ingredient => new Ingredient(ingredient),
-    );
+  saveIngredients(ingredients) {
+    this.ingredients = ingredients.map(ingredient => new Ingredient(ingredient));
   }
 
   static create({

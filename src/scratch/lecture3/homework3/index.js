@@ -5,10 +5,14 @@ const UserService = require('./services/user-service');
 let mockRecipes = require('./models/recipes');
 
 console.log('The Eternal Menu!');
-console.log('===========================');
+console.log('============================================');
 
 async function main() {
   let user1 = new User('Antonia', 'Antonia@mail.com', '1234');
+  // await UserService.add(user1);
+  // console.log(await UserService.findAll());
+  // const user1 = await UserService.findAll()[0];
+
   let user2 = new User('Berta', 'Berta@mail.com', 'qwerty');
   let user3 = new User('Chris Christofferson', 'Chris@mail.com', 'qwertz');
 
@@ -17,14 +21,51 @@ async function main() {
   // let users = [user1, user2, user3];
   // console.log(user1);
 
-  // console.log(new Recipe(recipe1.title));
-  user1.addRecipe(recipe1.title, recipe1.versions[0]);
-  // user1.recipes[0].addVersion([]);
-  // user1.recipes[0].addVersion([]);
-  // user1.recipes[0].addVersion(recipe1.versions[0], recipe1.versions[0].ingredients);
-  console.log(user1.recipes[0]);
+  const eggVersion1 = {
+    cookingTime: 7,
+    ingredients: [],
+  };
 
-  // console.log(user1.recipes[0]);
+  const eggVersion2 = {
+    cookingTime: 8.5,
+    ingredients: [],
+  };
+
+  const eggVersion3 = {
+    cookingTime: 5,
+    ingredients: [],
+  };
+
+  const eggVersion4 = {
+    cookingTime: 10,
+    ingredients: [],
+  };
+
+  const eggIngredients = [{
+    amount: 1,
+    name: 'egg',
+  }];
+
+  // console.log('adding recipe ===========================');
+  user1.saveRecipe('eggs', eggVersion1);
+  // console.log(user1);
+
+  const eggRecipe = user1.getRecipeById(user1.recipes[0].id);
+  // console.log('version 2 ===========================');
+  eggRecipe.saveVersion(eggVersion2);
+  eggRecipe.saveVersion(eggVersion3);
+  eggRecipe.saveVersion(eggVersion4);
+
+  // console.log('delete version 2 ===========================');
+  // eggRecipe.deleteVersionById(3);
+
+  // console.log('save ingredients  ===========================');
+  const version1 = eggRecipe.versions[0];
+  version1.saveIngredients(eggIngredients);
+
+  // eggRecipe.newVersion(2);
+
+  // console.log(eggRecipe.versions);
 
   // below now works
   // console.log(await UserService.add(user1));
