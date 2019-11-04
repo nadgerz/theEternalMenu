@@ -1,3 +1,4 @@
+/* eslint-disabl */
 let debug = false;
 debug = true;
 
@@ -33,7 +34,7 @@ function logger(strings, ...values) {
           try {
             str += JSON.stringify(values[i - 1]);
             continue;
-          } catch (err) {}
+          } catch (err) {} // eslint-disable-line no-empty
         }
       }
 
@@ -43,11 +44,11 @@ function logger(strings, ...values) {
     str += strings[i];
   }
 
-  console.log(str);
+  console.log(str); // eslint-disable-line no-console
 
   return str;
 }
 
-const log = stuff => (debug ? console.log(stuff) : null);
+// const log = stuff => (debug ? console.log(stuff) : null);
 
 module.exports = logger;
