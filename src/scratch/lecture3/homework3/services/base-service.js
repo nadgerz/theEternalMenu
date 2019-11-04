@@ -12,13 +12,35 @@ module.exports = class Service {
       fs.readFile(this.dbPath, 'utf8', async (err, file) => {
         if (err) {
           if (err.code === 'ENOENT') {
+            await this.saveAll([]);
+            return resolve([]);
+          }
+
+          return reject(err);
+        }
+
+        const items = Flatted.parse(file).map(this.model.create);
+
+        resolve(items);
+      });
+    });
+  }
+
+  async findAll2() {
+    return new Promise((resolve, reject) => {
+      fs.readFile(this.dbPath, 'utf8', async (err, file) => {
+        if (err) {
+          if (err.code === 'ENOENT') {
             // TODO: dont understand this part very well
             // MOPPET: What is happening here is that ENOENT indicates an error
             //         specifically that the file supplied (this.dbPath) does not exist.
-            //         This would normally reject the Promise. But in this case, we can recover
+            //
+            //         This would normally reject the Promise. But in this case, we can recover.
+            //
             //         We can create the file they requested and return an empty array of objects
             //         (whatever the coder requested) and pretend the file (database! :) ) was empty from
             //         the get-go.
+            //
             //         We could have returned an error instead and say (database) file not found, but this
             //         version is a nicety instead because we can do the work for them and pretend nothing
             //         went wrong.
@@ -48,6 +70,10 @@ module.exports = class Service {
   }
 
   async update(updatedItem) {
+    console.log('In update() - base-service');
+    console.log(updatedItem);
+    console.log('---');
+
     const allItems = await this.findAll();
     const itemIndex = allItems.findIndex(item => item.id === updatedItem.id);
 
@@ -77,11 +103,15 @@ module.exports = class Service {
   }
 
   async saveAll(items) {
+    console.log('In saveAll() - base-service');
+    console.log(items);
+    console.log('---');
+
     return new Promise((resolve, reject) => {
-      fs.writeFile(this.dbPath, Flatted.stringify(items, null, 2), err => {
+      fs.writeFile(this.dbPath, Flatted.stringify(items), (err, file) => {
         if (err) return reject(err);
 
-        resolve(items);
+        resolve();
       });
     });
   }

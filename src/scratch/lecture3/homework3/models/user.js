@@ -14,7 +14,12 @@ module.exports = class User {
     this.recipes = recipes;
   }
 
-  save() {}
+  save() {
+    console.log('In save()');
+    console.log(this);
+
+    UserService.update(this);
+  }
 
   saveRecipe(title, version) {
     const recipe = new Recipe(title);
@@ -26,7 +31,8 @@ module.exports = class User {
     }
 
     this.recipes.push(recipe);
-    // UserService.update(this);
+
+    this.save();
   }
 
   titleExists(title) {
