@@ -1,3 +1,4 @@
+/* eslint-disable */
 // console.log( 'hello Debora! 😀' );
 const Person = require('./person.js');
 const Meetup = require('./meetup');
