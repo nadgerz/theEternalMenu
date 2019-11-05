@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const Database = require('./data/database');
 const User = require('./user');
 const Recipe = require('./recipe');

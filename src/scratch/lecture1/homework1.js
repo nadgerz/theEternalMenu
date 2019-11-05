@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const mockRecipes = require('./recipes');
 const users = [];
 // TODO: set up for language switch
