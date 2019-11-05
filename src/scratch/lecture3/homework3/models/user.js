@@ -13,19 +13,6 @@ module.exports = class User {
     this.recipes = recipes;
   }
 
-  save() {
-    console.log('In save()');
-    console.log(this);
-
-    /*
-    try {
-      UserService.update(this);
-    } catch (err) {
-      throw new Error(err.message);
-    }
-	*/
-  }
-
   saveRecipe(title, version) {
     const recipe = new Recipe(title);
     recipe.saveVersion(version);
@@ -36,8 +23,6 @@ module.exports = class User {
     }
 
     this.recipes.push(recipe);
-
-    this.save();
   }
 
   titleExists(title) {
