@@ -6,7 +6,11 @@ const User = class {
     this.name = name;
     this.id = `${name.replace(' ', '').toLowerCase()}-${uuidv1()}`;
     this.email = email;
-    this.password = password;
+
+    // TODO actually we will never store the password... we use a login
+    //      for the user to authenticate *with* a password
+    //      Perhaps the user has a 'loggedIn' boolean field?
+    this._password = password;
 
     this.recipes = [];
   }
@@ -20,8 +24,8 @@ const User = class {
   // }
 
   addRecipe(title, details) {
-    this.recipes.map(recipe => recipe.title).includes(title) ?
-      console.log('no duplicated recipe title allowed')
+    this.recipes.map(recipe => recipe.title).includes(title)
+      ? console.log('no duplicated recipe title allowed')
       : this.recipes.push(new Recipe(title, details));
   }
 

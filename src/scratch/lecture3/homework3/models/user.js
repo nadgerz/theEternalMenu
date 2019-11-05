@@ -1,7 +1,6 @@
 const uuidv1 = require('uuid/v1');
 const Recipe = require('./recipe');
-// const RecipeService = require('../services/recipe-service');
-const UserService = require('../services/user-service');
+// const UserService = require('../services/user-service');
 
 module.exports = class User {
   constructor(name, email, password, id, recipes = []) {
@@ -14,6 +13,19 @@ module.exports = class User {
     this.recipes = recipes;
   }
 
+  save() {
+    console.log('In save()');
+    console.log(this);
+
+    /*
+    try {
+      UserService.update(this);
+    } catch (err) {
+      throw new Error(err.message);
+    }
+	*/
+  }
+
   saveRecipe(title, version) {
     const recipe = new Recipe(title);
     recipe.saveVersion(version);
@@ -24,7 +36,8 @@ module.exports = class User {
     }
 
     this.recipes.push(recipe);
-    // UserService.update(this);
+
+    this.save();
   }
 
   titleExists(title) {

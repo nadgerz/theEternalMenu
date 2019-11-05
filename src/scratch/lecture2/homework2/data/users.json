@@ -48,26 +48,13 @@
               "Set a nonstick skillet on medium-high heat.  Once the pan is hot, spray with olive oil. Toss in the asparagus spears and begin to sear for 2 to 3 minutes.  Then pour in water to create some steam in the skillet and toss the asparagus.",
               "Continue to cook until the asparagus turns a vibrant green color and the spears are crisp-tender."
             ],
-            "notes": [
-              "try Beans on next try"
-            ],
+            "notes": ["try Beans on next try"],
             "tags": {
-              "mealType": [
-                "Lunch",
-                "Dinner"
-              ],
-              "dishType": [
-                "Side Dish"
-              ],
-              "season": [
-                "Spring"
-              ],
+              "mealType": ["Lunch", "Dinner"],
+              "dishType": ["Side Dish"],
+              "season": ["Spring"],
               "worldRegion": [],
-              "healthDiet": [
-                "vegetarian",
-                "vegan",
-                "gluten-free"
-              ]
+              "healthDiet": ["vegetarian", "vegan", "gluten-free"]
             }
           }
         ]
@@ -225,18 +212,11 @@
             ],
             "notes": [],
             "tags": {
-              "mealType": [
-                "Lunch",
-                "Dinner"
-              ],
-              "dishType": [
-                "Fish Recipe"
-              ],
+              "mealType": ["Lunch", "Dinner"],
+              "dishType": ["Fish Recipe"],
               "season": [],
               "worldRegion": [],
-              "healthDiet": [
-                "Pescatarian"
-              ]
+              "healthDiet": ["Pescatarian"]
             }
           }
         ]
@@ -319,26 +299,13 @@
               "Bake for 6 to 8 minutes.  Then remove from the oven. Set to broil. Pour the remaining sauce over the salmon fillets and set back in the oven for NO more than 1.5 minutes.",
               "Garnish with sesame seeds."
             ],
-            "notes": [
-              "Notes for next time"
-            ],
+            "notes": ["Notes for next time"],
             "tags": {
-              "mealType": [
-                "Lunch",
-                "Dinner"
-              ],
-              "dishType": [
-                "Fish Recipes"
-              ],
-              "season": [
-                ""
-              ],
-              "worldRegion": [
-                ""
-              ],
-              "healthDiet": [
-                "fish"
-              ]
+              "mealType": ["Lunch", "Dinner"],
+              "dishType": ["Fish Recipes"],
+              "season": [""],
+              "worldRegion": [""],
+              "healthDiet": ["fish"]
             }
           }
         ]
@@ -386,26 +353,13 @@
               "Set a nonstick skillet on medium-high heat.  Once the pan is hot, spray with olive oil. Toss in the asparagus spears and begin to sear for 2 to 3 minutes.  Then pour in water to create some steam in the skillet and toss the asparagus.",
               "Continue to cook until the asparagus turns a vibrant green color and the spears are crisp-tender."
             ],
-            "notes": [
-              "try Beans on next try"
-            ],
+            "notes": ["try Beans on next try"],
             "tags": {
-              "mealType": [
-                "Lunch",
-                "Dinner"
-              ],
-              "dishType": [
-                "Side Dish"
-              ],
-              "season": [
-                "Spring"
-              ],
+              "mealType": ["Lunch", "Dinner"],
+              "dishType": ["Side Dish"],
+              "season": ["Spring"],
               "worldRegion": [],
-              "healthDiet": [
-                "vegetarian",
-                "vegan",
-                "gluten-free"
-              ]
+              "healthDiet": ["vegetarian", "vegan", "gluten-free"]
             }
           }
         ]
@@ -563,18 +517,11 @@
             ],
             "notes": [],
             "tags": {
-              "mealType": [
-                "Lunch",
-                "Dinner"
-              ],
-              "dishType": [
-                "Fish Recipe"
-              ],
+              "mealType": ["Lunch", "Dinner"],
+              "dishType": ["Fish Recipe"],
               "season": [],
               "worldRegion": [],
-              "healthDiet": [
-                "Pescatarian"
-              ]
+              "healthDiet": ["Pescatarian"]
             }
           }
         ]

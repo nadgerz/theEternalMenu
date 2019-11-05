@@ -1,3 +1,4 @@
+// TODO move to a 'data' or 'seed' folder?
 const misoOrangeSalmon = {
   id: 1,
   title: 'Miso Orange Salmon',
@@ -8,7 +9,8 @@ const misoOrangeSalmon = {
 
       ingredients: [
         { id: 1, amount: 3, unit: '', name: 'salmon fillets', sub: [] },
-        { id: 2,
+        {
+          id: 2,
           amount: 0,
           unit: '',
           name: 'Orange glaze',

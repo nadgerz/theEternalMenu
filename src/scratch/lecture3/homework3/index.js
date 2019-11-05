@@ -1,15 +1,15 @@
 const User = require('./models/user');
 const Recipe = require('./models/recipe');
+
 // const RecipeService = require('./services/recipe-service');
 const UserService = require('./services/user-service');
-let mockRecipes = require('./models/recipes');
 
+let mockRecipes = require('./models/recipes');
 
 console.log('The Eternal Menu!');
 console.log('============================================');
 
 async function main() {
-
   let user1 = new User('Antonia', 'Antonia@mail.com', '1234');
   // await UserService.add(user1);
   // console.log(await UserService.findAll());
@@ -43,10 +43,12 @@ async function main() {
     ingredients: [],
   };
 
-  const eggIngredients = [{
-    amount: 1,
-    name: 'egg',
-  }];
+  const eggIngredients = [
+    {
+      amount: 1,
+      name: 'egg',
+    },
+  ];
 
   // console.log('adding recipe ===========================');
   user1.saveRecipe('eggs', eggVersion1);
@@ -64,6 +66,8 @@ async function main() {
   // console.log('save ingredients  ===========================');
   const version1 = eggRecipe.versions[0];
   version1.saveIngredients(eggIngredients);
+
+  await UserService.update(user1);
 
   // eggRecipe.newVersion(2);
 
@@ -84,10 +88,10 @@ async function main() {
   // console.log(loadedUsers);
 
   // addRecipe
-// console.log('======================================');
-// console.log(recipe1.versions[0]);
-// user1.addRecipe(recipe1.title, recipe1.versions[0]);
-// console.log(user1.recipes);
+  // console.log('======================================');
+  // console.log(recipe1.versions[0]);
+  // user1.addRecipe(recipe1.title, recipe1.versions[0]);
+  // console.log(user1.recipes);
 
   // const wtmb = new Meetup('Women Techmakers Berlin', 'Wayfair');
   // armagan.attend(wtmb);

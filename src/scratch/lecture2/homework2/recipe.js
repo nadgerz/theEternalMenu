@@ -1,24 +1,24 @@
 const uuidv1 = require('uuid/v1');
 const RecipeVersion = require('./recipeVersion');
 
-
 const Recipe = class {
   constructor(title, details) {
     this.title = title;
     this.id = `${this.title.replace(' ', '').toLowerCase()}-${uuidv1()}`;
     // this.images = [] // TODO: implement an images array
-    this.dateCreated = new Date;
+    this.dateCreated = new Date();
     // TODO: limit versions array to... 15?
     this.versions = [];
     this.versions.push(new RecipeVersion(details, this.versions.length + 1));
   }
 
-  setTitle(newTitle) {
-    this.title = newTitle;
+  set title(title) {
+    // TODO: check it is present and unique
+    this._title = title;
   }
 
   addVersion(newVersion) {
-    let id = this.getNextVersionId();
+    const id = this.getNextVersionId();
     this.versions.push(new RecipeVersion(newVersion, id));
   }
 
@@ -37,8 +37,7 @@ const Recipe = class {
 
   getNextVersionId() {
     return this.versions[this.versions.length - 1].id + 1;
-  };
-
+  }
 };
 
 module.exports = Recipe;

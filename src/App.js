@@ -6,7 +6,6 @@ import './assets/CSS/app.css';
 // import SearchParams from './SearchParams';
 // import Recipe from './Recipe';
 
-
 const App = () => {
   return (
     // strictMode will warn you if you try to use a react feature they want to deprecate soon
@@ -29,7 +28,6 @@ const App = () => {
 
       <main id={'main'}>
         <div className={'add-and-recents'}>
-
           <div className="add-new">
             <Link to="/">
               <div className="icon">+</div>
@@ -49,11 +47,10 @@ const App = () => {
           {/*<SearchParams path={'/'}/>*/}
           {/*<Recipe path={'/details/:id'}/>*/}
           {/*</Router>*/}
-
         </div>
       </main>
     </React.StrictMode>
   );
 };
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

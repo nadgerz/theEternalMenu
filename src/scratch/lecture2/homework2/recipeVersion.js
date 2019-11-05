@@ -1,6 +1,5 @@
 const Ingredient = require('./ingredient');
 
-
 const RecipeVersion = class {
   constructor(
     {
@@ -13,7 +12,8 @@ const RecipeVersion = class {
     },
     id,
   ) {
-    this.id = id;
+    this._id = id;
+
     this.cookingTime = cookingTime;
     this.servingSize = servingSize;
 
@@ -29,7 +29,6 @@ const RecipeVersion = class {
   get() {
     return this;
   }
-
 };
 
 module.exports = RecipeVersion;

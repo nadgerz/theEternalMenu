@@ -6,7 +6,7 @@ module.exports = class Recipe {
   constructor(title, id, dateCreated) {
     this.title = title;
     this.id = id || `${this.title.replace(' ', '').toLowerCase()}-${uuid()}`;
-    this.dateCreated = dateCreated || new Date;
+    this.dateCreated = dateCreated || new Date();
     this.versions = [];
 
     // this.images = [] // TODO: implement an images array
@@ -17,7 +17,7 @@ module.exports = class Recipe {
     const lastItem = allItems[allItems.length - 1];
     const lastItemsId = (lastItem && lastItem.id) || 0;
 
-    let version = new Version(recipeDetails, (lastItemsId + 1));
+    let version = new Version(recipeDetails, lastItemsId + 1);
 
     if (recipeDetails.ingredients.length > 0) {
       version.saveIngredients(recipeDetails.ingredients);

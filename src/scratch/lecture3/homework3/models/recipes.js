@@ -2,7 +2,7 @@
 
 const misoOrangeSalmon = {
   id: '1mos',
-  dateCreated: new Date,
+  dateCreated: new Date(),
   title: 'Miso Orange Salmon',
   versions: [
     {
@@ -14,9 +14,7 @@ const misoOrangeSalmon = {
         { id: 1, amount: 3, unit: '', name: 'salmon fillets', sub: [] },
       ],
 
-      instructions: [
-        'Set oven to 420F.',
-      ],
+      instructions: ['Set oven to 420F.'],
 
       notes: ['Notes for next time'],
 
@@ -33,7 +31,7 @@ const misoOrangeSalmon = {
 
 const garlickyAsparagus = {
   id: '2ga',
-  dateCreated: new Date,
+  dateCreated: new Date(),
   title: 'Garlicky Asparagus OR Green Beans',
 
   versions: [
@@ -66,7 +64,7 @@ const garlickyAsparagus = {
 
 const honeyLemonShrimp = {
   id: '3hls',
-  dateCreated: new Date,
+  dateCreated: new Date(),
   title: 'Honey Lemon Shrimp Recipe With Veggies',
   versions: [
     {

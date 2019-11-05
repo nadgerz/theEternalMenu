@@ -2,7 +2,6 @@ const mockRecipes = require('./recipes');
 const Recipe = require('./recipe');
 const Ingredient = require('./ingredient');
 
-
 // TESTS
 // new Recipe: ok
 
@@ -13,6 +12,7 @@ const Ingredient = require('./ingredient');
 
 // RecipeVersion.get:
 
+// RecipeVersion.get:
 
 let recipe1 = new Recipe(mockRecipes[1].title, mockRecipes[1].versions[0]);
 // console.log(recipe1);
@@ -51,7 +51,3 @@ console.log(recipe1.getVersionIndexById(recipe1.versions[0].id));
 // RecipeVersion.get
 console.log('======================================');
 console.log(recipe1.versions[0].get());
-
-
-
-
