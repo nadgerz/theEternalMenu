@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const fs = require('fs');
 const Flatted = require('flatted/cjs');
 

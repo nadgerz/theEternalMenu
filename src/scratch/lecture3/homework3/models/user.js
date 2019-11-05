@@ -36,8 +36,6 @@ module.exports = class User {
     }
 
     this.recipes.push(recipe);
-
-    this.save();
   }
 
   titleExists(title) {

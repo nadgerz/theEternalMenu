@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const mockRecipes = require('./recipes');
 const Recipe = require('./recipe');
 const Ingredient = require('./ingredient');
@@ -37,6 +39,7 @@ recipe1.addVersion(testVersion);
 
 // getVersion
 // console.log('======================================');
+
 // console.log(recipe1.getVersion(1));
 
 // deleteVersionById

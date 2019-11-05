@@ -82,8 +82,7 @@ module.exports = class Service {
 
   async saveAll(items) {
     return new Promise((resolve, reject) => {
-      // fs.writeFile(this.dbPath, Flatted.stringify(items, null, 2), err => {
-      fs.writeFile(this.dbPath, Flatted.stringify(items), (err, file) => {
+      fs.writeFile(this.dbPath, Flatted.stringify(items), err => {
         if (err) return reject(err);
 
         resolve();
