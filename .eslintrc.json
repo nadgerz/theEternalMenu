@@ -10,7 +10,7 @@
   "rules": {
     "react/prop-types": 0,
     "no-console": 1,
-    "no-unused-vars": "warn",
+    "no-unused-vars": "error",
     "react-hooks/rules-of-hooks": 2,
     "react-hooks/exhaustive-deps": 1
   },
