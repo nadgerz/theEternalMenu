@@ -77,3 +77,4 @@ dist/
 .env
 coverage/
 .vscode/
+/src/scratch/lecture4/node_modules/
