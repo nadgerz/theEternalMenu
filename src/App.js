@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { Router, Link } from '@reach/router';
 import { Link } from '@reach/router';
+import Login from './Login';
 import './assets/CSS/app.css';
 
 // import SearchParams from './SearchParams';
@@ -28,27 +29,29 @@ const App = () => {
       </header>
 
       <main id={'main'}>
-        <div className={'add-and-recents'}>
-          <div className="add-new">
-            <Link to="/">
-              <div className="icon">+</div>
-              Create New Recipe
-            </Link>
-          </div>
+        {/*<div className={'add-and-recents'}>*/}
+        {/*  <div className="add-new">*/}
+        {/*    <Link to="/">*/}
+        {/*      <div className="icon">+</div>*/}
+        {/*      Create New Recipe*/}
+        {/*    </Link>*/}
+        {/*  </div>*/}
+        {/*  */}
+        {/*  <div className="recents">*/}
+        {/*    <h3>RECENTLY EDITED</h3>*/}
+        {/*    <div className="recent-dishes">*/}
+        {/*      <div className="recent-dish"></div>*/}
+        {/*      <div className="recent-dish"></div>*/}
+        {/*      <div className="recent-dish"></div>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        {/*<Router>*/}
+        {/*<SearchParams path={'/'}/>*/}
+        {/*<Recipe path={'/details/:id'}/>*/}
+        {/*</Router>*/}
 
-          <div className="recents">
-            <h3>RECENTLY EDITED</h3>
-            <div className="recent-dishes">
-              <div className="recent-dish"></div>
-              <div className="recent-dish"></div>
-              <div className="recent-dish"></div>
-            </div>
-          </div>
-          {/*<Router>*/}
-          {/*<SearchParams path={'/'}/>*/}
-          {/*<Recipe path={'/details/:id'}/>*/}
-          {/*</Router>*/}
-        </div>
+        <Login />
       </main>
     </React.StrictMode>
   );
