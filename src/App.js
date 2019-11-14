@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { Router, Link } from '@reach/router';
 import { Link } from '@reach/router';
-import Login from './Login';
+// import FormikLogin from './Login';
+import RecipeForm from './RecipeForm';
 import './assets/CSS/app.css';
 
 // import SearchParams from './SearchParams';
@@ -51,7 +52,10 @@ const App = () => {
         {/*<Recipe path={'/details/:id'}/>*/}
         {/*</Router>*/}
 
-        <Login />
+        {/*<FormikLogin />*/}
+        {/*<FormikLogin email={'andrew@test.de'}/>*/}
+
+        <RecipeForm />
       </main>
     </React.StrictMode>
   );

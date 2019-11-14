@@ -1,43 +1,103 @@
 import React from 'react';
+// import { Formik } from 'formik';
+import { withFormik, Form, Field } from 'formik';
+import * as yup from 'yup';
+
 // import ReactDOM from 'react-dom';
 // import { Router, Link } from '@reach/router';
 // import { Link } from '@reach/router';
 
-const Login = () => {
-  // const { name, animal, breed, media, location, id } = props;
+const inputStyle = {
+  fontSize: '3rem',
+};
 
-  // let hero = "http://placecorgi.com/300/300";
-
-  // if (media.length) {
-  //   hero = media[0].small;
-  // }
-
+const Login = ({ values, errors, touched, isSubmitting }) => {
   return (
-    <div id={'login'} className="login">
-      {/* The action attribute defines the location (URL) where the form's collected data should be sent when it is submitted.*/}
-      {/* The method attribute defines which HTTP method to send the data with (it can be "get" or "post").*/}
-      <form action="/form-handler" method="post">
+    <div>
+      <Form id={'login'}>
         <div>
-          <label htmlFor="name">Username:</label>
-          <input
-            type="text"
-            id="user-name"
-            name="user_name"
-            placeholder={'enter your user name'}
-          />
-        </div>
-        <div>
-          <label htmlFor="mail">E-mail:</label>
-          <input
+          {touched.email && errors.email && <p>{errors.email}</p>}
+          <label htmlFor="user-email">E-mail:</label>
+          <Field
             type="email"
+            name="email"
             id="user-email"
-            name="user_mail"
-            placeholder={'example@mail.com'}
+            placeholder={'Your Email'}
+            style={inputStyle}
           />
         </div>
-      </form>
+        <br />
+        <div>
+          {touched.password && errors.password && <p>{errors.password}</p>}
+          <label htmlFor="password">Password:</label>
+          <Field
+            type="password"
+            name="password"
+            id="user-password"
+            placeholder={'your password'}
+            style={inputStyle}
+          />
+        </div>
+        <br />
+        <label htmlFor="newsletter">
+          <Field
+            type={'checkbox'}
+            name={'newsletter'}
+            checked={values.newsletter}
+          />
+          Join our newsletter
+        </label>
+        <br />
+        <Field component={'select'} name={'plan'}>
+          <option value="free">Free</option>
+          <option value="premium">Premium</option>
+        </Field>
+
+        <button type={'submit'} disabled={isSubmitting}>
+          Submit
+        </button>
+      </Form>
     </div>
   );
 };
 
-export default Login;
+// withFormik: higher Order function; returns a function
+// pay attention to the immediate invocation at the TAIL END
+const FormikLogin = withFormik({
+  // the props being passed here could be data from you DB
+  // TODO SAI: what does this mean for my setup?
+  mapPropsToValues({ email, password, newsletter, plan }) {
+    return {
+      email: email || '',
+      password: password || '',
+      newsletter: newsletter || false,
+      plan: plan || 'premium',
+    };
+  },
+  validationSchema: yup.object().shape({
+    // error messages!
+    email: yup
+      .string()
+      .email('Email not valid')
+      .required('Email is required'),
+    password: yup
+      .string()
+      .min(12, 'Password must be 12 characters or longer')
+      .required('Password is required'),
+  }),
+  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+    setTimeout(() => {
+      if (values.email === 'andrew@test.io') {
+        setErrors({ email: 'That Email is already taken' });
+      } else {
+        resetForm();
+      }
+      setSubmitting(false);
+    }, 3000);
+    // this is where you'd make a graphQL/HTP request or run some JS
+    console.log('handleSubmit');
+    console.log(values);
+  },
+})(Login);
+
+export default FormikLogin;
