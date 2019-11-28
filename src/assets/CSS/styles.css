@@ -9,7 +9,7 @@
 html {
   /*  C O L O R S  */
 
-  --color-bg: #a59b8e;
+  --color-bg: #fcfbf9;
   --color-white: #fff;
 
   --color-text-primary: #403e37;
@@ -21,12 +21,12 @@ html {
   --color-neutral-light: #f0e9e3;
 
   --color-highlight-dark: #0530bf;
-  --color-highlight-medium: #0530bf;
+  --color-highlight-medium: #91a2fd;
   --color-highlight-light: #0530bf;
   --color-highlight-light-bg: #dce1fe;
 
   /*  R A D I U S  */
-  --corner-radius: 10%;
+  --corner-radius: 1.1rem;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -50,6 +50,35 @@ a.btn.primary {
 
 a.btn.secondary {
   border: 1.5px solid var(--color-highlight-dark);
+}
+
+.heart-tag {
+  height: 3.5rem;
+  width: 3rem;
+  position: absolute;
+  top: -5px;
+  left: var(--padding-small);
+  background-color: var(--color-highlight-medium);
+  border-radius: 5px;
+  padding: 1rem 0 0 0;
+}
+
+.heart-tag:after {
+  content: '';
+  border-radius: var(--corner-radius);
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 1.5rem solid transparent;
+  border-right: 1.5rem solid transparent;
+  border-top: 1rem solid var(--color-highlight-medium);
+}
+
+.heart-outline-icon svg {
+  margin: 0 auto;
+  /*padding-top: 10%;*/
 }
 
 /* ------------------------------------------------------------------------- */
