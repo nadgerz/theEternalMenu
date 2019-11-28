@@ -114,8 +114,8 @@ h2 {
 }
 
 h3 {
-  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-  font-size: 2.5rem;
+  font-family: DisplayMedium, 'Helvetica', 'Arial', sans-serif;
+  font-size: 3.5rem;
   letter-spacing: 1px;
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
@@ -124,8 +124,8 @@ h3 {
 }
 
 h4 {
-  font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
-  font-size: 2rem;
+  font-family: DisplayMedium, 'Helvetica', 'Arial', sans-serif;
+  font-size: 2.8rem;
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
   /* margin-bottom: 0;*/
@@ -133,7 +133,15 @@ h4 {
 
 h5 {
   font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.6rem;
+  font-size: 2.2rem;
+  /*line-height: var(--line-height-standard);*/
+  /* margin-top: --line-height-standard;*/
+  /* margin-bottom: 0;*/
+}
+
+h6 {
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.8rem;
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
   /* margin-bottom: 0;*/
