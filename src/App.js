@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import { Router, Link } from '@reach/router';
-import { Link } from '@reach/router';
-import Login from './Login';
+// import { Link } from '@reach/router';
+
+import Header from './components/Header';
+import Overview from './pages/Overview';
+
+// import FormikLogin from './Login';
+// import RecipeForm from './RecipeForm';
+
 import './assets/CSS/app.css';
 
 // import SearchParams from './SearchParams';
@@ -13,45 +19,17 @@ const App = () => {
     // strictMode will warn you if you try to use a react feature they want to deprecate soon
     // will do nothing in production
     <React.StrictMode>
-      <header>
-        <nav className="burger-menu">
-          <div className="bars">
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-          </div>
-        </nav>
-        <div className="site-branding">
-          <Link to={'/'}>
-            <h1>The Eternal Menu</h1>
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       <main id={'main'}>
-        {/*<div className={'add-and-recents'}>*/}
-        {/*  <div className="add-new">*/}
-        {/*    <Link to="/">*/}
-        {/*      <div className="icon">+</div>*/}
-        {/*      Create New Recipe*/}
-        {/*    </Link>*/}
-        {/*  </div>*/}
-        {/*  */}
-        {/*  <div className="recents">*/}
-        {/*    <h3>RECENTLY EDITED</h3>*/}
-        {/*    <div className="recent-dishes">*/}
-        {/*      <div className="recent-dish"></div>*/}
-        {/*      <div className="recent-dish"></div>*/}
-        {/*      <div className="recent-dish"></div>*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+        <Overview />
         {/*<Router>*/}
         {/*<SearchParams path={'/'}/>*/}
         {/*<Recipe path={'/details/:id'}/>*/}
         {/*</Router>*/}
-
-        <Login />
+        {/*<FormikLogin />*/}
+        {/*<FormikLogin email={'andrew@test.de'}/>*/}
+        {/*<RecipeForm />*/}
       </main>
     </React.StrictMode>
   );

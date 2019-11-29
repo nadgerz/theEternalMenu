@@ -1,39 +1,48 @@
 /* I N F O
 you need to have a CSS file imported from JS. For example, by default src/index.js imports src/index.css:
-import './index.css';
-A CSS file like this goes through the build pipeline, and can reference fonts and images.
+import './index.css'; A CSS file like this goes through the build pipeline, and can reference fonts and images.
 */
 
 @font-face {
   font-family: 'MainRegular';
   font-weight: normal;
-  src: local('MainRegular'), url(../fonts/Roboto-Regular.ttf) format('truetype');
+  src: local('MainRegular'),
+    url(../fonts/BarlowSemiCondensed-Regular.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'MainBold';
   font-weight: bold;
-  src: local('MainBold'), url(../fonts/Roboto-Bold.ttf) format('truetype');
+  src: local('MainBold'),
+    url(../fonts/BarlowSemiCondensed-SemiBold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'MainItalic';
   font-weight: normal;
-  src: local('MainItalic'), url(../fonts/Roboto-Italic.ttf) format('truetype');
+  src: local('MainItalic'),
+    url(../fonts/BarlowSemiCondensed-Italic.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'DisplayRegular';
-  font-weight: normal;
+  font-weight: 400; /* normal */
   src: local('DisplayRegular'),
-    url(../fonts/RobotoCondensed-Regular.ttf) format('truetype');
+    url(../fonts/BarlowCondensed-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'DisplayMedium';
+  font-weight: 600;
+  src: local('DisplayMedium'),
+    url(../fonts/BarlowCondensed-Medium.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'DisplayBold';
-  font-weight: bold;
+  font-weight: 600; /* bold would be: 700 */
   src: local('DisplayBold'),
-    url(../fonts/RobotoCondensed-Bold.ttf) format('truetype');
+    url(../fonts/BarlowCondensed-SemiBold.ttf) format('truetype');
 }
 
 /*---------------------------------------------------------
@@ -42,8 +51,8 @@ A CSS file like this goes through the build pipeline, and can reference fonts an
 
 /* VARIABLES */
 html {
-  --line-height-standard: 2.1rem;
-  --line-height-double: 4.2rem;
+  --line-height-standard: 1.2;
+  --line-height-double: 2;
 
   font-size: 10px;
   line-height: var(--line-height-standard);
@@ -54,9 +63,17 @@ html {
 body {
   color: var(--color-text-primary);
   font-family: MainRegular, 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: var(--line-height-standard);
   margin: auto;
+}
+
+p strong {
+  font-family: MainBold, 'Helvetica', 'Arial', sans-serif;
+}
+
+p em {
+  font-family: MainItalic, 'Helvetica', 'Arial', sans-serif;
 }
 
 /* --------------------------------------------------------- */
@@ -80,7 +97,7 @@ h1 {
   font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
   font-size: 2.5rem;
   letter-spacing: 1px;
-  /*line-height: 1.2;*/
+  /*line-height: var(--line-height-double);*/
   /*margin-top: $line-height-standard;*/
   /*margin-bottom: var(--line-height-standard);*/
   text-transform: uppercase;
@@ -88,28 +105,27 @@ h1 {
 
 h2 {
   font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-  /*font-family: inherit;*/
   font-size: 4rem;
   letter-spacing: 1px;
-  /*line-height: var(--line-height-double);*/
+  line-height: var(--line-height-double);
   /*margin-top: $line-height-standard;*/
   /*margin-bottom: var(--line-height-double);*/
   text-transform: uppercase;
 }
 
 h3 {
-  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-  font-size: 2.5rem;
+  font-family: DisplayMedium, 'Helvetica', 'Arial', sans-serif;
+  font-size: 3.5rem;
   letter-spacing: 1px;
-  /*line-height: var(--line-height-standard);*/
+  line-height: 1.1;
   /* margin-top: --line-height-standard;*/
   /*margin-bottom: var(--line-height-standard);*/
   text-transform: uppercase;
 }
 
 h4 {
-  font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
-  font-size: 2rem;
+  font-family: DisplayMedium, 'Helvetica', 'Arial', sans-serif;
+  font-size: 2.8rem;
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
   /* margin-bottom: 0;*/
@@ -117,7 +133,20 @@ h4 {
 
 h5 {
   font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.6rem;
+  font-size: 2.2rem;
+  /*line-height: var(--line-height-standard);*/
+  /* margin-top: --line-height-standard;*/
+  /* margin-bottom: 0;*/
+
+  /* truncate the title ... */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h6 {
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.8rem;
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
   /* margin-bottom: 0;*/
@@ -146,7 +175,7 @@ a {
 a.btn {
   /*color: var(--color-dark-grey);*/
   font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.6rem;
+  /*font-size: 1.8rem;*/
   /*margin-top: var(--line-height-standard);*/
   /*margin-bottom: var(--line-height-standard);*/
   text-align: center;
