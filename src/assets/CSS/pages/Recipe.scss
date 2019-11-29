@@ -1,0 +1,42 @@
+@import url('../styles.css');
+
+$recipe-img: 36rem;
+
+#recipe {
+  .top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .left {
+    flex: 1 1;
+  }
+
+  .right {
+    border-radius: var(--corner-radius);
+    width: $recipe-img;
+    overflow: hidden;
+  }
+
+  .top {
+    width: 100%;
+
+    .left {
+      border: 1px solid black;
+    }
+
+    .right {
+      .img img {
+        background-color: var(--color-highlight-light-bg);
+        height: $recipe-img;
+        width: 100%;
+      }
+    }
+  }
+
+  .left .content,
+  .right .content {
+    padding: var(--padding-small);
+  }
+}

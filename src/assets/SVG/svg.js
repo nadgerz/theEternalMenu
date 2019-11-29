@@ -30,7 +30,7 @@ export const MenuIcon = () => {
   );
 };
 
-export const HeartFilledIcon = () => {
+export const HeartFilledIcon = ({ fill }) => {
   return (
     <svg
       viewBox={`0 0 ${S} ${S}`}
@@ -46,7 +46,7 @@ export const HeartFilledIcon = () => {
       <g id="icon">
         <path
           id="Path_263"
-          fill={'currentColor'}
+          fill={fill}
           data-name="Path 263"
           d="M12,21.18l-1.45-1.32C5.4,15.19,2,12.11,2,8.33a5.44,5.44,0,0,1,5.39-5.5.21.21,0,0,1,.11,0A6,6,0,0,1,12,4.92a6,6,0,0,1,4.5-2.09A5.44,5.44,0,0,1,22,8.22v.11c0,3.78-3.4,6.86-8.55,11.54Z"
         />
@@ -55,7 +55,7 @@ export const HeartFilledIcon = () => {
   );
 };
 
-export const HeartOutlineIcon = () => {
+export const HeartOutlineIcon = ({ fill }) => {
   return (
     <svg
       viewBox={`0 0 ${S} ${S}`}
@@ -72,7 +72,7 @@ export const HeartOutlineIcon = () => {
         <path
           id="Path_265"
           data-name="Path 265"
-          fill={'currentColor'}
+          fill={fill}
           d="M16.5,2.83A6,6,0,0,0,12,4.92,6,6,0,0,0,7.5,2.83,5.44,5.44,0,0,0,2,8.22v.11c0,3.78,3.4,6.86,8.55,11.54L12,21.18l1.45-1.32C18.6,15.19,22,12.11,22,8.33a5.44,5.44,0,0,0-5.39-5.5A.21.21,0,0,0,16.5,2.83ZM12.1,18.38l-.1.1-.1-.1C7.14,14.07,4,11.22,4,8.33a3.41,3.41,0,0,1,3.33-3.5H7.5a3.9,3.9,0,0,1,3.57,2.36h1.87A3.87,3.87,0,0,1,16.5,4.83,3.41,3.41,0,0,1,20,8.16v.17C20,11.22,16.86,14.07,12.1,18.38Z"
         />
       </g>
@@ -97,7 +97,7 @@ export const CookingTimeIcon = () => {
         <path
           id="Path_1007"
           data-name="Path 1007"
-          fill={'black'}
+          fill={'current color'}
           d="M22,5.79,17.4,1.93,16.11,3.46l4.6,3.86ZM7.88,3.46,6.6,1.93,2,5.78,3.29,7.31ZM12.5,8.07H11v6l4.75,2.85.75-1.23-4-2.37Zm-.5-4a9,9,0,1,0,9,9A9,9,0,0,0,12,4.07Zm0,16a7,7,0,1,1,7-7,7,7,0,0,1-7,7Z"
         />
       </g>

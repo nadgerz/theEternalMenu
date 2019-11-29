@@ -24,7 +24,7 @@ main {
   max-width: 100%;
   width: var(--main-width);
   min-height: 100vh;
-  padding: var(--padding-big);
+  padding: 10rem var(--padding-big) var(--padding-big);
   border: 1px solid red;
 }
 

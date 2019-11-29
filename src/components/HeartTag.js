@@ -1,13 +1,18 @@
 import React from 'react';
 
-// import { HeartOutlineIcon, HeartFilledIcon } from '../assets/SVG/svg';
-import { HeartOutlineIcon } from '../assets/SVG/svg';
+import { HeartOutlineIcon, HeartFilledIcon } from '../assets/SVG/svg';
 
-const HeartTag = () => {
+const fill = '#fff';
+
+const HeartTag = ({ favourite }) => {
   return (
     <div className={'heart-tag'}>
       <div className={'heart-outline-icon'}>
-        <HeartOutlineIcon />
+        {favourite ? (
+          <HeartFilledIcon fill={fill} />
+        ) : (
+          <HeartOutlineIcon fill={fill} />
+        )}
       </div>
     </div>
   );

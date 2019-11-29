@@ -21,9 +21,11 @@ html {
   --color-neutral-light: #f0e9e3;
 
   --color-highlight-dark: #0530bf;
-  --color-highlight-medium: #91a2fd;
-  --color-highlight-light: #4e69fb;
+  --color-highlight-medium: #4e69fb;
+  --color-highlight-light: #91a2fd;
   --color-highlight-light-bg: #dce1fe;
+
+  --color-highlight-contrast: orangered;
 
   /*  R A D I U S  */
   --corner-radius: 1.1rem;
@@ -33,11 +35,23 @@ html {
 /*      S H A R E D       */
 /* ------------------------------------------------------------------------- */
 
+.body {
+  /*background-color: var(--color-bg);*/
+}
+
 .hidden {
   display: none;
 }
 
 /*  B U T T O N S  */
+
+a:visited {
+  color: var(--color-text-primary);
+}
+
+a:hover {
+  color: var(--color-highlight-contrast);
+}
 
 a.btn.primary,
 a.btn.secondary {
