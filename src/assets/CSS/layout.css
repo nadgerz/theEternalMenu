@@ -52,42 +52,8 @@ svg {
   margin-left: 1rem;
 }
 
-#recipe-filter,
 #recipes {
-  /*border: 1px solid black;*/
   padding: var(--padding-small);
-}
-
-#recipe-filter {
-  background-color: var(--color-bg);
-  min-width: 21.5rem;
-  margin-right: var(--padding-big);
-}
-
-#recipe-filter svg {
-  display: inline;
-}
-
-#recipe-filter .cooking-time,
-.serving-size {
-}
-
-.filter-title {
-  margin-bottom: var(--padding-small);
-  /*border: 1px solid black;*/
-  display: flex;
-}
-
-.filter-title h6 {
-  margin-left: 0.7rem;
-}
-
-#recipe-filter .filter-slider {
-  width: 100%;
-  min-height: 5rem;
-  background-color: var(--color-highlight-light-bg);
-  padding: 0 0.5rem;
-  margin-bottom: var(--padding-big);
 }
 
 /*   R E C I P E S    */
