@@ -21,7 +21,8 @@ html {
 
 main {
   margin: 0 auto;
-  max-width: var(--main-width);
+  max-width: 100%;
+  width: var(--main-width);
   min-height: 100vh;
   padding: var(--padding-big);
   border: 1px solid red;
@@ -120,6 +121,18 @@ svg {
   align-self: flex-end;
   padding: var(--padding-small);
   position: relative;
+  height: calc((var(--recipe-card-height)) - 3.5rem);
+  border: 1px solid black;
+}
+
+.recipe-card-title p {
+  font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
+  font-size: 2.2rem;
+
+  /* truncate the title ... */
+  /*white-space: nowrap;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .recipe-card .recipe-thumb {

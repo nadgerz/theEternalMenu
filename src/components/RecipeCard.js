@@ -6,7 +6,7 @@ const RecipeCard = () => {
     <div className="recipe-card">
       <HeartTag />
       <div className={'recipe-card-title'}>
-        <p>A Recipe Title A Recipe Title A Recipe Title</p>
+        <p>A Recipe Title A Recipe Title A Recipe Title Title Title Title</p>
       </div>
       <div className={'recipe-thumb'}></div>
     </div>

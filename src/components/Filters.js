@@ -1,7 +1,7 @@
 import React from 'react';
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 
-const Filter = () => {
+const Filters = () => {
   return (
     <aside id={'recipe-filter'}>
       <h2>Filter</h2>
@@ -23,4 +23,4 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+export default Filters;

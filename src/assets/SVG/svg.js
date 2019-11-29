@@ -115,15 +115,66 @@ export const ServingSizeIcon = () => {
       xmlnsXlink={xmlnsXlink}
     >
       <title>svg_serving_size</title>
-      {/*<g id="bg">*/}
-      {/*  <path id="Path_1935" data-name="Path 1935" d="M0,0H24V24H0Z" style="fill: none"/>*/}
-      {/*</g>*/}
+      <g id="bg">
+        <path
+          id="Path_1935"
+          data-name="Path 1935"
+          d="M0,0H24V24H0Z"
+          fill={'none'}
+        />
+      </g>
       <g id="icon">
         <path
           id="Path_1934"
           data-name="Path 1934"
           fill={'currentColor'}
           d="M11,9H9V2H7V9H5V2H3V9a4,4,0,0,0,3.75,4v9h2.5V13A4,4,0,0,0,13,9V2H11Zm5-3v8h2.5v8H21V2C18.24,2,16,4.24,16,6Z"
+        />
+      </g>
+    </svg>
+  );
+};
+
+export const PlateAndCutleryIcon = () => {
+  return (
+    <svg xmlns={xmlns} xmlnsXlink={xmlnsXlink} viewBox="0 0 140 90">
+      <title>svg_plate_cutlery</title>
+      <g id="icon">
+        <g>
+          <path
+            d="M24.41,37.64l-2-14.42-4.11.57,2,14.43-4.12.57-2-14.42L10,25l2,14.42L7.93,40l-2-14.42-4.12.58,2,14.42a8.3,8.3,0,0,0,8.87,7.1L18.08,86l5.15-.73L17.83,46.9A8.28,8.28,0,0,0,24.41,37.64Z"
+            fill={'#fff'}
+          />
+          <circle cx="75.72" cy="45" r="32.5" fill={'#fff'} />
+          <path
+            d="M75.72,2.88A42.12,42.12,0,1,0,117.84,45,42.12,42.12,0,0,0,75.72,2.88ZM110.22,45c0,.83,0,1.65-.1,2.47a34.49,34.49,0,0,1-33.72,32l-.68,0h-.46a34.5,34.5,0,1,1,34.86-36.92C110.18,43.38,110.22,44.18,110.22,45Z"
+            fill={'#fff'}
+          />
+          <path
+            d="M127.82,17.82V54.47H133V81.11h5.2V9.5C132.48,9.5,127.82,14.16,127.82,17.82Z"
+            fill={'#fff'}
+          />
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+export const AddIcon = () => {
+  return (
+    <svg xmlns={xmlns} xmlnsXlink={xmlnsXlink} viewBox={`0 0 ${S} ${S}`}>
+      <title>svg_add</title>
+      {/*<g id="bg">*/}
+      {/*  <path id="Path_913"*/}
+      {/*        data-name="Path 913" d="M0,0H24V24H0Z"*/}
+      {/*        fill={'none'}/>*/}
+      {/*</g>*/}
+      <g id="icon">
+        <path
+          id="Path_912"
+          data-name="Path 912"
+          d="M19,13H13v6H11V13H5V11h6V5h2v6h6Z"
+          fill={'currentColor'}
         />
       </g>
     </svg>
