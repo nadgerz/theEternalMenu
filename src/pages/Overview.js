@@ -4,31 +4,7 @@ import AddRecipeCard from '../components/AddRecipeCard';
 import Filters from '../components/Filters';
 import RecipeCard from '../components/RecipeCard';
 
-import mockImage from '../assets/imgs/iu-1.jpeg';
-import mockImage2 from '../assets/imgs/iu-2.jpeg';
-import mockImage3 from '../assets/imgs/iu-3.jpeg';
-
-const mockData = {
-  user: {
-    recipes: [
-      {
-        title: 'Eggs On Toast',
-        img: mockImage,
-        favourite: false,
-      },
-      {
-        title: 'Boiled Eggs',
-        img: mockImage2,
-        favourite: true,
-      },
-      {
-        title: 'Scrambled Eggs',
-        img: mockImage3,
-        favourite: false,
-      },
-    ],
-  },
-};
+import mockData from '../assets/data/data';
 
 const Overview = () => {
   return (
