@@ -21,8 +21,8 @@ html {
   --color-neutral-light: #f0e9e3;
 
   --color-highlight-dark: #0530bf;
-  --color-highlight-medium: #91a2fd;
-  --color-highlight-light: #4e69fb;
+  --color-highlight-medium: #4e69fb;
+  --color-highlight-light: #91a2fd;
   --color-highlight-light-bg: #dce1fe;
 
   --color-highlight-contrast: orangered;
@@ -34,6 +34,10 @@ html {
 /* ------------------------------------------------------------------------- */
 /*      S H A R E D       */
 /* ------------------------------------------------------------------------- */
+
+.body {
+  /*background-color: var(--color-bg);*/
+}
 
 .hidden {
   display: none;
