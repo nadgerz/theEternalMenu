@@ -1,6 +1,24 @@
 import React from 'react';
 import RecipeCard from '../components/RecipeCard';
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
+import mockImage from '../assets/imgs/iu-1.jpeg';
+
+const mockData = {
+  user: {
+    recipes: [
+      {
+        title: 'Eggs On Toast',
+        imgs: [mockImage],
+      },
+      {
+        title: 'Boiled Eggs',
+      },
+      {
+        title: 'Scrambled Eggs',
+      },
+    ],
+  },
+};
 
 const Overview = () => {
   return (
@@ -24,7 +42,7 @@ const Overview = () => {
       </aside>
       <article id="recipes">
         <h2>
-          Recipes <span>{12} in total</span>
+          Recipes <span>{mockData.user.recipes.length} in total</span>
         </h2>
         <div className={'recipe-grid'}>
           <div id={'add-recipe'} className="recipe-card add-recipe">
