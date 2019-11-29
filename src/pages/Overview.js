@@ -49,7 +49,7 @@ const Overview = () => {
                 img={recipe.img}
                 title={recipe.title}
                 key={
-                  recipe.title.toLowerCase().replace(/\s*/, '') + '_' + index
+                  recipe.title.toLowerCase().replace(/\s/g, '') + '_' + index
                 }
               />
             );
