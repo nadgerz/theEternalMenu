@@ -4,7 +4,7 @@ import React from 'react';
 
 const Recipe = () => {
   return (
-    <div className={'recipe'}>
+    <div id={'recipe'} className={'recipe'}>
       <h2>Recipe Page!</h2>
     </div>
   );
