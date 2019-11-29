@@ -1,6 +1,7 @@
 import React from 'react';
+import Filter from '../components/Filter';
 import RecipeCard from '../components/RecipeCard';
-import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
+
 import mockImage from '../assets/imgs/iu-1.jpeg';
 
 const mockData = {
@@ -23,23 +24,9 @@ const mockData = {
 const Overview = () => {
   return (
     <div id={'overview'} className={'recipes-and-filter'}>
-      <aside id={'recipe-filter'}>
-        <h2>Filter</h2>
-        <div className={'cooking-time'}>
-          <div className="filter-title">
-            <CookingTimeIcon />
-            <h6>Cooking Time</h6>
-          </div>
-          <div className="filter-slider"></div>
-        </div>
-        <div className={'serving-size'}>
-          <div className="filter-title">
-            <ServingSizeIcon />
-            <h6>Serving Size</h6>
-          </div>
-          <div className="filter-slider"></div>
-        </div>
-      </aside>
+      {/* TODO: Filter will need to be passed props from user */}
+      <Filter />
+
       <article id="recipes">
         <h2>
           Recipes <span>{mockData.user.recipes.length} in total</span>
