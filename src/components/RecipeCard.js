@@ -1,14 +1,21 @@
 import React from 'react';
 import HeartTag from './HeartTag';
 
-const RecipeCard = () => {
+const RecipeCard = props => {
+  const { img, title } = props;
+
   return (
     <div className="recipe-card">
       <HeartTag />
+      {/*{ img }*/}
       <div className={'recipe-card-title'}>
-        <p>A Recipe Title A Recipe Title A Recipe Title Title Title Title</p>
+        <h5>{title}</h5>
       </div>
-      <div className={'recipe-thumb'}></div>
+
+      <div className={'recipe-thumb'}>
+        <img src={img} alt="a dish" />
+        {/*<img src={require(`${image}`)}*/}
+      </div>
     </div>
   );
 };

@@ -95,6 +95,7 @@ a.btn.secondary {
 #add-recipe div:first-child {
   max-width: var(--recipe-card-height);
   align-self: flex-end;
+  flex: 1 1;
 }
 
 .add-recipe-icons {
@@ -121,16 +122,16 @@ a.btn.secondary {
 
 .add-recipe-icons svg:last-child {
   /* plus sign */
-  width: 9rem;
-  height: 9rem;
-  top: 6.3rem;
-  left: 4rem;
+  width: 8rem;
+  height: 8rem;
+  top: 6.7rem;
+  left: 4.5rem;
   transition: 0.3s ease-in-out;
 }
 
 .add-recipe-icons svg:last-child:hover {
   color: var(--color-highlight);
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 /* ------------------------------------------------------------------------- */
