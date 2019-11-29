@@ -14,14 +14,17 @@ const mockData = {
       {
         title: 'Eggs On Toast',
         img: mockImage,
+        favourite: false,
       },
       {
         title: 'Boiled Eggs',
         img: mockImage2,
+        favourite: true,
       },
       {
         title: 'Scrambled Eggs',
         img: mockImage3,
+        favourite: false,
       },
     ],
   },
@@ -48,6 +51,7 @@ const Overview = () => {
               <RecipeCard
                 img={recipe.img}
                 title={recipe.title}
+                favourite={recipe.favourite}
                 key={
                   recipe.title.toLowerCase().replace(/\s/g, '') + '_' + index
                 }
