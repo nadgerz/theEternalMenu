@@ -1,31 +1,36 @@
-# READ ME
+# 🍜 🥦 🥘 🥪 🍝 🌶 🌮 🍡 🥐 🍧 🥙 🍤 🍲 🥗 🍳 🍎 🌯 
 
-## The Eternal Menu
+# 🍘 The Eternal Menu 🍅 🥞 🍠  🍔 🍱 🍚 🧁 🥓 🍆
 
-This is will (hopefullt) one day be a fully fleshed out recipe & menu creation App. There are two basic ideas behind it:
+# 🥒 🥧 🍒 🍕 🍰 🍮 🥟 🥬 🍗 🍛 🌽 🍐 🍞 🥑 🥨 🥕 🥮 
 
-###1. improving one's cooking skills through iteration
 
-There are enough recipe sites/app out there already. But what a lot of them don't seem to focus on, is customising/tweaking a recipe to your specific tastes and skills. Not only that, but if I look at the amazing dishes my grandma regularly makes, I noticed she only really has about 20-30 recipes she knows by heart, doesn't need to look up in a book and that are family favourites. 
 
-It's easy to look up/try new recipes anytime online/in a book, but what about curating your own collection of favourite dishes you love to make AND eat? 
+This will (hopefully) one day be a fully fleshed out recipe & menu creation App. 
+There are two basic ideas behind it:
 
-I improve most efficiently if I repeat a dish/recipe with only minor changes from one version to the other, I thought that this might be an interesting concept to incorporate into a recipe collection that's utterly personal to the user. 
+### 1. Improving cooking skills through iteration
 
-No social aspect, just a highly personal collection of recipes you love, or are trying to perfect. So, in essence, cook like a programmer :D 
+There are enough recipe sites/apps out there already. While they let you create , share, and import recipes, a functionality I have sorely missed so far is the ability to create a version history for a specific recipe you've created/imported, to enable you test and tweak a recipe until you've perfected it. In essence, a git for recipes which helps you improve your cooking more efficiently. 
 
-This is the first part I'll try to build.
+The App will have no social aspect to it, I see it more as a highly personal collection of recipes you love, or are trying to perfect. 
 
-### 2. easily generating/maintainig an 'Eternal Menu'
+Cook like a programmer! 👩‍🍳 
 
-Assuming you've used the iterative approach to cooking to generate recipes you truly love, then over time you will have built up a cook book filled with personal favourites. The next logical step for me would be to create weekly menus from your recipes. Several factors are important for this, though: 
+### 2. Easily generating/maintaining an 'Eternal Menu'
+
+My grandma cooks fantastic meals for the whole family. One day I noticed though, that she only really knows about 20 recipes by heart, ones she doesn't need to look up in a book and that are popular with the family and her.
+
+I am assuming that most people won't want to try out new recipes every week, but instead would want to build up a cook book filled with favourites they know they can cook well. The next step then is to help users create weekly/biweekly menus from their recipe collections. 
+
+#### Factors:
 
 - what season is it and what vegetables are available right now?
-- how much time do you have that week? will you only manage to whip up 30min dishes or is it holiday season and you want to spend time in your kitchen?
+- how much time do you have that week?
 - which days of the week are you able to/need to cook? 
-- is there a food patter (e.g. fish on Fridays) that you'de like to see repeated in your menu?
+- is there a food pattern (e.g. fish on Fridays) you'd like to see repeated in your menu?
 
-All these filters make your recipe colection a prime candidate for creative programming! If one does not want to think a lot about what you're going to make throughout the rest of the week, then applying filters should make the creation of a menu easier to manage. 
+Applying filters should make the creation of a menu much easier. 
 
 
 
@@ -33,15 +38,17 @@ All these filters make your recipe colection a prime candidate for creative prog
 
 ## Other objectives
 
-Besides wishing for an App like the Eternal Menu, I also wanted to use the opportunity to get better/learn about several skills:
-
-- finally learn about the backend of frontend programming 
+- finally learn about the back-end of front-end programming 
   - Promises and Async Programming
   - HTTP APIs
   - Adding a MongoDB Datastore
   - Testing
   - Deploying & Scaling Apps with Docker
-- improve on / extend my knowledge or react
-  - Hooks
-  - 
+- improve my knowledge of React
+  - Hooks / Effects
+  - Reach Router
+  - React Context
+  - Error Boundaries
+  - Portals
+- practice using git
 

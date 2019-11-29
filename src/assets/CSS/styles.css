@@ -1,0 +1,150 @@
+@import url('./typography.css');
+@import url('./resets.css');
+@import url('./layout.css');
+
+/* ------------------------------------------------------------------------- */
+/*      V A R I A B L E S       */
+/* ------------------------------------------------------------------------- */
+
+html {
+  /*  C O L O R S  */
+
+  --color-bg: #fcfbf9;
+  --color-white: #fff;
+
+  --color-text-primary: #403e37;
+  --color-text-secondary: #5a554d;
+
+  --color-neutral-dark: #403e37;
+  --color-neutral-dark-2: #5a554d;
+  --color-neutral-medium: #a59b8e;
+  --color-neutral-light: #f0e9e3;
+
+  --color-highlight-dark: #0530bf;
+  --color-highlight-medium: #91a2fd;
+  --color-highlight-light: #4e69fb;
+  --color-highlight-light-bg: #dce1fe;
+
+  /*  R A D I U S  */
+  --corner-radius: 1.1rem;
+}
+
+/* ------------------------------------------------------------------------- */
+/*      S H A R E D       */
+/* ------------------------------------------------------------------------- */
+
+.hidden {
+  display: none;
+}
+
+/*  B U T T O N S  */
+
+a.btn.primary,
+a.btn.secondary {
+  border-radius: var(--corner-radius);
+}
+
+a.btn.primary {
+  background-color: var(--color-highlight);
+}
+
+a.btn.secondary {
+  border: 1.5px solid var(--color-highlight-dark);
+}
+
+/*  H E A R T   T A G  */
+
+.heart-tag {
+  border-radius: 5px 5px 0 0;
+  height: 3.5rem;
+  width: 3rem;
+  position: absolute;
+  top: -5px;
+  left: var(--padding-small);
+  background-color: var(--color-highlight-medium);
+  padding: 1rem 0 0 0;
+}
+
+.heart-tag:after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 1.5rem solid transparent;
+  border-right: 1.5rem solid transparent;
+  border-top: 1rem solid var(--color-highlight-medium);
+}
+
+.heart-outline-icon svg {
+  margin: 0 auto;
+  /*padding-top: 10%;*/
+}
+
+/* R E C I P E   A D D  B U T T O N */
+
+#add-recipe {
+  background-color: var(--color-highlight-light-bg);
+  overflow: hidden;
+  position: relative;
+  padding: var(--padding-small);
+  display: flex;
+}
+
+#add-recipe div:first-child {
+  max-width: var(--recipe-card-height);
+  align-self: flex-end;
+  flex: 1 1;
+}
+
+.add-recipe-icons {
+  background-color: var(--color-highlight-light);
+  border-radius: 50%;
+  height: 21rem;
+  width: 21rem;
+  position: absolute;
+  top: -4rem;
+  right: -5rem;
+  overflow: hidden;
+}
+
+.add-recipe-icons svg {
+  position: absolute;
+}
+
+.add-recipe-icons svg:first-child {
+  /* plate & cutlerly */
+  width: 15rem;
+  top: 6rem;
+  left: 0.5rem;
+}
+
+.add-recipe-icons svg:last-child {
+  /* plus sign */
+  width: 8rem;
+  height: 8rem;
+  top: 6.7rem;
+  left: 4.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+.add-recipe-icons svg:last-child:hover {
+  color: var(--color-highlight);
+  transform: scale(1.2);
+}
+
+/* ------------------------------------------------------------------------- */
+/*      F O R M S       */
+/* ------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------- */
+
+header {
+}
+
+/*****************************************************/
+
+/*  A D D  */
+
+/*  R E C E N T S  */
