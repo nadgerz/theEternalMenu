@@ -8,6 +8,7 @@ const Filters = () => {
   return (
     <aside id={'recipe-filter'}>
       <h2>Filters</h2>
+
       <div className={'cooking-time'}>
         <div className="filter-title">
           <CookingTimeIcon />
@@ -15,6 +16,7 @@ const Filters = () => {
             <h6>Cooking Time</h6>
           </label>
         </div>
+
         <div className="filter-slider">
           <input
             id="filter-cooking-time"
