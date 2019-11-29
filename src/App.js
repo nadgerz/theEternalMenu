@@ -60,7 +60,7 @@ const App = () => {
                   </div>
                 </div>
                 <div className={'recipe-card-title'}>
-                  <h5>A Recipe Title</h5>
+                  <p>A Recipe Title A Recipe Title A Recipe Title</p>
                   <div className="chevron"></div>
                 </div>
                 <div className={'recipe-thumb'}></div>

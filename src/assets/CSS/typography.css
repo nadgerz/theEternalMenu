@@ -137,6 +137,11 @@ h5 {
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
   /* margin-bottom: 0;*/
+
+  /* truncate the title ... */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 h6 {

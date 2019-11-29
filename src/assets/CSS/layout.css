@@ -96,7 +96,7 @@ svg {
 }
 
 .recipe-grid {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -127,9 +127,8 @@ svg {
   width: var(--recipe-card-height);
   background-color: var(--color-neutral-medium);
   border-radius: var(--corner-radius);
-  /*position: absolute;*/
-  /*right: 0;*/
-  /*top: 0;*/
+
+  /*background: url(bglines.png);*/
 }
 
 /* ------------------------------------------------------------------------- */

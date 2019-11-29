@@ -52,22 +52,23 @@ a.btn.secondary {
   border: 1.5px solid var(--color-highlight-dark);
 }
 
+/*  H E A R T   T A G  */
+
 .heart-tag {
+  border-radius: 5px 5px 0 0;
   height: 3.5rem;
   width: 3rem;
   position: absolute;
   top: -5px;
   left: var(--padding-small);
   background-color: var(--color-highlight-medium);
-  border-radius: 5px;
   padding: 1rem 0 0 0;
 }
 
 .heart-tag:after {
   content: '';
-  border-radius: var(--corner-radius);
   position: absolute;
-  bottom: -0.85rem;
+  bottom: -1rem;
   left: 0;
   width: 0;
   height: 0;
