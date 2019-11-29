@@ -24,7 +24,10 @@ const Filters = () => {
             type="range"
             min={10}
             max={100}
-            value={0}
+            // TODO: Below needs to be updated
+            // needs `onChange` handler
+            // value={}
+            defaultValue={0}
             data-sizing="px"
           />
         </div>
@@ -44,7 +47,10 @@ const Filters = () => {
             type="range"
             min={10}
             max={100}
-            value={0}
+            // TODO: Below needs to be updated
+            // needs `onChange` handler
+            // value={}
+            defaultValue={0}
             data-sizing="px"
           />
         </div>

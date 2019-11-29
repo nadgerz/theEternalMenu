@@ -43,10 +43,17 @@ const Overview = () => {
             <AddRecipeCard />
           </a>
 
-          <RecipeCard
-            img={mockData.user.recipes[0].img}
-            title={mockData.user.recipes[0].title}
-          />
+          {mockData.user.recipes.map((recipe, index) => {
+            return (
+              <RecipeCard
+                img={recipe.img}
+                title={recipe.title}
+                key={
+                  recipe.title.toLowerCase().replace(/\s*/, '') + '_' + index
+                }
+              />
+            );
+          })}
         </div>
       </article>
     </div>
