@@ -1,7 +1,7 @@
 // import { Link } from '@reach/router';
 import React from 'react';
 
-import '../assets/CSS/Header.css';
+import '../assets/CSS/components/Header.css';
 import { MenuIcon } from '../assets/SVG/svg';
 
 const Header = () => {

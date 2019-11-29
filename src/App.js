@@ -4,13 +4,10 @@ import ReactDOM from 'react-dom';
 // import { Link } from '@reach/router';
 
 import Header from './components/Header';
+import HeartTag from './components/HeartTag';
 // import FormikLogin from './Login';
 // import RecipeForm from './RecipeForm';
-import {
-  CookingTimeIcon,
-  ServingSizeIcon,
-  HeartOutlineIcon,
-} from './assets/SVG/svg';
+import { CookingTimeIcon, ServingSizeIcon } from './assets/SVG/svg';
 
 import './assets/CSS/app.css';
 
@@ -54,11 +51,7 @@ const App = () => {
                 </h3>
               </div>
               <div className="recipe-card">
-                <div className={'heart-tag'}>
-                  <div className={'heart-outline-icon'}>
-                    <HeartOutlineIcon />
-                  </div>
-                </div>
+                <HeartTag />
                 <div className={'recipe-card-title'}>
                   <p>A Recipe Title A Recipe Title A Recipe Title</p>
                   <div className="chevron"></div>
