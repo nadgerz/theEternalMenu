@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { HeartOutlineIcon, HeartFilledIcon } from '../assets/SVG/svg';
+import '../assets/CSS/components/HeartTag.css';
 
 const fill = '#fff';
 
