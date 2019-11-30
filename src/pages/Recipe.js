@@ -1,5 +1,6 @@
 import React from 'react';
 
+import HeartTag from '../components/HeartTag';
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 import '../assets/CSS/pages/Recipe.scss';
 
@@ -20,15 +21,21 @@ const Recipe = () => {
       {/*  T O P    */}
       <div className={'top'}>
         <div className="left">
-          <div>
-            <h3>{recipe.title}</h3>
-            <div className="icons">
-              <div className="cooking-time icon-with-text">
-                <CookingTimeIcon />
-                <h6>
-                  <span>{version.cookingTime}</span> min
-                </h6>
-              </div>
+          <h3>{recipe.title}</h3>
+
+          <div className="icons">
+            <div className="cooking-time icon-with-text">
+              <CookingTimeIcon />
+              <h6>
+                <span>{version.cookingTime}</span> min
+              </h6>
+            </div>
+          </div>
+
+          <div className="versions">
+            <div className="version">
+              <HeartTag favourite={recipe.favourite} />
+              <h6>Version {recipe.versions.length}</h6>
             </div>
           </div>
         </div>
@@ -42,7 +49,7 @@ const Recipe = () => {
 
       {/*  B O T T O M  */}
       {/*  V E R S I O N  A R E A  */}
-      <div className="bottom version">
+      <article className="bottom version">
         <div className="left">
           <div className="directions">
             <h4>{titles.directions}</h4>
@@ -107,7 +114,7 @@ const Recipe = () => {
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   );
 };
