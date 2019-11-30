@@ -1,21 +1,29 @@
 @import url('../styles.css');
 
-#recipe-filter .filter-slider {
-  width: 100%;
-  min-height: 5rem;
-  background-color: var(--color-highlight-light-bg);
-  /*padding: 0 var(--padding-small);*/
-  margin-bottom: var(--padding-big);
-  /*border: 1px solid red;*/
-  position: relative;
-}
+#recipe-filter {
+  form {
+    //border: 1px solid black;
+  }
 
-/* RANGE specific changes */
+  .filter-slider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 7rem;
+    background-color: var(--color-highlight-light-bg);
+    padding: 0 var(--padding-small);
+    margin-bottom: var(--padding-big);
+    //position: relative;
 
-.filter-slider input {
-  /*-webkit-appearance: none; !* Hides the slider so that custom slider can be made *!*/
-  width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
+    .input-range {
+    }
+  }
+
+  .filter-slider input {
+    /*-webkit-appearance: none; !* Hides the slider so that custom slider can be made *!*/
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+  }
 }
 
 .filter-slider input[type='range'] {

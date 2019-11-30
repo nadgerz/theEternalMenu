@@ -203,3 +203,14 @@ a.btn {
   font-family: MainItalic, 'Helvetica', 'Arial', sans-serif;
   font-style: italic;
 }
+
+.input-range__label {
+  font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
+  font-size: 0.8em;
+  letter-spacing: 0.5px;
+}
+
+.input-range__label--value {
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  color: var(--color-highlight-dark);
+}
