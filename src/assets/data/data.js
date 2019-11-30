@@ -9,6 +9,16 @@ const mockData = {
         title: 'Eggs On Toast',
         img: mockImage,
         favourite: false,
+        versions: [
+          {
+            cookingTime: 25,
+            servingSize: 4,
+
+            directions: ['a string', 'is a string', 'is a string'],
+            ingredients: ['a carrot', 'egg', 'another egg'],
+            notes: ['a string', 'is a string', 'is a string'],
+          },
+        ],
       },
       {
         title: 'Boiled Eggs',

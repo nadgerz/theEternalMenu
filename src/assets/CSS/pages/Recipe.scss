@@ -15,9 +15,13 @@ $recipe-img: 36rem;
     margin-bottom: var(--padding-medium);
   }
 
+  .left,
+  .right {
+    padding: 2rem var(--padding-small) var(--padding-small);
+  }
+
   .left {
     flex: 1 1;
-    padding: var(--padding-small);
   }
 
   .right {
@@ -32,12 +36,17 @@ $recipe-img: 36rem;
     padding: 0 2.5rem 2.5rem;
   }
 
+  li {
+    padding-bottom: var(--padding-small);
+  }
+
   .top {
     .icons {
       //border: 1px solid black;
     }
 
     .right {
+      padding: 0;
       .img {
         height: $recipe-img;
         //width: $recipe-img;
@@ -70,11 +79,14 @@ $recipe-img: 36rem;
 
       .notes {
         margin-top: var(--padding-medium);
+
+        ul {
+          list-style: none;
+        }
       }
     }
 
     .right {
-      padding: var(--padding-small);
       background-color: var(--color-neutral-light);
       margin-bottom: var(--padding-medium);
 
