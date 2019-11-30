@@ -1,5 +1,21 @@
 @import url('../styles.css');
 
+#overview .heart-tag {
+  background-color: var(--color-neutral-medium);
+}
+
+#overview .heart-tag:after {
+  border-top: 1rem solid var(--color-neutral-medium);
+}
+
+#recipe .heart-tag {
+  background-color: var(--color-highlight-medium);
+}
+
+#recipe .heart-tag:after {
+  border-top: 1rem solid var(--color-highlight-medium);
+}
+
 .heart-tag {
   border-radius: 5px 5px 0 0;
   height: 3.5rem;
@@ -7,7 +23,7 @@
   position: absolute;
   top: -5px;
   left: var(--padding-small);
-  background-color: var(--color-highlight-medium);
+
   padding: 1rem 0 0 0;
 }
 
