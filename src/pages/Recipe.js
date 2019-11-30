@@ -95,7 +95,7 @@ const Recipe = () => {
                   return (
                     <li className={'ingredient'} key={`ingredient${index}`}>
                       <input
-                        type="radio"
+                        type="checkbox"
                         name="ingredient"
                         id={'ingredient' + 1}
                       />
