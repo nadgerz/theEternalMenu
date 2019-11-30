@@ -38,14 +38,14 @@ const Recipe = () => {
       </div>
 
       {/*  B O T T O M  */}
-      <div className="bottom">
+      <div className="bottom version">
         <div className="left">
           <div className="directions">
             <h4>{titles.directions}</h4>
 
             <div className="content">
               <ul>
-                <li>mimimimimimi</li>
+                <li className={'direction'}>mimimimimimi</li>
               </ul>
             </div>
           </div>

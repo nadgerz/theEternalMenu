@@ -146,7 +146,8 @@ h5 {
 
 h6 {
   font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
   /* margin-bottom: 0;*/
