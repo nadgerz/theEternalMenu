@@ -1,6 +1,8 @@
 import React from 'react';
 import HeartTag from './HeartTag';
 
+import '../assets/CSS/components/RecipeCard.css';
+
 const RecipeCard = props => {
   const { img, title, favourite } = props;
 

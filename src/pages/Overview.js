@@ -6,15 +6,17 @@ import RecipeCard from '../components/RecipeCard';
 
 import mockData from '../assets/data/data';
 
+import '../assets/CSS/pages/Overview.scss';
+
 const Overview = () => {
   return (
     <div id={'overview'} className={'recipes-and-filter'}>
       {/* TODO: Filter will need to be passed props from user */}
       <Filters />
 
-      <article id="recipes">
+      <article id="recipes" className={'user-recipes'}>
         <h2>
-          Recipes <span>{mockData.user.recipes.length} in total</span>
+          Your Recipes <span>{mockData.user.recipes.length} in total</span>
         </h2>
 
         <div className={'recipe-grid'}>

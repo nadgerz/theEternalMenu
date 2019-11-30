@@ -1,12 +1,5 @@
 @import url('../styles.css');
 
-#recipe-filter {
-  padding: var(--padding-small);
-  background-color: var(--color-bg);
-  min-width: 21.5rem;
-  margin-right: var(--padding-big);
-}
-
 #recipe-filter svg {
   display: inline;
 }
