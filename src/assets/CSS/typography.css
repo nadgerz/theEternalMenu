@@ -183,3 +183,34 @@ a.btn {
 }
 
 /*//---------------------------------------------------------*/
+
+#recipe .directions ul,
+#recipe .notes ul {
+  font-family: MainRegular, 'Helvetica', 'Arial', sans-serif;
+}
+
+#recipe strong {
+  font-family: MainBold, 'Helvetica', 'Arial', sans-serif;
+  font-style: oblique;
+}
+
+#recipe em {
+  font-family: MainItalic, 'Helvetica', 'Arial', sans-serif;
+  font-style: italic;
+}
+
+#recipe .notes ul {
+  font-family: MainItalic, 'Helvetica', 'Arial', sans-serif;
+  font-style: italic;
+}
+
+.input-range__label {
+  font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
+  font-size: 0.8em;
+  letter-spacing: 0.5px;
+}
+
+.input-range__label--value {
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  color: var(--color-highlight-dark);
+}
