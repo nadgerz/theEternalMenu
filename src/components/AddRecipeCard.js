@@ -1,6 +1,8 @@
 import React from 'react';
 import { AddIcon, PlateAndCutleryIcon } from '../assets/SVG/svg';
 
+import '../assets/CSS/components/AddRecipeCard.css';
+
 const AddRecipeCard = () => {
   return (
     <div id={'add-recipe'} className="recipe-card">
