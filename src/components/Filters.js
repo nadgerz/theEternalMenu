@@ -1,4 +1,5 @@
 import React from 'react';
+import InputRange from 'react-input-range';
 
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 
@@ -18,18 +19,24 @@ const Filters = () => {
         </div>
 
         <div className="filter-slider">
-          <input
-            id="filter-cooking-time"
-            name="filter-cooking-time"
-            type="range"
-            min={10}
-            max={100}
-            // TODO: Below needs to be updated
-            // needs `onChange` handler
-            // value={}
-            defaultValue={0}
-            data-sizing="px"
+          <InputRange
+            maxValue={20}
+            minValue={0}
+            value={this.state.value}
+            onChange={value => this.setState({ value })}
           />
+          {/*<input*/}
+          {/*  id="filter-cooking-time"*/}
+          {/*  name="filter-cooking-time"*/}
+          {/*  type="range"*/}
+          {/*  min={10}*/}
+          {/*  max={100}*/}
+          {/*  // TODO: Below needs to be updated*/}
+          {/*  // needs `onChange` handler*/}
+          {/*  // value={}*/}
+          {/*  defaultValue={0}*/}
+          {/*  data-sizing="px"*/}
+          {/*/>*/}
         </div>
       </div>
 
