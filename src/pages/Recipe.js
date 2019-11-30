@@ -3,9 +3,12 @@ import React from 'react';
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 import '../assets/CSS/pages/Recipe.scss';
 
-import mockImage from '../assets/imgs/iu-1.jpeg';
+import mockData from '../assets/data/data';
 
 const Recipe = () => {
+  const recipe = mockData.user.recipes[0];
+  const version = recipe.versions[0];
+
   const titles = {
     directions: 'Directions',
     ingredients: 'Ingredients',
@@ -18,12 +21,12 @@ const Recipe = () => {
       <div className={'top'}>
         <div className="left">
           <div>
-            <h3>A Recipe Name on the Recipe page</h3>
+            <h3>{recipe.title}</h3>
             <div className="icons">
               <div className="cooking-time icon-with-text">
                 <CookingTimeIcon />
                 <h6>
-                  <span>{25}</span> min
+                  <span>{version.cookingTime}</span> min
                 </h6>
               </div>
             </div>
@@ -32,12 +35,13 @@ const Recipe = () => {
 
         <div className="right">
           <div className="img">
-            <img src={mockImage} alt="" />
+            <img src={recipe.img} alt="" />
           </div>
         </div>
       </div>
 
       {/*  B O T T O M  */}
+      {/*  V E R S I O N  A R E A  */}
       <div className="bottom version">
         <div className="left">
           <div className="directions">
@@ -45,7 +49,13 @@ const Recipe = () => {
 
             <div className="content">
               <ul>
-                <li className={'direction'}>mimimimimimi</li>
+                {version.directions.map((direction, index) => {
+                  return (
+                    <li className={'direction'} key={`direction_${index}`}>
+                      {direction}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -53,7 +63,15 @@ const Recipe = () => {
           <div className="notes">
             <h4>{titles.notes}</h4>
             <div className="content">
-              <p>Some Text</p>
+              <ul>
+                {version.notes.map((note, index) => {
+                  return (
+                    <li className={'note'} key={`note${index}`}>
+                      {note}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         </div>
@@ -66,17 +84,25 @@ const Recipe = () => {
               <div className="serving-size icon-with-text">
                 <ServingSizeIcon />
                 <h6>
-                  <span>{4}</span> Servings
+                  <span>{version.servingSize}</span> Servings
                 </h6>
               </div>
             </div>
 
             <div className="content">
               <ul>
-                <li>
-                  <input type="radio" name="ingredient" id={'ingredient' + 1} />
-                  mimimimimimi
-                </li>
+                {version.ingredients.map((ingredient, index) => {
+                  return (
+                    <li className={'ingredient'} key={`ingredient${index}`}>
+                      <input
+                        type="radio"
+                        name="ingredient"
+                        id={'ingredient' + 1}
+                      />
+                      {ingredient}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
