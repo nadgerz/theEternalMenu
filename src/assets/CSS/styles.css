@@ -92,6 +92,13 @@ a.btn.secondary {
   border: 1.5px solid var(--color-highlight-dark);
 }
 
+input[type='submit'] {
+  color: white;
+  background-color: var(--color-highlight-medium);
+  border-radius: 3rem;
+  padding: 1rem 3rem;
+  outline: none;
+}
 /* R E C I P E   A D D  B U T T O N */
 
 #add-recipe {

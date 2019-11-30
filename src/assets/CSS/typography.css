@@ -182,6 +182,12 @@ a.btn {
   text-align: center;
 }
 
+input[type='submit'] {
+  font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
 /*//---------------------------------------------------------*/
 
 #recipe .directions ul,

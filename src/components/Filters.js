@@ -79,6 +79,8 @@ class Filters extends React.Component {
               />
             </div>
           </div>
+
+          <input type="submit" value={'Submit'} />
         </form>
       </aside>
     );
