@@ -20,9 +20,11 @@ const Recipe = () => {
           <div className="content">
             <h3>A Recipe Name on the Recipe page</h3>
             <div className="icons">
-              <div className="cooking-time">
+              <div className="cooking-time icon-with-text">
                 <CookingTimeIcon />
-                <span>{25} min</span>
+                <h6>
+                  <span>{25} min</span>
+                </h6>
               </div>
             </div>
           </div>

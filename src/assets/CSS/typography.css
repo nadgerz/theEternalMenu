@@ -115,12 +115,12 @@ h2 {
 
 h3 {
   font-family: DisplayMedium, 'Helvetica', 'Arial', sans-serif;
-  font-size: 3.5rem;
+  font-size: 4rem;
   letter-spacing: 1px;
   line-height: 1.1;
   /* margin-top: --line-height-standard;*/
-  /*margin-bottom: var(--line-height-standard);*/
-  text-transform: uppercase;
+  margin-bottom: var(--padding-medium);
+  /*text-transform: uppercase;*/
 }
 
 h4 {

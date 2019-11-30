@@ -48,6 +48,22 @@ svg {
   display: block;
 }
 
+.icon-with-text {
+  margin-bottom: var(--padding-small);
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  color: var(--color-neutral-dark-2);
+}
+
+.icon-with-text h6 {
+  margin-left: 0.7rem;
+}
+
+.icon-with-text svg {
+  display: inline;
+}
+
 /*  B U T T O N S  */
 
 a:visited {

@@ -3,6 +3,9 @@
 $recipe-img: 36rem;
 
 #recipe {
+  border: 1px solid red;
+  width: 100%;
+
   .top {
     display: flex;
     justify-content: space-between;
@@ -17,6 +20,7 @@ $recipe-img: 36rem;
     border-radius: var(--corner-radius);
     width: $recipe-img;
     overflow: hidden;
+    margin-left: var(--padding-big);
   }
 
   .top {
@@ -24,6 +28,10 @@ $recipe-img: 36rem;
 
     .left {
       border: 1px solid black;
+
+      svg {
+        display: inline;
+      }
     }
 
     .right {

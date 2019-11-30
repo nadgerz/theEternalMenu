@@ -1,23 +1,5 @@
 @import url('../styles.css');
 
-#recipe-filter svg {
-  display: inline;
-}
-
-#recipe-filter .cooking-time,
-.serving-size {
-}
-
-.filter-title {
-  margin-bottom: var(--padding-small);
-  /*border: 1px solid black;*/
-  display: flex;
-}
-
-.filter-title h6 {
-  margin-left: 0.7rem;
-}
-
 #recipe-filter .filter-slider {
   width: 100%;
   min-height: 5rem;
