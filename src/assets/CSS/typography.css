@@ -183,3 +183,23 @@ a.btn {
 }
 
 /*//---------------------------------------------------------*/
+
+#recipe .directions ul,
+#recipe .notes ul {
+  font-family: MainRegular, 'Helvetica', 'Arial', sans-serif;
+}
+
+#recipe strong {
+  font-family: MainBold, 'Helvetica', 'Arial', sans-serif;
+  font-style: oblique;
+}
+
+#recipe em {
+  font-family: MainItalic, 'Helvetica', 'Arial', sans-serif;
+  font-style: italic;
+}
+
+#recipe .notes ul {
+  font-family: MainItalic, 'Helvetica', 'Arial', sans-serif;
+  font-style: italic;
+}

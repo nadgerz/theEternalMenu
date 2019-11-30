@@ -40,6 +40,7 @@ $recipe-img: 36rem;
     padding-bottom: var(--padding-small);
   }
 
+  // S P E C I F I C
   .top {
     .icons {
       //border: 1px solid black;
@@ -47,6 +48,7 @@ $recipe-img: 36rem;
 
     .right {
       padding: 0;
+
       .img {
         height: $recipe-img;
         //width: $recipe-img;
@@ -62,6 +64,7 @@ $recipe-img: 36rem;
   .bottom {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
 
     .left {
       //border: 1px solid black;
@@ -79,7 +82,6 @@ $recipe-img: 36rem;
 
       .notes {
         margin-top: var(--padding-medium);
-
         ul {
           list-style: none;
         }
