@@ -15,9 +15,13 @@ $recipe-img: 36rem;
     margin-bottom: var(--padding-medium);
   }
 
+  .left,
+  .right {
+    padding: 2rem var(--padding-small) var(--padding-small);
+  }
+
   .left {
     flex: 1 1;
-    padding: var(--padding-small);
   }
 
   .right {
@@ -38,6 +42,7 @@ $recipe-img: 36rem;
     }
 
     .right {
+      padding: 0;
       .img {
         height: $recipe-img;
         //width: $recipe-img;
@@ -74,7 +79,6 @@ $recipe-img: 36rem;
     }
 
     .right {
-      padding: var(--padding-small);
       background-color: var(--color-neutral-light);
       margin-bottom: var(--padding-medium);
 
