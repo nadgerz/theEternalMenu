@@ -48,6 +48,27 @@ svg {
   display: block;
 }
 
+img {
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+}
+
+.icon-with-text {
+  margin-bottom: var(--padding-small);
+  display: flex;
+  align-items: center;
+  color: var(--color-neutral-dark-2);
+}
+
+.icon-with-text h6 {
+  margin-left: 0.7rem;
+}
+
+.icon-with-text svg {
+  display: inline;
+}
+
 /*  B U T T O N S  */
 
 a:visited {

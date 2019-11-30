@@ -10,7 +10,7 @@ const Filters = () => {
       <h2>Filters</h2>
 
       <div className={'cooking-time'}>
-        <div className="filter-title">
+        <div className="filter-title icon-with-text">
           <CookingTimeIcon />
           <label htmlFor="filter-cooking-time">
             <h6>Cooking Time</h6>

@@ -17,12 +17,14 @@ const Recipe = () => {
       {/*  T O P    */}
       <div className={'top'}>
         <div className="left">
-          <div className="content">
+          <div>
             <h3>A Recipe Name on the Recipe page</h3>
             <div className="icons">
-              <div className="cooking-time">
+              <div className="cooking-time icon-with-text">
                 <CookingTimeIcon />
-                <span>{25} min</span>
+                <h6>
+                  <span>{25}</span> min
+                </h6>
               </div>
             </div>
           </div>
@@ -36,19 +38,20 @@ const Recipe = () => {
       </div>
 
       {/*  B O T T O M  */}
-      <div className="bottom">
+      <div className="bottom version">
         <div className="left">
           <div className="directions">
             <h4>{titles.directions}</h4>
 
             <div className="content">
               <ul>
-                <li>mimimimimimi</li>
+                <li className={'direction'}>mimimimimimi</li>
               </ul>
             </div>
           </div>
 
           <div className="notes">
+            <h4>{titles.notes}</h4>
             <div className="content">
               <p>Some Text</p>
             </div>
@@ -60,14 +63,20 @@ const Recipe = () => {
             <h4>{titles.ingredients}</h4>
 
             <div className="icons">
-              <div className="serving-size">
-                <ServingSizeIcon /> <span>{4} Servings</span>
+              <div className="serving-size icon-with-text">
+                <ServingSizeIcon />
+                <h6>
+                  <span>{4}</span> Servings
+                </h6>
               </div>
             </div>
 
-            <div className="recipe-content">
+            <div className="content">
               <ul>
-                <li>mimimimimimi</li>
+                <li>
+                  <input type="radio" name="ingredient" id={'ingredient' + 1} />
+                  mimimimimimi
+                </li>
               </ul>
             </div>
           </div>

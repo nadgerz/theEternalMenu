@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 // import { Link } from '@reach/router';
 
 import Header from './components/Header';
-import Overview from './pages/Overview';
-// import Recipe from './pages/Recipe';
+// import Overview from './pages/Overview';
+import Recipe from './pages/Recipe';
 
 // import FormikLogin from './Login';
 // import RecipeForm from './RecipeForm';
@@ -24,8 +24,8 @@ const App = () => {
 
       <main id={'main'}>
         {/*<Router>*/}
-        <Overview />
-        {/*<Recipe />*/}
+        {/*<Overview />*/}
+        <Recipe />
         {/*<SearchParams path={'/'}/>*/}
         {/*<Recipe path={'/details/:id'}/>*/}
         {/*</Router>*/}

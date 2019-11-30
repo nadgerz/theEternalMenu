@@ -115,12 +115,12 @@ h2 {
 
 h3 {
   font-family: DisplayMedium, 'Helvetica', 'Arial', sans-serif;
-  font-size: 3.5rem;
+  font-size: 4rem;
   letter-spacing: 1px;
   line-height: 1.1;
   /* margin-top: --line-height-standard;*/
-  /*margin-bottom: var(--line-height-standard);*/
-  text-transform: uppercase;
+  margin-bottom: var(--padding-medium);
+  /*text-transform: uppercase;*/
 }
 
 h4 {
@@ -128,7 +128,7 @@ h4 {
   font-size: 2.8rem;
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
-  /* margin-bottom: 0;*/
+  margin-bottom: var(--padding-small);
 }
 
 h5 {
@@ -146,7 +146,8 @@ h5 {
 
 h6 {
   font-family: DisplayBold, 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
   /*line-height: var(--line-height-standard);*/
   /* margin-top: --line-height-standard;*/
   /* margin-bottom: 0;*/
