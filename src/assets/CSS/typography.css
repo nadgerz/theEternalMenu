@@ -210,6 +210,11 @@ input[type='submit'] {
   font-style: italic;
 }
 
+.recipe-card-title p {
+  font-family: DisplayMedium, 'Helvetica', 'Arial', sans-serif;
+  font-size: 2.2rem;
+}
+
 .input-range__label {
   font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
   font-size: 0.8em;

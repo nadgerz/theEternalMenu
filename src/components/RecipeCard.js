@@ -11,7 +11,7 @@ const RecipeCard = props => {
       <HeartTag favourite={favourite} />
       {/*{ img }*/}
       <div className={'recipe-card-title'}>
-        <h5>{title}</h5>
+        <p>{title}</p>
       </div>
 
       <div className={'recipe-thumb'}>

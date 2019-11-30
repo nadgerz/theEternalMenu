@@ -1,7 +1,6 @@
 @import url('../styles.css');
 
 .recipe-card {
-  transition: 0.3s ease-in-out;
   background-color: var(--color-neutral-light);
   border-radius: var(--corner-radius);
   height: var(--recipe-card-height);
@@ -9,6 +8,8 @@
   max-width: 100%;
   min-width: 26rem;
   width: 48%;
+
+  transition: 0.3s ease-in-out;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -34,8 +35,6 @@
 
 .recipe-card-title p {
   /*align-self: flex-end;*/
-  font-family: DisplayRegular, 'Helvetica', 'Arial', sans-serif;
-  font-size: 2.2rem;
   /*position: absolute;*/
   /*bottom: 0;*/
 
