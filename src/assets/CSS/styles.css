@@ -96,72 +96,10 @@ input[type='submit'] {
   color: white;
   background-color: var(--color-highlight-medium);
   border-radius: 3rem;
-  padding: 1rem 3rem;
+  padding: 0.5rem 3rem;
   outline: none;
-}
-/* R E C I P E   A D D  B U T T O N */
-
-#add-recipe {
-  background-color: var(--color-highlight-light-bg);
-  overflow: hidden;
-  position: relative;
-  padding: var(--padding-small);
-  display: flex;
-}
-
-#add-recipe div:first-child {
-  max-width: var(--recipe-card-height);
-  align-self: flex-end;
-  flex: 1 1;
-}
-
-.add-recipe-icons {
-  background-color: var(--color-highlight-light);
-  border-radius: 50%;
-  height: 21rem;
-  width: 21rem;
-  position: absolute;
-  top: -4rem;
-  right: -5rem;
-  overflow: hidden;
-}
-
-.add-recipe-icons svg {
-  position: absolute;
-}
-
-.add-recipe-icons svg:first-child {
-  /* plate & cutlerly */
-  width: 15rem;
-  top: 6rem;
-  left: 0.5rem;
-}
-
-.add-recipe-icons svg:last-child {
-  /* plus sign */
-  width: 8rem;
-  height: 8rem;
-  top: 6.7rem;
-  left: 4.5rem;
-  transition: 0.3s ease-in-out;
-}
-
-.add-recipe-icons svg:last-child:hover {
-  color: var(--color-highlight);
-  transform: scale(1.2);
 }
 
 /* ------------------------------------------------------------------------- */
 /*      F O R M S       */
 /* ------------------------------------------------------------------------- */
-
-/* --------------------------------------------------------- */
-
-header {
-}
-
-/*****************************************************/
-
-/*  A D D  */
-
-/*  R E C E N T S  */
