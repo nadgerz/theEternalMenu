@@ -90,9 +90,14 @@ export const CookingTimeIcon = () => {
       xmlnsXlink={xmlnsXlink}
     >
       <title>svg_cooking_time</title>
-      {/*<g id="bg">*/}
-      {/*  <path id="Path_1006" data-name="Path 1006" d="M0,0H24V24H0Z" style="fill: none"/>*/}
-      {/*</g>*/}
+      <g id="bg">
+        <path
+          id="Path_1006"
+          data-name="Path 1006"
+          d="M0,0H24V24H0Z"
+          fill="none"
+        />
+      </g>
       <g id="icon">
         <path
           id="Path_1007"
