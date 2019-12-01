@@ -18,7 +18,7 @@ const Recipe = () => {
 
   return (
     <div id={'recipe'} className={'recipe'}>
-      {/*  T O P    */}
+      {/*    T O P    */}
       <div className={'top'}>
         <div className="left">
           <h3>{recipe.title}</h3>

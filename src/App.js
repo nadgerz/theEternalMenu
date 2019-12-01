@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 // import { Router, Link } from '@reach/router';
 // import { Link } from '@reach/router';
 
@@ -37,4 +37,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
+// ReactDOM.render(<App />, document.getElementById('root'));
