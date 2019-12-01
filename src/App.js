@@ -9,7 +9,7 @@ import Overview from './components/pages/Overview';
 // import FormikLogin from './Login';
 // import RecipeForm from './RecipeForm';
 
-import './assets/CSS/app.css';
+import './assets/CSS/App.css';
 
 // import SearchParams from './SearchParams';
 // import Recipe from './Recipe';
