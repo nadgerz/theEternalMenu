@@ -4,7 +4,9 @@
   "description": "## The Eternal Menu",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava --verbose",
+    "test:watch": "ava --watch",
+    "test:coverage": "nyc ava --verbose",
     "format": "pretty-quick --pattern \"src/**/*.*(js|jsx|scss|sass|css|json|ts|html)\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel public/index.html"
@@ -22,7 +24,6 @@
   "homepage": "https://github.com/MoppetX/theEternalMenu#readme",
   "dependencies": {
     "@reach/router": "^1.2.1",
-    "ava": "^2.4.0",
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
     "config": "^3.2.4",
@@ -39,6 +40,8 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
+    "ava": "^2.4.0",
+    "axios": "^0.19.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
@@ -47,6 +50,8 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
     "husky": "^3.0.9",
+    "nodemon": "^2.0.1",
+    "nyc": "^14.1.1",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
