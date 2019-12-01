@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb://localhost/tem"
+  "mongoURI": "mongodb://localhost/tem",
+  "serverPath": "http://localhost:3000"
 }

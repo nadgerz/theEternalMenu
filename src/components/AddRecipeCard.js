@@ -5,7 +5,7 @@ import '../assets/CSS/components/AddRecipeCard.css';
 
 const AddRecipeCard = () => {
   return (
-    <div id={'add-recipe'} className="recipe-card">
+    <a href={'/'} id={'add-recipe'} className="recipe-card">
       <div className={'add-recipe-title'}>
         <h3>
           Add a <br /> Recipe
@@ -15,7 +15,7 @@ const AddRecipeCard = () => {
         <PlateAndCutleryIcon className={'svg-plate-cutlery'} />
         <AddIcon />
       </div>
-    </div>
+    </a>
   );
 };
 

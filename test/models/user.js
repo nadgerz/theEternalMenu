@@ -1,9 +1,9 @@
 import test from 'ava';
-import UserModel from '../../models/user';
+import UserModel from '../../src/models/user';
 
 const {
   userModelErrorMsgs: errorMessages,
-} = require('../../models/modelErrorMsgs');
+} = require('../../src/models/modelErrorMsgs');
 
 const getErrMsgArray = property =>
   Object.entries(errorMessages[property.toUpperCase()]).map(entry => entry[1]);

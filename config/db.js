@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Chalk = require('chalk');
-process.env['NODE_CONFIG_DIR'] = __dirname;
 const config = require('config');
+process.env['NODE_CONFIG_DIR'] = __dirname;
 
 const mongoURI = 'mongoURI';
 
