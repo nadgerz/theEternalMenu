@@ -63,6 +63,13 @@
       "pre-commit": "pretty-quick --staged && npm run lint"
     }
   },
+  "ava": {
+    "files": [
+      "**/test/**/*",
+      "!week5/test",
+      "!**/lecture/test"
+    ]
+  },
   "browserslist": [
     "last 2 Chrome versions",
     "last 2 ChromeAndroid versions",
