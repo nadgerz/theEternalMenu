@@ -4,8 +4,8 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 
 import app from '../../app';
-import RecipeModel from '../../models/recipe';
-import RecipeService from '../../services/recipe-service';
+import RecipeModel from '../../src/models/recipe';
+import RecipeService from '../../src/services/recipe-service';
 // import UserService from '../../services/user-service';
 
 // Start MongoDB instance

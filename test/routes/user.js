@@ -4,8 +4,8 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 
 import app from '../../app';
-import UserModel from '../../models/user';
-import UserService from '../../services/user-service';
+import UserModel from '../../src/models/user';
+import UserService from '../../src/services/user-service';
 
 // Start MongoDB instance
 const mongod = new MongoMemoryServer();

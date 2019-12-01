@@ -1,9 +1,9 @@
 import test from 'ava';
-import RecipeModel from '../../models/recipe';
+import RecipeModel from '../../src/models/recipe';
 
 const {
   recipeModelErrorMsgs: newErrMsgs,
-} = require('../../models/modelErrorMsgs');
+} = require('../../src/models/modelErrorMsgs');
 
 const getErrMsgArray = property =>
   Object.entries(newErrMsgs[property.toUpperCase()]).map(entry => entry[1]);
