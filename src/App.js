@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 // import { Link } from '@reach/router';
 
 import Header from './components/Header';
-import Overview from './pages/Overview';
+import Overview from './components/pages/Overview';
 // import Recipe from './pages/Recipe';
 
 // import FormikLogin from './Login';

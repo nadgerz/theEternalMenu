@@ -1,10 +1,10 @@
 import React from 'react';
 
-import HeartTag from '../components/HeartTag';
-import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
-import '../assets/CSS/pages/Recipe.scss';
+import HeartTag from '../HeartTag';
+import { CookingTimeIcon, ServingSizeIcon } from '../../assets/SVG/svg';
+import '../../assets/CSS/pages/Recipe.scss';
 
-import mockData from '../assets/data/data';
+import mockData from '../../assets/data/data';
 
 const Recipe = () => {
   const recipe = mockData.user.recipes[0];
