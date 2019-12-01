@@ -1,12 +1,12 @@
 import React from 'react';
 
-import AddRecipeCard from '../components/AddRecipeCard';
-import Filters from '../components/Filters';
-import RecipeCard from '../components/RecipeCard';
+import AddRecipeCard from '../AddRecipeCard';
+import Filters from '../Filters';
+import RecipeCard from '../RecipeCard';
 
-import mockData from '../assets/data/data';
+import mockData from '../../assets/data/data';
 
-import '../assets/CSS/pages/Overview.scss';
+import '../../assets/CSS/pages/Overview.scss';
 
 const Overview = () => {
   return (
