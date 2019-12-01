@@ -1,7 +1,9 @@
 /* eslint-disable */
 const express = require('express');
+const cors = require('cors');
 
 const server = express();
+server.use(cors());
 
 // Init Middleware
 server.use(express.json());
