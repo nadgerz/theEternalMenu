@@ -3,7 +3,7 @@ import request from 'supertest';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 
-import app from '../../app';
+import server from '../../server';
 import RecipeModel from '../../src/models/recipe';
 import RecipeService from '../../src/services/recipe-service';
 // import UserService from '../../services/user-service';
@@ -42,7 +42,7 @@ test.before(async () => {
 
 test.beforeEach(async t => {
   t.context = {
-    app,
+    app: server,
     recipeRoute: '/recipe',
     newRecipe: {
       title: 'Scrambled Eggs',

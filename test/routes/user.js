@@ -3,7 +3,7 @@ import request from 'supertest';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 
-import app from '../../app';
+import server from '../../server';
 import UserModel from '../../src/models/user';
 import UserService from '../../src/services/user-service';
 
@@ -38,7 +38,7 @@ test.before(async () => {
 
 test.beforeEach(async t => {
   t.context = {
-    app,
+    app: server,
     userRoute: '/user',
     newUser: {
       name: 'STEVE',
@@ -53,24 +53,24 @@ const checkLitmusResponse = (t, res) => {
   t.is(res.text, `Test route for ${res.req.path} [${res.req.method}]`);
 };
 
-test.serial('litmus tests for GET/POST/DELETE/PUT', async t => {
-  t.plan(8);
-  const { app, userRoute } = t.context;
-  const litmusRoute = `${userRoute}/litmus`;
-  let res;
-
-  res = await request(app).get(litmusRoute);
-  checkLitmusResponse(t, res);
-
-  res = await request(app).post(litmusRoute);
-  checkLitmusResponse(t, res);
-
-  res = await request(app).delete(litmusRoute);
-  checkLitmusResponse(t, res);
-
-  res = await request(app).put(litmusRoute);
-  checkLitmusResponse(t, res);
-});
+// test('litmus tests for GET/POST/DELETE/PUT', async t => {
+//   t.plan(8);
+//   const { app, userRoute } = t.context;
+//   const litmusRoute = `${userRoute}/litmus`;
+//   let res;
+//
+//   res = await request(app).get(litmusRoute);
+//   checkLitmusResponse(t, res);
+//
+//   res = await request(app).post(litmusRoute);
+//   checkLitmusResponse(t, res);
+//
+//   res = await request(app).delete(litmusRoute);
+//   checkLitmusResponse(t, res);
+//
+//   res = await request(app).put(litmusRoute);
+//   checkLitmusResponse(t, res);
+// });
 
 test('get all users', async t => {
   const { app, userRoute } = t.context;
