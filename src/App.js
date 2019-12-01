@@ -1,4 +1,6 @@
 import React from 'react';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 // import { Router, Link } from '@reach/router';
 // import { Link } from '@reach/router';
 

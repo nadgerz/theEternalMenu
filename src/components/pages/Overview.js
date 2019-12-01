@@ -1,6 +1,4 @@
 import React from 'react';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
 import axios from 'axios';
 // import config from 'config';
 // const serverPath = config.get('serverPath');
