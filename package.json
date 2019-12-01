@@ -24,6 +24,7 @@
     "@reach/router": "^1.2.1",
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
+    "config": "^3.2.4",
     "draft-js": "^0.11.2",
     "express": "^4.17.1",
     "formik": "^2.0.3",
