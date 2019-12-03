@@ -1,16 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 // import { Router, Link } from '@reach/router';
 // import { Link } from '@reach/router';
 
 import Header from './components/Header';
-import Overview from './pages/Overview';
+import Overview from './components/pages/Overview';
 // import Recipe from './pages/Recipe';
 
 // import FormikLogin from './Login';
 // import RecipeForm from './RecipeForm';
 
-import './assets/CSS/app.css';
+import './assets/CSS/App.css';
 
 // import SearchParams from './SearchParams';
 // import Recipe from './Recipe';
@@ -27,7 +28,7 @@ const App = () => {
         <Overview />
         {/*<Recipe />*/}
         {/*<SearchParams path={'/'}/>*/}
-        {/*<Recipe path={'/details/:id'}/>*/}
+        {/*<Details path={'/details/:id'}/>*/}
         {/*</Router>*/}
         {/*<FormikLogin />*/}
         {/*<FormikLogin email={'andrew@test.de'}/>*/}
@@ -37,4 +38,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
+// ReactDOM.render(<App />, document.getElementById('root'));
