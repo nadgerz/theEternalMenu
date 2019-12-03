@@ -76,7 +76,7 @@ minMax = Promise.all([
     max: stuff[1],
   };
 });
-minMax.then(results => console.log(results));
+minMax.then(results => console.log('m1', results));
 
 minMax = Promise.all([
   query(model, field),
@@ -89,7 +89,7 @@ minMax = Promise.all([
     max,
   };
 });
-minMax.then(results => console.log(results));
+minMax.then(results => console.log('m2', results));
 
 const getMinMax = async (model, field) => {
   const min = await query(model, field, Order.ASC);
@@ -101,7 +101,14 @@ const getMinMax = async (model, field) => {
   };
 };
 
-getMinMax(model, field).then(res => {
+field = 'servingSize';
+
+const p1 = getMinMax(model, field);
+
+field = 'cookingTime';
+const p2 = getMinMax(model, field);
+
+Promise.all([p1, p2]).then(res => {
   console.log(res);
   process.exit(0);
 });

@@ -28,7 +28,7 @@ let debug;
 debug = true;
 debug = false;
 
-const MAX_PROMISES = 100;
+const MAX_PROMISES = 10;
 
 let promises = [];
 
