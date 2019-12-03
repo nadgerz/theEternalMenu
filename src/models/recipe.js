@@ -19,7 +19,7 @@ const RecipeSchema = new mongoose.Schema({
   ],
   users: [
     {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Types.ObjectId,
     },
   ],
 });
