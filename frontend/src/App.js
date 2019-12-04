@@ -28,7 +28,7 @@ const App = () => {
         <Overview />
         {/*<Recipe />*/}
         {/*<SearchParams path={'/'}/>*/}
-        {/*<Recipe path={'/details/:id'}/>*/}
+        {/*<Details path={'/details/:id'}/>*/}
         {/*</Router>*/}
         {/*<FormikLogin />*/}
         {/*<FormikLogin email={'andrew@test.de'}/>*/}
