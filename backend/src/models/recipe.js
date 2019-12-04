@@ -12,6 +12,15 @@ const RecipeSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
+  img: String,
+  favourite: {
+    type: Boolean,
+    default: false,
+  },
   versions: [
     {
       type: Object,
@@ -20,6 +29,7 @@ const RecipeSchema = new mongoose.Schema({
   users: [
     {
       type: mongoose.Types.ObjectId,
+      ref: 'user',
     },
   ],
 });
