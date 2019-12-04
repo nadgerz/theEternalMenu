@@ -71,10 +71,9 @@ fabric.properties
 
 #
 .DS_Store
-/node_modules/
+node_modules/
 .cache/
 dist/
 .env
 coverage/
 .vscode/
-/src/scratch/lecture4/node_modules/

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import InputRange from 'react-input-range';
 
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
@@ -7,7 +7,13 @@ import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 import '../assets/CSS/components/Filters.scss';
 import '../assets/CSS/components/inputRange.css';
 
-class Filters extends React.Component {
+// import Recipe from '../models/recipe';
+// console.log(Recipe);
+
+// import bob from './bert'
+// console.log(bob)
+
+class Filters extends Component {
   constructor(props) {
     super(props);
 
@@ -20,6 +26,13 @@ class Filters extends React.Component {
       servingSizeValue: { min: 0, max: 4 },
       cookingTimeValue: { min: 0, max: 20 },
     };
+  }
+
+  componentDidMount() {
+    // console.log('bert2');
+    //
+    // const minPromise = Recipe.find({});
+    // console.log(minPromise);
   }
 
   render() {
