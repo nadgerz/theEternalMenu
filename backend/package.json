@@ -10,7 +10,7 @@
     "start": "node ../backend/server-start.js",
     "format": "pretty-quick --pattern \"**/*.*(js|jsx|scss|sass|css|json|ts|html)\"",
     "format:full": "prettier --write \"./**/*.{js,jsx,css,htm,json,ts,html,sass,scss}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
+    "lint": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "core-js": "^3.4.5",
     "draft-js": "^0.11.2",
     "express": "^4.17.1",
+    "lint-staged": "^9.5.0",
     "mongoose": "^5.7.13",
     "regenerator-runtime": "^0.13.3",
     "uuid": "^3.3.3",
@@ -54,9 +55,20 @@
     "pretty-quick": "^2.0.1",
     "supertest": "^4.0.2"
   },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint"
+      "pre-commit": "lint-staged"
     }
   },
   "ava": {
