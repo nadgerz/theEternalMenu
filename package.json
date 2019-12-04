@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "pretty-quick --pattern \"src/**/*.*(js|jsx|scss|sass|css|json|ts|html)\"",
     "format:full": "prettier --write \"./**/*.{js,jsx,css,htm,json,ts,html,sass,scss}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "lint": "lint-staged",
     "dev": "parcel src/index.html"
   },
   "repository": {
@@ -56,9 +56,20 @@
     "pretty-quick": "2.0.1",
     "sass": "1.23.7"
   },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint"
+      "pre-commit": "lint-staged"
     }
   },
   "browserslist": [
