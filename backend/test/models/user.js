@@ -83,3 +83,21 @@ test('creating a user with invalid password', async t => {
     testInput(input, index, t, property, errorMessages);
   });
 });
+
+test.todo('creating a user with duplicate email');
+// , async t => {
+// Below is from the mongoose docs, to serve as inspiration
+
+// Need to wait for the index to finish building before saving,
+// otherwise unique constraints may be violated.
+//   U2.once('index', function(error) {
+//     assert.ifError(error);
+//     U2.create(dup, function(error) {
+//       // Will error, but will *not* be a mongoose validation error, it will be
+//       // a duplicate key error.
+//       assert.ok(error);
+//       assert.ok(!error.errors);
+//       assert.ok(error.message.indexOf('duplicate key error') !== -1);
+//     });
+//   });
+// });
