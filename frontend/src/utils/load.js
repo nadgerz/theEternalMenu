@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 
 const log = console.log;
 
-const connectDB = require('../../config/db');
+const connectDB = require('../../../backend/config/db');
 connectDB();
 
 function randomBetween(min, max) {
