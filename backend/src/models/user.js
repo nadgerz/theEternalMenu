@@ -33,6 +33,7 @@ const UserSchema = new mongoose.Schema({
   recipes: [
     {
       type: mongoose.SchemaTypes.ObjectId,
+      ref: 'recipe',
     },
   ],
 });
