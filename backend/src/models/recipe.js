@@ -19,7 +19,7 @@ const RecipeSchema = new mongoose.Schema({
   },
   img: {
     type: String,
-    default: 'default.png',
+    default: 'default.jpeg',
   },
   favourite: {
     type: Boolean,
