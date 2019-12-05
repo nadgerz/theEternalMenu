@@ -14,13 +14,14 @@ function randomBetween(min, max) {
 
 const loadDummyData = async () => {
   let debug = false;
-  debug = true;
+  // debug = true;
 
   try {
-    await UserModel.collection.drop();
+    await UserModel.deleteMany();
   } catch (err) {
     if (err.message !== 'ns not found') {
       console.error(err.message);
+
       process.exit(1);
     }
   }
@@ -42,7 +43,7 @@ const loadDummyData = async () => {
 
   const onlyUser = await new UserModel(firstUser);
 
-  onlyUser
+  await onlyUser
     .save()
     .then(rec => {
       if (debug) {
@@ -95,49 +96,80 @@ const loadDummyData = async () => {
     ],
   };
 
-  // const recipes = [recipe1, recipe2, recipe3];
-
   const r1 = new RecipeModel(recipe1);
   const r2 = new RecipeModel(recipe2);
   const r3 = new RecipeModel(recipe3);
 
-  // recipes.forEach(recipe => {
-  //   recipe
-  //     .save()
-  //     .then(rec => {
-  //       if (debug) {
-  //         console.log('Saved', rec);
-  //       }
-  //     })
-  //     .catch(err => console.error(err.message));
-  // });
+  // const recipes = [r1];
+  const recipes = [r1, r2, r3];
 
-  const p1 = r1
-    .save()
-    .then(rec => {
-      if (debug) {
-        console.log('Saved', rec);
-      }
-    })
-    .catch(err => console.error(err.message));
-  const p2 = r2
-    .save()
-    .then(rec => {
-      if (debug) {
-        console.log('Saved', rec);
-      }
-    })
-    .catch(err => console.error(err.message));
-  const p3 = r3
-    .save()
-    .then(rec => {
-      if (debug) {
-        console.log('Saved', rec);
-      }
-    })
-    .catch(err => console.error(err.message));
+  const promiseArr = recipes.map(async recipe => {
+    try {
+      await recipe.save();
+      // .then(rec => onlyUser.recipes.push(rec));
 
-  Promise.all([p1, p2, p3]).then(() => process.exit(0));
+      if (debug) {
+        console.log('Saved', recipe);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+
+  // ERR (when the first save() at the top isn't awaited:
+  // Can't save() the same doc multiple times in parallel. Document: user
+  // SAI: why does the code below work outside of my loop?
+
+  const whatever = recipes.map(async recipe => {
+    try {
+      await onlyUser.recipes.push(recipe);
+
+      await onlyUser.save();
+    } catch (err) {
+      console.error(err.message);
+    }
+
+    console.log('new save try');
+    console.log(onlyUser);
+  });
+
+  // console.log(typeof whatever);
+  // console.log(whatever);
+
+  // promiseArr.forEach(promise => Promise
+  //   .resolve(promise)
+  //   .then(() => process.exit(0)),
+  // );
+  await Promise.all(whatever);
+  Promise.all(promiseArr).then(() => process.exit(0));
+
+  // const p1 = r1
+  //   .save()
+  //   .then(rec => {
+  //     if (debug) {
+  //       console.log('Saved', rec);
+  //     }
+  //   })
+  //   .catch(err => console.error(err.message));
+  // const p2 = r2
+  //   .save()
+  //   .then(rec => {
+  //     if (debug) {
+  //       console.log('Saved', rec);
+  //     }
+  //   })
+  //   .catch(err => console.error(err.message));
+  // const p3 = r3
+  //   .save()
+  //   .then(rec => {
+  //     if (debug) {
+  //       console.log('Saved', rec);
+  //     }
+  //   })
+  //   .catch(err => console.error(err.message));
+  //
+  //
+  // Promise.all([p1, p2, p3]).then(() => process.exit(0));
 };
 
 module.exports = loadDummyData;
