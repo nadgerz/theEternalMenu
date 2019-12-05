@@ -1,0 +1,82 @@
+{
+  "name": "TheEternalMenu",
+  "version": "1.0.0",
+  "description": "## The Eternal Menu",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava --verbose",
+    "test:watch": "ava --watch",
+    "test:coverage": "nyc ava --verbose",
+    "start": "node ./server-start.js",
+    "format": "pretty-quick --pattern \"**/*.*(js|jsx|scss|sass|css|json|ts|html)\"",
+    "format:full": "prettier --write \"./**/*.{js,jsx,css,htm,json,ts,html,sass,scss}\"",
+    "lint": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoppetX/theEternalMenu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MoppetX/theEternalMenu/issues"
+  },
+  "homepage": "https://github.com/MoppetX/theEternalMenu#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
+    "config": "^3.2.4",
+    "core-js": "^3.4.5",
+    "draft-js": "^0.11.2",
+    "express": "^4.17.1",
+    "lint-staged": "^9.5.0",
+    "mongoose": "^5.7.13",
+    "regenerator-runtime": "^0.13.3",
+    "uuid": "^3.3.3",
+    "validator": "^12.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "ava": "^2.4.0",
+    "axios": "^0.19.0",
+    "babel-eslint": "^10.0.3",
+    "cors": "^2.8.5",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "faker": "^4.1.0",
+    "husky": "^3.1.0",
+    "mongodb-memory-server": "^6.0.1",
+    "nodemon": "^2.0.1",
+    "nyc": "^14.1.1",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "supertest": "^4.0.2"
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "ava": {
+    "files": [
+      "**/test/**/*",
+      "!week5/test",
+      "!**/lecture/test"
+    ]
+  }
+}

@@ -7,8 +7,8 @@ import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 import '../assets/CSS/components/Filters.scss';
 import '../assets/CSS/components/inputRange.css';
 
-import Recipe from '../models/recipe';
-console.log(Recipe);
+// import Recipe from '../models/recipe';
+// console.log(Recipe);
 
 // import bob from './bert'
 // console.log(bob)
@@ -29,10 +29,10 @@ class Filters extends Component {
   }
 
   componentDidMount() {
-    console.log('bert2');
-
-    const minPromise = Recipe.find({});
-    console.log(minPromise);
+    // console.log('bert2');
+    //
+    // const minPromise = Recipe.find({});
+    // console.log(minPromise);
   }
 
   render() {
