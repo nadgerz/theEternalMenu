@@ -71,6 +71,7 @@ const loadDummyData = async () => {
 
   const recipe2 = {
     title: 'Orange Miso Salmon Surpise!',
+    img: 'orangeSalmon.jpeg',
     versions: [
       {
         cookingTime: randomBetween(5, 120),
@@ -85,6 +86,7 @@ const loadDummyData = async () => {
 
   const recipe3 = {
     title: 'Red Beets Winter Salad',
+    img: 'redBeetSalad.jpeg',
     versions: [
       {
         cookingTime: randomBetween(5, 120),
