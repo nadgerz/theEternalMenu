@@ -79,9 +79,6 @@ router.get('/:id/img/:imgId', async (req, res) => {
     const url = `${process.cwd()}/src/assets/imgs/${imgId}`;
     const recipe = await RecipeService.findById(id);
 
-    console.log('ROUTES');
-    console.log(url);
-
     if (!recipe) {
       res.status(404).send(`Error: Could not find recipe for id >${id}<`);
     } else {
