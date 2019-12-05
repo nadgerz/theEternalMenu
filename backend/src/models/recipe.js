@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
+const fs = require('fs');
 const { recipeModelErrorMsgs: errMsgs } = require('./modelErrorMsgs');
 // const defaultImg = require('../../../frontend/src/assets/imgs/default.png');
+// const defaultImg = require('../../config/utils/storeImg');
+
+const imgPath = '../../../frontend/src/assets/imgs/default.png';
+// const imgData = fs.readFileSync(imgPath);
+// const contentType = 'image/png';
+
+const defaultImg = {
+  imgData: fs.readFileSync(imgPath),
+  contentType: 'image/png',
+};
 
 const RecipeSchema = new mongoose.Schema({
   title: {
@@ -18,8 +29,12 @@ const RecipeSchema = new mongoose.Schema({
     default: false,
   },
   img: {
-    type: String,
-    default: 'assets/imgs/default.png',
+    data: Buffer,
+    contentType: String,
+    default: {
+      data: defaultImg.imgData,
+      contentType: defaultImg.contentType,
+    },
   },
   favourite: {
     type: Boolean,
