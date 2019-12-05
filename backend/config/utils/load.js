@@ -55,7 +55,8 @@ const loadDummyData = async () => {
   // Promise.all([onlyUser]).then((user) => console.log(user));
 
   const recipe1 = {
-    title: 'Eggs Benny',
+    title: 'Eggs Benedict',
+    img: 'eggsBenny.jpeg',
     versions: [
       {
         cookingTime: randomBetween(5, 120),
@@ -116,30 +117,24 @@ const loadDummyData = async () => {
     }
   });
 
-  // ERR (when the first save() at the top isn't awaited:
-  // Can't save() the same doc multiple times in parallel. Document: user
-  // SAI: why does the code below work outside of my loop?
-
   const whatever = recipes.map(async recipe => {
     try {
       await onlyUser.recipes.push(recipe);
-
-      await onlyUser.save();
     } catch (err) {
       console.error(err.message);
     }
-
-    console.log('new save try');
-    console.log(onlyUser);
   });
 
-  // /:id/img/:imid
+  await onlyUser.save();
+  console.log(onlyUser);
 
   await Promise.all(whatever);
-  Promise.all(promiseArr).then(() => {
-    process.exit(0);
-    console.log('Dummy data loaded...');
-  });
+  Promise.all(promiseArr).then(() => console.log('Dummy data loaded...'));
+
+  // Promise.all(promiseArr).then(() => {
+  //   process.exit(0);
+  //   console.log('Dummy data loaded...');
+  // });
 };
 
 module.exports = loadDummyData;
