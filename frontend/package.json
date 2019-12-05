@@ -22,14 +22,7 @@
   },
   "homepage": "https://github.com/MoppetX/theEternalMenu#readme",
   "dependencies": {
-<<<<<<< HEAD:package.json
-    "@reach/router": "1.2.1",
-    "body-parser": "^1.19.0",
-    "chalk": "^3.0.0",
-    "config": "^3.2.4",
-=======
     "@reach/router": "^1.2.1",
->>>>>>> upstream/master:frontend/package.json
     "core-js": "^3.4.5",
     "draft-js": "^0.11.2",
     "express": "^4.17.1",
