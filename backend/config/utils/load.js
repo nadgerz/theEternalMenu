@@ -133,43 +133,13 @@ const loadDummyData = async () => {
     console.log(onlyUser);
   });
 
-  // console.log(typeof whatever);
-  // console.log(whatever);
+  // /:id/img/:imid
 
-  // promiseArr.forEach(promise => Promise
-  //   .resolve(promise)
-  //   .then(() => process.exit(0)),
-  // );
   await Promise.all(whatever);
-  Promise.all(promiseArr).then(() => process.exit(0));
-
-  // const p1 = r1
-  //   .save()
-  //   .then(rec => {
-  //     if (debug) {
-  //       console.log('Saved', rec);
-  //     }
-  //   })
-  //   .catch(err => console.error(err.message));
-  // const p2 = r2
-  //   .save()
-  //   .then(rec => {
-  //     if (debug) {
-  //       console.log('Saved', rec);
-  //     }
-  //   })
-  //   .catch(err => console.error(err.message));
-  // const p3 = r3
-  //   .save()
-  //   .then(rec => {
-  //     if (debug) {
-  //       console.log('Saved', rec);
-  //     }
-  //   })
-  //   .catch(err => console.error(err.message));
-  //
-  //
-  // Promise.all([p1, p2, p3]).then(() => process.exit(0));
+  Promise.all(promiseArr).then(() => {
+    process.exit(0);
+    console.log('Dummy data loaded...');
+  });
 };
 
 module.exports = loadDummyData;
