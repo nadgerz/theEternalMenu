@@ -72,6 +72,18 @@ router.put('/', async (req, res) => {
   }
 });
 
+// TODO: use below to retrieve recipes titles, imgs...
+// POPULATION
+// Story.
+//   findOne({ title: 'Casino Royale' }).
+//   populate('author').
+//   exec(function (err, story) {
+//     if (err) return handleError(err);
+//     console.log('The author is %s', story.author.name);
+//     // prints "The author is Ian Fleming"
+//   });
+// Populated paths are no longer set to their original _id , their value is replaced with the mongoose document returned from the database by performing a separate query before returning the results.
+
 // router.delete('/all', async (req, res) => {
 //   try {
 //     await UserService.delete();

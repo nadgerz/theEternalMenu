@@ -17,7 +17,11 @@ class Overview extends React.Component {
     super(props);
 
     this.state = {
+      user: null,
+      // TODO: Spinner component
+      isLoading: false,
       recipes: [],
+      recipeImages: [],
     };
   }
 
@@ -35,34 +39,56 @@ class Overview extends React.Component {
 
   getDataFromDbUsingAxios = async () => {
     try {
-      const result = await axios.get(`${serverPath}/user/all`);
-      console.log(result);
-      this.setState({ data: result });
+      let res;
+      // fetch user
+      res = await axios.get(`${serverPath}/user/all`);
+      const user = res.data[0];
+
+      // get recipes of user
+      const promisedRecipes = user.recipes.map(async (recipeId) => {
+        res = await axios.get(`${serverPath}/recipe/${recipeId}`);
+        return res.data;
+      });
+      const recipes = await Promise.all(promisedRecipes);
+
+      // get imgs for recipes
+      const promisedImages = recipes.map(async (recipe) => {
+        res = await axios
+          .get(`${serverPath}/recipe/${recipe._id}/img/${recipe.img}`, {
+            responseType: 'arraybuffer',
+          })
+          .then(res => Buffer.from(res.data, 'binary').toString('base64'));
+
+        return (res);
+      });
+      const recipeImages = await Promise.all(promisedImages);
+
+      this.setState({ user, recipes, recipeImages });
+
     } catch (err) {
       console.log(err.response.data.message);
     }
   };
 
   render() {
-    // const { recipes } = this.state;
+    const { recipes, recipeImages } = this.state;
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-        {/* TODO: Filter will need to be passed props from user */}
-        <Filters />
+        <Filters/>
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
-            Your Recipes <span>{mockData.user.recipes.length} in total</span>
+            Your Recipes <span>{recipes.length} in total</span>
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard />
+            <AddRecipeCard/>
 
-            {mockData.user.recipes.map((recipe, index) => {
+            {recipes.map((recipe, index) => {
               return (
                 <RecipeCard
-                  img={recipe.img}
+                  img={recipeImages[index]}
                   title={recipe.title}
                   favourite={recipe.favourite}
                   key={

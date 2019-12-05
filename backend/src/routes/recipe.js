@@ -72,4 +72,21 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// get img for particular recipe
+router.get('/:id/img/:imgId', async (req, res) => {
+  try {
+    const { id, imgId } = req.params;
+    const url = `${process.cwd()}/src/assets/imgs/${imgId}`;
+    const recipe = await RecipeService.findById(id);
+
+    if (!recipe) {
+      res.status(404).send(`Error: Could not find recipe for id >${id}<`);
+    } else {
+      res.sendFile(url);
+    }
+  } catch (err) {
+    res.send(err.response.data.message);
+  }
+});
+
 module.exports = router;

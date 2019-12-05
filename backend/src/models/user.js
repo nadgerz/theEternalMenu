@@ -8,7 +8,6 @@ const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, errMsgs.NAME.REQUIRED],
-    // defining an error message
     minlength: [2, errMsgs.NAME.TOO_SHORT],
     maxlength: [20, errMsgs.NAME.TOO_LONG],
   },
@@ -33,6 +32,7 @@ const UserSchema = new mongoose.Schema({
   recipes: [
     {
       type: mongoose.SchemaTypes.ObjectId,
+      ref: 'recipe',
     },
   ],
 });

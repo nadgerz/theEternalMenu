@@ -7,7 +7,7 @@
     "test": "ava --verbose",
     "test:watch": "ava --watch",
     "test:coverage": "nyc ava --verbose",
-    "start": "node ../backend/server-start.js",
+    "start": "node ./server-start.js",
     "format": "pretty-quick --pattern \"**/*.*(js|jsx|scss|sass|css|json|ts|html)\"",
     "format:full": "prettier --write \"./**/*.{js,jsx,css,htm,json,ts,html,sass,scss}\"",
     "lint": "lint-staged"
@@ -47,6 +47,7 @@
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.18.2",
+    "faker": "^4.1.0",
     "husky": "^3.1.0",
     "mongodb-memory-server": "^6.0.1",
     "nodemon": "^2.0.1",

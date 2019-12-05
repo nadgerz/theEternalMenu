@@ -1,6 +1,6 @@
-import mockImage from '../imgs/iu-1.jpeg';
-import mockImage2 from '../imgs/iu-2.jpeg';
-import mockImage3 from '../imgs/iu-3.jpeg';
+import mockImage from '../../../../backend/src/assets/imgs/redBeetSalad.jpeg';
+import mockImage2 from '../../../../backend/src/assets/imgs/boiledEggs.jpeg';
+import mockImage3 from '../../../../backend/src/assets/imgs/scrambledEggs.jpeg';
 
 const mockData = {
   user: {

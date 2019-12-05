@@ -143,6 +143,27 @@ test.serial('delete one recipe via params', async t => {
   t.is(fetch.status, 404);
 });
 
+test.only('get a recipe img via params', async t => {
+  const { app, recipeRoute } = t.context;
+  const [recipeInDb] = await RecipeService.find({ title: 'Boiled Eggs' });
+
+  const recipeId = recipeInDb._id.toString();
+  const defaultImgName = 'default.jpeg';
+
+  const res = await request(app).get(
+    `${recipeRoute}/${recipeId}/img/${defaultImgName}`,
+  );
+
+  console.log(typeof res.body);
+
+  t.is(res.status, 200);
+  // TODO: compare whats returned sensibly
+  // t.is(imgId, defaultImg);
+
+  // const fetchedRecipeId = res.body._id.toString();
+  // t.is(fetchedRecipeId, newRecipeId);
+});
+
 test.after.always(async () => {
   RecipeModel.deleteMany();
   await mongoose.disconnect();
