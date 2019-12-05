@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { recipeModelErrorMsgs: errMsgs } = require('./modelErrorMsgs');
+// const defaultImg = require('../../../frontend/src/assets/imgs/default.png');
 
 const RecipeSchema = new mongoose.Schema({
   title: {
@@ -16,7 +17,10 @@ const RecipeSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  img: String,
+  img: {
+    type: String,
+    default: 'assets/imgs/default.png',
+  },
   favourite: {
     type: Boolean,
     default: false,
