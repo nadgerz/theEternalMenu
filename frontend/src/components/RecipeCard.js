@@ -15,7 +15,7 @@ const RecipeCard = props => {
       </div>
 
       <div className={'recipe-thumb'}>
-        <img src={img} alt="a dish" />
+        <img src={`data:image/jpeg;base64, ${img}`} alt="a dish" />
       </div>
     </div>
   );
