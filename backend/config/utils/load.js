@@ -57,7 +57,7 @@ const loadDummyData = async () => {
   const recipe1 = {
     title: 'Eggs Benedict',
     img: 'eggsBenny.jpeg',
-    cookingTime: randomBetween(5, 90),
+    cookingTime: 5,
     servingSize: randomBetween(1, 12),
     versions: [
       {
@@ -87,6 +87,7 @@ const loadDummyData = async () => {
     img: 'redBeetSalad.jpeg',
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
+    favourite: true,
     versions: [
       {
         directions: ['a string', 'is a string', 'is a string'],
