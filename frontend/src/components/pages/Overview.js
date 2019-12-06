@@ -4,7 +4,7 @@ import React from 'react';
 import axios from 'axios';
 const serverPath = 'http://localhost:3000';
 
-import {AXIOS} from '../../utils/util'
+import { AXIOS } from '../../utils/util';
 import AddRecipeCard from '../AddRecipeCard';
 import Filters from '../Filters';
 import RecipeCard from '../RecipeCard';
@@ -45,37 +45,46 @@ class Overview extends React.Component {
       const user = res.data[0];
 
       // get recipes of user
-      const promisedRecipes = user.recipes.map(async (recipeId) => {
+      const promisedRecipes = user.recipes.map(async recipeId => {
         res = await axios.get(`${serverPath}/recipe/${recipeId}`);
         return res.data;
       });
       const recipes = await Promise.all(promisedRecipes);
 
       // get imgs for recipes
-      const promisedImages = recipes.map(async (recipe) => {
+      const promisedImages = recipes.map(async recipe => {
         res = await axios
           .get(`${serverPath}/recipe/${recipe._id}/img/${recipe.img}`, {
             responseType: 'arraybuffer',
           })
           .then(res => Buffer.from(res.data, 'binary').toString('base64'));
 
-        return (res);
+        return res;
       });
       const recipeImages = await Promise.all(promisedImages);
 
       this.setState({ user, recipes, recipeImages });
-
     } catch (err) {
       console.log(err.response.data.message);
     }
   };
+
+  handleFilterUpdate(data) {
+    console.log('in Overview');
+    console.log(data);
+
+    // this.setState(){
+    //
+    // }
+  }
 
   render() {
     const { recipes, recipeImages } = this.state;
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-        <Filters/>
+        {/* TODO: pass recipes as props */}
+        <Filters handleFilterUpdate={this.handleFilterUpdate} />
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
@@ -83,7 +92,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard/>
+            <AddRecipeCard />
 
             {recipes.map((recipe, index) => {
               return (
