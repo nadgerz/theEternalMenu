@@ -18,7 +18,7 @@ const AXIOS = {
     GET_ALL: axios.get(`${serverPath}/user/all`)
   },
   recipe: {
-    GET: '',
+    GET_ALL: axios.get(`${serverPath}/recipe/all`),
 
   },
 };
