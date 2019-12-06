@@ -39,8 +39,24 @@ router.get('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const { query, body } = req;
-    const recipes = await RecipeService.find(query).sort(body.sort);
+    let { query, body } = req;
+    console.log('ROUTES');
+    console.log(query);
+
+    // Could loop the keys for multiple queries
+    const keys = Object.keys(query);
+    const json = {};
+
+    keys.forEach(key => {
+      const value = query[key];
+      // console.log(value);
+      json[key] = JSON.parse(value);
+    });
+
+    console.log(json);
+
+    // recipes = await RecipeService.find({ servingSize: { '$gte': 0, '$lte': 5 }, cookingTime: { '$gte': 0, '$lte': 120 } }).sort(body.sort);
+    const recipes = await RecipeService.find(json).sort(body.sort);
 
     if (recipes.length === 0) {
       res.status(404).send(`Error: Could not find recipes`);
@@ -48,7 +64,7 @@ router.get('/', async (req, res) => {
       res.send(recipes);
     }
   } catch (err) {
-    res.send(err.response.data.message);
+    res.send(err.message);
   }
 });
 
