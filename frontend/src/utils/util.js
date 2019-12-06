@@ -15,11 +15,10 @@ const log = console.log;
 
 const AXIOS = {
   user: {
-    GET_ALL: axios.get(`${serverPath}/user/all`)
+    GET_ALL: axios.get(`${serverPath}/user/all`),
   },
   recipe: {
     GET_ALL: axios.get(`${serverPath}/recipe/all`),
-
   },
 };
 
@@ -47,7 +46,6 @@ const Order = {
 };
 Object.freeze(Order);
 
-
 const query = (model, key, order) => {
   return model
     .find({})
@@ -69,7 +67,6 @@ const getMinMax = async (model, field) => {
     max,
   };
 };
-
 
 // let field;
 // field = 'servingSize';
@@ -133,4 +130,4 @@ const getMinMax = async (model, field) => {
 //   process.exit(0);
 // });
 
-module.exports = {getMinMax, AXIOS};
+module.exports = { getMinMax, AXIOS };

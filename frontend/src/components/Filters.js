@@ -11,7 +11,6 @@ import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 import '../assets/CSS/components/Filters.scss';
 import '../assets/CSS/components/inputRange.css';
 
-
 class Filters extends Component {
   constructor(props) {
     super(props);
@@ -30,19 +29,15 @@ class Filters extends Component {
   }
 
   sortLowToHigh(array, key) {
-    return array
-      .map(item => item[key])
-      .sort((a, b) => a - b);
+    return array.map(item => item[key]).sort((a, b) => a - b);
   }
 
-  getTrueMiddle(min, max){
-    return min + Math.round((max - min) / 2)
+  getTrueMiddle(min, max) {
+    return min + Math.round((max - min) / 2);
   }
 
   getMinMaxValues(array, key) {
-    const sorted = array
-      .map(item => item[key])
-      .sort((a, b) => a - b);
+    const sorted = array.map(item => item[key]).sort((a, b) => a - b);
 
     const min = sorted[0];
     const max = sorted[sorted.length - 1];
@@ -53,9 +48,14 @@ class Filters extends Component {
   async componentDidMount() {
     let res = await AXIOS.recipe.GET_ALL;
 
-    const [minValueCookingTime, maxValueCookingTime] = this.getMinMaxValues(res.data, 'cookingTime');
-    const [minValueServingSize, maxValueServingSize] = this.getMinMaxValues(res.data, 'servingSize');
-
+    const [minValueCookingTime, maxValueCookingTime] = this.getMinMaxValues(
+      res.data,
+      'cookingTime',
+    );
+    const [minValueServingSize, maxValueServingSize] = this.getMinMaxValues(
+      res.data,
+      'servingSize',
+    );
 
     this.setState({
       minValueCookingTime,
@@ -82,13 +82,25 @@ class Filters extends Component {
 
   async handleSubmit(event) {
     console.log('Sth was submitted: ');
-    console.log(this.state.servingSizeValue.min, this.state.servingSizeValue.max);
-    console.log(this.state.cookingTimeValue.min, this.state.cookingTimeValue.max);
+    console.log(
+      this.state.servingSizeValue.min,
+      this.state.servingSizeValue.max,
+    );
+    console.log(
+      this.state.cookingTimeValue.min,
+      this.state.cookingTimeValue.max,
+    );
     event.preventDefault();
 
     let query = {
-      servingSize: { $gte: this.state.servingSizeValue.min, $lte: this.state.servingSizeValue.max },
-      cookingTime: { $gte: this.state.cookingTimeValue.min, $lte: this.state.cookingTimeValue.max },
+      servingSize: {
+        $gte: this.state.servingSizeValue.min,
+        $lte: this.state.servingSizeValue.max,
+      },
+      cookingTime: {
+        $gte: this.state.cookingTimeValue.min,
+        $lte: this.state.cookingTimeValue.max,
+      },
     };
 
     let res = await axios.get(`${serverPath}/recipe/`, {
@@ -125,10 +137,9 @@ class Filters extends Component {
 
         {/*<form action="submit">*/}
         <form onSubmit={this.handleSubmit}>
-
           <div className={'cooking-time'}>
             <div className="filter-title icon-with-text">
-              <CookingTimeIcon/>
+              <CookingTimeIcon />
               <label htmlFor="filter-cooking-time">
                 <h6>Cooking Time</h6>
               </label>
@@ -153,7 +164,7 @@ class Filters extends Component {
 
           <div className={'serving-size'}>
             <div className="filter-title icon-with-text">
-              <ServingSizeIcon/>
+              <ServingSizeIcon />
               <label htmlFor="filter-serving-size">
                 <h6>Serving Size</h6>
               </label>
@@ -175,7 +186,7 @@ class Filters extends Component {
             </div>
           </div>
 
-          <input type="submit" value={'Submit'} className={'btn primary'}/>
+          <input type="submit" value={'Submit'} className={'btn primary'} />
         </form>
       </aside>
     );
