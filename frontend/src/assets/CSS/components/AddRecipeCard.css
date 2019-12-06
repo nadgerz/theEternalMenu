@@ -58,6 +58,6 @@
 }
 
 .add-recipe-icons svg:last-child:hover {
-  color: var(--color-highlight);
+  color: var(--color-highlight-contrast);
   transform: scale(1.2);
 }

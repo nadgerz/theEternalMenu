@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import InputRange from 'react-input-range';
 
+const RecipeModel = require('../../../backend/src/models/recipe');
+// const getMinMax = require('../utils/util');
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 
-// import 'react-input-range/lib/css/index.css';
 import '../assets/CSS/components/Filters.scss';
 import '../assets/CSS/components/inputRange.css';
 
@@ -17,22 +18,33 @@ class Filters extends Component {
   constructor(props) {
     super(props);
 
-    // const maxVal = 45;
-    // const minVal = 0;
-
     this.state = {
       // min is for the left thumb
       value: { min: 0, max: 20 },
       servingSizeValue: { min: 0, max: 4 },
       cookingTimeValue: { min: 0, max: 20 },
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    // console.log('bert2');
-    //
-    // const minPromise = Recipe.find({});
-    // console.log(minPromise);
+    // const servingSizeMinMax = getMinMax(RecipeModel, 'servingSize');
+    // console.log(servingSizeMinMax);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    console.log('Sth was submitted: ');
+    console.log(this.state.servingSizeValue );
+    console.log(this.state.cookingTimeValue);
+    event.preventDefault();
+    
+  //  TODO: query databse! with min max!
+
   }
 
   render() {
@@ -40,10 +52,12 @@ class Filters extends Component {
       <aside id={'recipe-filter'}>
         <h2>Filters</h2>
 
-        <form action="submit">
+        {/*<form action="submit">*/}
+        <form onSubmit={this.handleSubmit}>
+
           <div className={'cooking-time'}>
             <div className="filter-title icon-with-text">
-              <CookingTimeIcon />
+              <CookingTimeIcon/>
               <label htmlFor="filter-cooking-time">
                 <h6>Cooking Time</h6>
               </label>
@@ -70,7 +84,7 @@ class Filters extends Component {
 
           <div className={'serving-size'}>
             <div className="filter-title icon-with-text">
-              <ServingSizeIcon />
+              <ServingSizeIcon/>
               <label htmlFor="filter-serving-size">
                 <h6>Serving Size</h6>
               </label>
@@ -93,7 +107,7 @@ class Filters extends Component {
             </div>
           </div>
 
-          <input type="submit" value={'Submit'} />
+          <input type="submit" value={'Submit'}/>
         </form>
       </aside>
     );
