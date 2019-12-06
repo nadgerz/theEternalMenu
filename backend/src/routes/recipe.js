@@ -40,7 +40,31 @@ router.get('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const { query, body } = req;
-    const recipes = await RecipeService.find(query).sort(body.sort);
+    console.log('ROUTES');
+    console.log(query);
+    console.log(query.servingSize);
+
+    let recipes;
+
+    if (!body) {
+      recipes = await RecipeService.find({ servingSize: { $gte: 0, $lte: 5 } });
+      if (recipes.length === 0) {
+        res.status(404).send(`Error: Could not find recipes`);
+      } else {
+        res.send(recipes);
+      }
+    }
+    const [keys] = Object.keys(query);
+    console.log(keys);
+    const [values] = Object.values(query);
+    console.log(values);
+
+    const q = {
+      [keys]: [values],
+    };
+
+    // recipes = await RecipeService.find({ servingSize: { '$gte': 0, '$lte': 5 } }).sort(body.sort);
+    recipes = await RecipeService.find(q).sort(body.sort);
 
     if (recipes.length === 0) {
       res.status(404).send(`Error: Could not find recipes`);
@@ -48,7 +72,7 @@ router.get('/', async (req, res) => {
       res.send(recipes);
     }
   } catch (err) {
-    res.send(err.response.data.message);
+    res.send(err.message);
   }
 });
 
