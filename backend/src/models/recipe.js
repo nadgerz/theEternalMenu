@@ -25,6 +25,14 @@ const RecipeSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  cookingTime: {
+    type: Number,
+    default: 1,
+  },
+  servingSize: {
+    type: Number,
+    default: 1,
+  },
   versions: [
     {
       type: Object,
