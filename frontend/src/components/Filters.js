@@ -31,20 +31,23 @@ class Filters extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  sortLowToHigh(array, key) {
+    return array
+      .map(item => item[key])
+      .sort((a, b) => a - b);
+  }
+
+  getTrueMiddle(min, max){
+    return min + Math.round((max - min) / 2)
+  }
 
   async componentDidMount() {
     let res = await AXIOS.recipe.GET_ALL;
     const recipes = res.data;
 
-    // console.log(minCookingTime, maxCookingTime, minServingSize, maxServingSize);
+    const sortedCookingTimes = this.sortLowToHigh(recipes, 'cookingTime');
+    const sortedServingSize = this.sortLowToHigh(recipes, 'servingSize');
 
-    const sortedCookingTimes = recipes.map(recipe => recipe.cookingTime)
-      .sort((a, b) => a - b);
-
-    const sortedServingSize = recipes.map(recipe => recipe.servingSize)
-      .sort((a, b) => a - b);
-
-    // console.log(sortedCookingTimes);
 
     let minValueCookingTime = sortedCookingTimes[0];
     let maxValueCookingTime = sortedCookingTimes[sortedCookingTimes.length - 1];
@@ -58,7 +61,7 @@ class Filters extends Component {
 
       cookingTimeValue: {
         min: minValueCookingTime,
-        max: Math.round(maxValueCookingTime / 2),
+        max: this.getTrueMiddle(minValueCookingTime, maxValueCookingTime),
       },
 
       minValueServingSize,
@@ -66,9 +69,10 @@ class Filters extends Component {
 
       servingSizeValue: {
         min: minValueServingSize,
-        max: Math.round(maxValueServingSize / 2),
+        max: this.getTrueMiddle(minValueServingSize, maxValueServingSize),
       },
-    });
+    })
+    ;
   }
 
   handleChange(event) {
