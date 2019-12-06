@@ -17,8 +17,6 @@ class Filters extends Component {
     super(props);
 
     this.state = {
-      // min is for the left thumb
-      // value: { min: 0, max: 20 },
       minValueCookingTime: 0,
       maxValueCookingTime: 120,
       cookingTimeValue: { min: 0, max: 60 },
@@ -41,19 +39,23 @@ class Filters extends Component {
     return min + Math.round((max - min) / 2)
   }
 
+  getMinMaxValues(array, key) {
+    const sorted = array
+      .map(item => item[key])
+      .sort((a, b) => a - b);
+
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+
+    return [min, max];
+  }
+
   async componentDidMount() {
     let res = await AXIOS.recipe.GET_ALL;
-    const recipes = res.data;
 
-    const sortedCookingTimes = this.sortLowToHigh(recipes, 'cookingTime');
-    const sortedServingSize = this.sortLowToHigh(recipes, 'servingSize');
+    const [minValueCookingTime, maxValueCookingTime] = this.getMinMaxValues(res.data, 'cookingTime');
+    const [minValueServingSize, maxValueServingSize] = this.getMinMaxValues(res.data, 'servingSize');
 
-
-    let minValueCookingTime = sortedCookingTimes[0];
-    let maxValueCookingTime = sortedCookingTimes[sortedCookingTimes.length - 1];
-
-    let minValueServingSize = sortedServingSize[0];
-    let maxValueServingSize = sortedServingSize[sortedServingSize.length - 1];
 
     this.setState({
       minValueCookingTime,
@@ -71,8 +73,7 @@ class Filters extends Component {
         min: minValueServingSize,
         max: this.getTrueMiddle(minValueServingSize, maxValueServingSize),
       },
-    })
-    ;
+    });
   }
 
   handleChange(event) {
@@ -95,7 +96,10 @@ class Filters extends Component {
     });
 
     // let res = await AXIOS.recipe.GET_ALL;
-    console.log(res.data);
+    // console.log(res.data);
+
+    console.log('did mount');
+    this.props.handleFilterUpdate(res.data);
 
     //   const returned = await RecipeModel.find({
     //     servingSize: {$gte:this.state.servingSizeValue.min, $lte: this.state.servingSizeValue.max}
