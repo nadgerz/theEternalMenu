@@ -83,7 +83,7 @@ class Filters extends Component {
   }
 
   async handleSubmit(event) {
-    console.log('Sth was submitted: ');
+    console.log('submitted Filter values:');
     console.log(
       this.state.servingSizeValue.min,
       this.state.servingSizeValue.max,

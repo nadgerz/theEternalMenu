@@ -26,6 +26,7 @@ class Overview extends React.Component {
   }
 
   componentDidMount() {
+    console.log('did mount');
     // this.getDataFromDbUsingFetch();
     this.getDataFromDbUsingAxios();
   }
@@ -80,11 +81,13 @@ class Overview extends React.Component {
   }
 
   render() {
+    console.log('render');
     const { recipes, recipeImages } = this.state;
+
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-        {/* TODO: pass recipes as props */}
+
         <Filters handleFilterUpdate={this.handleFilterUpdate}
                  data={recipes}/>
 
