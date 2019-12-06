@@ -1,16 +1,15 @@
 import React from 'react';
-import axios from 'axios';
 // import config from 'config';
 // const serverPath = config.get('serverPath');
+import axios from 'axios';
 const serverPath = 'http://localhost:3000';
 
+import {AXIOS} from '../../utils/util'
 import AddRecipeCard from '../AddRecipeCard';
 import Filters from '../Filters';
 import RecipeCard from '../RecipeCard';
 
 import '../../assets/CSS/pages/Overview.scss';
-
-import mockData from '../../assets/data/data';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -41,7 +40,8 @@ class Overview extends React.Component {
     try {
       let res;
       // fetch user
-      res = await axios.get(`${serverPath}/user/all`);
+      // res = await axios.get(`${serverPath}/user/all`);
+      res = await AXIOS.user.GET_ALL;
       const user = res.data[0];
 
       // get recipes of user
