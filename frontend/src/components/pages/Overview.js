@@ -2,6 +2,7 @@ import React from 'react';
 // import config from 'config';
 // const serverPath = config.get('serverPath');
 import axios from 'axios';
+
 const serverPath = 'http://localhost:3000';
 
 import { AXIOS } from '../../utils/util';
@@ -84,7 +85,8 @@ class Overview extends React.Component {
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
         {/* TODO: pass recipes as props */}
-        <Filters handleFilterUpdate={this.handleFilterUpdate} />
+        <Filters handleFilterUpdate={this.handleFilterUpdate}
+                 data={recipes}/>
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
@@ -92,7 +94,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard />
+            <AddRecipeCard/>
 
             {recipes.map((recipe, index) => {
               return (
