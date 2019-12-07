@@ -23,7 +23,7 @@ const loadDummyData = async () => {
   }
 
   try {
-    await RecipeModel.collection.drop();
+    await RecipeModel.deleteMany();
   } catch (err) {
     if (err.message !== 'ns not found') {
       console.error(err.message);
@@ -102,8 +102,9 @@ const loadDummyData = async () => {
     favourite: true,
     versions: [mockVersion],
   };
+
   const recipe5 = {
-    title: 'Buckwheat Noodles with Peanut Sauce',
+    title: 'Pasta with Peanut Sauce',
     img: 'buckwheatPeanut.jpeg',
     cookingTime: 30,
     servingSize: randomBetween(1, 12),
@@ -116,6 +117,7 @@ const loadDummyData = async () => {
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
   };
+
   const recipe7 = {
     title: 'Green Quiche',
     img: 'greenQuiche.jpeg',
@@ -123,6 +125,7 @@ const loadDummyData = async () => {
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
   };
+
   const recipe8 = {
     title: 'Omas Nudelsuppe',
     img: 'noodleSoup.jpeg',
@@ -138,6 +141,7 @@ const loadDummyData = async () => {
     servingSize: randomBetween(1, 12),
     versions: [mockVersion],
   };
+
   const recipe10 = {
     title: 'Shrimp Summer Rolls',
     img: 'summerRolls.jpeg',
@@ -146,7 +150,7 @@ const loadDummyData = async () => {
     versions: [mockVersion],
   };
   const recipe11 = {
-    title: 'Vegetarian Shepard\'s Pie',
+    title: 'Vegetarian Shepherd\'s Pie',
     img: 'veggieShepardsPie.jpeg',
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
@@ -165,7 +169,7 @@ const loadDummyData = async () => {
   const r10 = new RecipeModel(recipe10);
   const r11 = new RecipeModel(recipe11);
 
-  const recipes = [r1, r2, r3, r4, r5, r6,  r7, r8, r9, r10, r11];
+  const recipes = [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11];
 
   const promiseArr = recipes.map(async recipe => {
     try {
@@ -190,6 +194,7 @@ const loadDummyData = async () => {
 
   await onlyUser.save();
   console.log(onlyUser);
+  console.log(onlyUser.recipes.length);
 
   await Promise.all(whatever);
   Promise.all(promiseArr).then(() => console.log('Dummy data loaded...'));
