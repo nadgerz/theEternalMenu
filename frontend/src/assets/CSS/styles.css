@@ -73,6 +73,10 @@ img {
 
 /*  B U T T O N S  */
 
+a {
+  color: var(--color-text-primary);
+}
+
 a:visited {
   color: var(--color-text-primary);
 }
