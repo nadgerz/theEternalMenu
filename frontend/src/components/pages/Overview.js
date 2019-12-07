@@ -69,12 +69,11 @@ class Overview extends React.Component {
 
       this.setState({ user, recipes, recipeImages });
     } catch (err) {
-      console.log(err.response.data.message);
+      console.log(err.message);
     }
   };
 
   handleFilterUpdate(recipes) {
-
     if (recipes.length === 0) {
       //  TODO: UI error message for NO results
     }
@@ -82,15 +81,12 @@ class Overview extends React.Component {
     this.setState({ recipes: recipes });
   }
 
-
   render() {
     const { recipes, recipeImages } = this.state;
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-
-        <Filters handleFilterUpdate={this.handleFilterUpdate}
-                 data={recipes}/>
+        <Filters handleFilterUpdate={this.handleFilterUpdate} data={recipes} />
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
@@ -98,7 +94,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard/>
+            <AddRecipeCard />
 
             {recipes.map((recipe, index) => {
               return (
