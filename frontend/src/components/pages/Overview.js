@@ -103,6 +103,7 @@ class Overview extends React.Component {
             {recipes.map((recipe, index) => {
               return (
                 <RecipeCard
+                  id={recipe._id}
                   img={recipeImages[index]}
                   title={recipe.title}
                   favourite={recipe.favourite}
