@@ -81,13 +81,13 @@ a:hover {
   color: var(--color-highlight-contrast);
 }
 
-a.btn.primary,
-a.btn.secondary {
-  border-radius: var(--corner-radius);
-}
+/*a.btn.primary,*/
+/*a.btn.secondary {*/
+/*  border-radius: var(--corner-radius);*/
+/*}*/
 
-a.btn.primary {
-  background-color: var(--color-highlight);
+a.btn.primary:hover {
+  background-color: var(--color-highlight-dark);
 }
 
 a.btn.secondary {
@@ -96,10 +96,19 @@ a.btn.secondary {
 
 input[type='submit'] {
   color: white;
+  cursor: pointer;
   background-color: var(--color-highlight-medium);
   border-radius: 3rem;
   padding: 0.5rem 3rem;
   outline: none;
+}
+
+input[type='submit']:hover {
+  background-color: var(--color-highlight-dark);
+}
+
+input[type='submit']:active {
+  background-color: var(--color-highlight-contrast);
 }
 
 /* ------------------------------------------------------------------------- */

@@ -57,11 +57,10 @@ const loadDummyData = async () => {
   const recipe1 = {
     title: 'Eggs Benedict',
     img: 'eggsBenny.jpeg',
+    cookingTime: 5,
+    servingSize: randomBetween(1, 12),
     versions: [
       {
-        cookingTime: randomBetween(5, 120),
-        servingSize: randomBetween(1, 12),
-
         directions: ['a string', 'is a string', 'is a string'],
         ingredients: ['a carrot', 'egg', 'another egg'],
         notes: ['a string', 'is a string', 'is a string'],
@@ -72,11 +71,10 @@ const loadDummyData = async () => {
   const recipe2 = {
     title: 'Orange Miso Salmon Surpise!',
     img: 'orangeSalmon.jpeg',
+    cookingTime: randomBetween(5, 90),
+    servingSize: randomBetween(1, 12),
     versions: [
       {
-        cookingTime: randomBetween(5, 120),
-        servingSize: randomBetween(1, 12),
-
         directions: ['a string', 'is a string', 'is a string'],
         ingredients: ['a carrot', 'egg', 'another egg'],
         notes: ['a string', 'is a string', 'is a string'],
@@ -87,11 +85,11 @@ const loadDummyData = async () => {
   const recipe3 = {
     title: 'Red Beets Winter Salad',
     img: 'redBeetSalad.jpeg',
+    cookingTime: randomBetween(5, 90),
+    servingSize: randomBetween(1, 12),
+    favourite: true,
     versions: [
       {
-        cookingTime: randomBetween(5, 120),
-        servingSize: randomBetween(1, 12),
-
         directions: ['a string', 'is a string', 'is a string'],
         ingredients: ['a carrot', 'egg', 'another egg'],
         notes: ['a string', 'is a string', 'is a string'],

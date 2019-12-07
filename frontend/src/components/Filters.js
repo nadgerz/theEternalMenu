@@ -1,46 +1,131 @@
 import React, { Component } from 'react';
 import InputRange from 'react-input-range';
 
-import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
+// const getMinMax = require('../utils/util');
+import axios from 'axios';
 
-// import 'react-input-range/lib/css/index.css';
+const serverPath = 'http://localhost:3000';
+import { AXIOS } from '../utils/util';
+
+import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 import '../assets/CSS/components/Filters.scss';
 import '../assets/CSS/components/inputRange.css';
-
-// import Recipe from '../models/recipe';
-// console.log(Recipe);
-
-// import bob from './bert'
-// console.log(bob)
 
 class Filters extends Component {
   constructor(props) {
     super(props);
 
-    // const maxVal = 45;
-    // const minVal = 0;
-
     this.state = {
-      // min is for the left thumb
-      value: { min: 0, max: 20 },
-      servingSizeValue: { min: 0, max: 4 },
-      cookingTimeValue: { min: 0, max: 20 },
+      minValueCookingTime: 0,
+      maxValueCookingTime: 120,
+      cookingTimeValue: { min: 0, max: 60 },
+
+      minValueServingSize: 1,
+      maxValueServingSize: 12,
+      servingSizeValue: { min: 1, max: 6 },
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    // console.log('bert2');
-    //
-    // const minPromise = Recipe.find({});
-    // console.log(minPromise);
+  sortLowToHigh(array, key) {
+    return array.map(item => item[key]).sort((a, b) => a - b);
+  }
+
+  getTrueMiddle(min, max) {
+    return min + Math.round((max - min) / 2);
+  }
+
+  getMinMaxValues(array, key) {
+    const sorted = array.map(item => item[key]).sort((a, b) => a - b);
+
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+
+    return [min, max];
+  }
+
+  async componentDidMount() {
+    let res = await AXIOS.recipe.GET_ALL;
+
+    const [minValueCookingTime, maxValueCookingTime] = this.getMinMaxValues(
+      res.data,
+      'cookingTime',
+    );
+    const [minValueServingSize, maxValueServingSize] = this.getMinMaxValues(
+      res.data,
+      'servingSize',
+    );
+
+    this.setState({
+      minValueCookingTime,
+      maxValueCookingTime,
+
+      cookingTimeValue: {
+        min: minValueCookingTime,
+        max: this.getTrueMiddle(minValueCookingTime, maxValueCookingTime),
+      },
+
+      minValueServingSize,
+      maxValueServingSize,
+
+      servingSizeValue: {
+        min: minValueServingSize,
+        max: this.getTrueMiddle(minValueServingSize, maxValueServingSize),
+      },
+    });
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  async handleSubmit(event) {
+    event.preventDefault();
+
+    let query = {
+      servingSize: {
+        $gte: this.state.servingSizeValue.min,
+        $lte: this.state.servingSizeValue.max,
+      },
+      cookingTime: {
+        $gte: this.state.cookingTimeValue.min,
+        $lte: this.state.cookingTimeValue.max,
+      },
+    };
+
+    let res;
+
+    try {
+      res = await axios.get(`${serverPath}/recipe/`, {
+        params: query,
+      });
+      console.log('did mount');
+      this.props.handleFilterUpdate(res.data);
+    } catch (err) {
+      // console.error(err);
+      res = [];
+      this.props.handleFilterUpdate(res);
+    }
   }
 
   render() {
+    const {
+      cookingTimeValue,
+      minValueCookingTime,
+      maxValueCookingTime,
+
+      servingSizeValue,
+      minValueServingSize,
+      maxValueServingSize,
+    } = this.state;
+
     return (
       <aside id={'recipe-filter'}>
         <h2>Filters</h2>
 
-        <form action="submit">
+        {/*<form action="submit">*/}
+        <form onSubmit={this.handleSubmit}>
           <div className={'cooking-time'}>
             <div className="filter-title icon-with-text">
               <CookingTimeIcon />
@@ -53,12 +138,10 @@ class Filters extends Component {
               <InputRange
                 name="filter-cooking-time"
                 formatLabel={value => `${value}m`}
-                step={5}
-                //{/* max/min should be extracted from the user's recipes */}
-                maxValue={45}
-                minValue={0}
-                defaultValue={10}
-                value={this.state.cookingTimeValue}
+                step={1}
+                minValue={minValueCookingTime}
+                maxValue={maxValueCookingTime}
+                value={cookingTimeValue}
                 onChange={cookingTimeValue =>
                   this.setState({ cookingTimeValue })
                 }
@@ -80,10 +163,9 @@ class Filters extends Component {
                 name="filter-serving-size"
                 // formatLabel={value => `${value}`}
                 step={1}
-                //{/* max/min should be extracted from the user's recipes */}
-                maxValue={8}
-                minValue={0}
-                value={this.state.servingSizeValue}
+                minValue={minValueServingSize}
+                maxValue={maxValueServingSize}
+                value={servingSizeValue}
                 onChange={servingSizeValue =>
                   this.setState({ servingSizeValue })
                 }
@@ -93,7 +175,7 @@ class Filters extends Component {
             </div>
           </div>
 
-          <input type="submit" value={'Submit'} />
+          <input type="submit" value={'Submit'} className={'btn primary'} />
         </form>
       </aside>
     );

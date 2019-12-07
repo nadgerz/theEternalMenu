@@ -1,12 +1,12 @@
 import React from 'react';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-// import { Router, Link } from '@reach/router';
+import { Router } from '@reach/router';
 // import { Link } from '@reach/router';
 
 import Header from './components/Header';
 import Overview from './components/pages/Overview';
-// import Recipe from './pages/Recipe';
+import Recipe from './components/pages/Recipe';
 
 // import FormikLogin from './Login';
 // import RecipeForm from './RecipeForm';
@@ -24,12 +24,12 @@ const App = () => {
       <Header />
 
       <main id={'main'}>
-        {/*<Router>*/}
-        <Overview />
-        {/*<Recipe />*/}
+        <Router>
+          <Overview path={'/'} />
+          <Recipe path={'recipe/:id'} />
+        </Router>
         {/*<SearchParams path={'/'}/>*/}
         {/*<Details path={'/details/:id'}/>*/}
-        {/*</Router>*/}
         {/*<FormikLogin />*/}
         {/*<FormikLogin email={'andrew@test.de'}/>*/}
         {/*<RecipeForm />*/}
