@@ -15,8 +15,6 @@ class Filters extends Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props.data);
-
     this.state = {
       minValueCookingTime: 0,
       maxValueCookingTime: 120,
@@ -83,15 +81,6 @@ class Filters extends Component {
   }
 
   async handleSubmit(event) {
-    console.log('submitted Filter values:');
-    console.log(
-      this.state.servingSizeValue.min,
-      this.state.servingSizeValue.max,
-    );
-    console.log(
-      this.state.cookingTimeValue.min,
-      this.state.cookingTimeValue.max,
-    );
     event.preventDefault();
 
     let query = {
@@ -105,21 +94,20 @@ class Filters extends Component {
       },
     };
 
-    let res = await axios.get(`${serverPath}/recipe/`, {
-      params: query,
-    });
+    let res;
 
-    // let res = await AXIOS.recipe.GET_ALL;
-    // console.log(res.data);
+    try {
+      res = await axios.get(`${serverPath}/recipe/`, {
+        params: query,
+      });
+      console.log('did mount');
+      this.props.handleFilterUpdate(res.data);
 
-    console.log('did mount');
-    this.props.handleFilterUpdate(res.data);
-
-    //   const returned = await RecipeModel.find({
-    //     servingSize: {$gte:this.state.servingSizeValue.min, $lte: this.state.servingSizeValue.max}
-    //   });
-
-    // console.log(returned);
+    } catch (err) {
+      // console.error(err);
+      res = [];
+      this.props.handleFilterUpdate(res);
+    }
   }
 
   render() {
@@ -141,7 +129,7 @@ class Filters extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className={'cooking-time'}>
             <div className="filter-title icon-with-text">
-              <CookingTimeIcon />
+              <CookingTimeIcon/>
               <label htmlFor="filter-cooking-time">
                 <h6>Cooking Time</h6>
               </label>
@@ -166,7 +154,7 @@ class Filters extends Component {
 
           <div className={'serving-size'}>
             <div className="filter-title icon-with-text">
-              <ServingSizeIcon />
+              <ServingSizeIcon/>
               <label htmlFor="filter-serving-size">
                 <h6>Serving Size</h6>
               </label>
@@ -188,7 +176,7 @@ class Filters extends Component {
             </div>
           </div>
 
-          <input type="submit" value={'Submit'} className={'btn primary'} />
+          <input type="submit" value={'Submit'} className={'btn primary'}/>
         </form>
       </aside>
     );

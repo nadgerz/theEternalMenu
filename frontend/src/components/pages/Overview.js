@@ -23,10 +23,12 @@ class Overview extends React.Component {
       recipes: [],
       recipeImages: [],
     };
+
+    this.handleFilterUpdate = this.handleFilterUpdate.bind(this);
   }
 
   componentDidMount() {
-    console.log('did mount');
+    // console.log('did mount');
     // this.getDataFromDbUsingFetch();
     this.getDataFromDbUsingAxios();
   }
@@ -71,19 +73,18 @@ class Overview extends React.Component {
     }
   };
 
-  handleFilterUpdate(data) {
-    console.log('in Overview');
-    console.log(data);
+  handleFilterUpdate(recipes) {
 
-    // this.setState(){
-    //
-    // }
+    if (recipes.length === 0) {
+      //  TODO: UI error message for NO results
+    }
+
+    this.setState({ recipes: recipes });
   }
 
-  render() {
-    console.log('render');
-    const { recipes, recipeImages } = this.state;
 
+  render() {
+    const { recipes, recipeImages } = this.state;
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
@@ -93,7 +94,7 @@ class Overview extends React.Component {
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
-            Your Recipes <span>{recipes.length} in total</span>
+            Your Recipes <span>{recipes.length} found</span>
           </h2>
 
           <div className={'recipe-grid'}>
@@ -102,6 +103,7 @@ class Overview extends React.Component {
             {recipes.map((recipe, index) => {
               return (
                 <RecipeCard
+                  id={recipe._id}
                   img={recipeImages[index]}
                   title={recipe.title}
                   favourite={recipe.favourite}
