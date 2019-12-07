@@ -37,23 +37,26 @@ class Recipe extends React.Component {
 
   fetchData = async () => {
     try {
-      const res = await axios.get(`${serverPath}/recipe/${this.state.id}`);
+      // get recipe data
+      let res = await axios.get(`${serverPath}/recipe/${this.state.id}`);
       const recipe = res.data;
-      console.log(recipe);
-      // const recipe = Promise.resolve(promisedRecipe);
-      // console.log(promisedRecipe);
+      const currentVersion = recipe.versions[0];
 
-      const version = recipe.versions[0];
+      // get img for recipe
+      const img = await axios
+        .get(`${serverPath}/recipe/${recipe._id}/img/${recipe.img}`, {
+          responseType: 'arraybuffer',
+        })
+        .then(res => Buffer.from(res.data, 'binary').toString('base64'));
 
-      this.setState({ recipe, version });
-      console.log(this.state.recipe);
+      this.setState({ recipe, img, version: currentVersion });
     } catch (err) {
       console.log(err);
     }
   };
 
-  recipe2 = mockData.user.recipes[0];
-  version2 = this.recipe2.versions[0];
+  // recipe2 = mockData.user.recipes[0];
+  // version2 = this.recipe2.versions[0];
 
   titles = {
     directions: 'Directions',
@@ -64,8 +67,8 @@ class Recipe extends React.Component {
   render() {
     // debugger
 
-    const { recipe, version } = this.state;
-    const { recipe2, version2 } = this;
+    const { recipe, img, version } = this.state;
+    // const { recipe2, version2 } = this;
 
     return (
       <div id={'recipe'} className={'recipe'}>
@@ -93,7 +96,7 @@ class Recipe extends React.Component {
 
           <div className="right">
             <div className="img">
-              <img src={recipe2.img} alt="" />
+              <img src={`data:image/jpeg;base64, ${img}`} alt="" />
             </div>
           </div>
         </div>
