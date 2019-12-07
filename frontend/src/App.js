@@ -21,12 +21,12 @@ const App = () => {
     // strictMode will warn you if you try to use a react feature they want to deprecate soon
     // will do nothing in production
     <React.StrictMode>
-      <Header/>
+      <Header />
 
       <main id={'main'}>
         <Router>
-          <Overview path={'/'}/>
-          <Recipe path={'recipe/:id'}/>
+          <Overview path={'/'} />
+          <Recipe path={'recipe/:id'} />
         </Router>
         {/*<SearchParams path={'/'}/>*/}
         {/*<Details path={'/details/:id'}/>*/}

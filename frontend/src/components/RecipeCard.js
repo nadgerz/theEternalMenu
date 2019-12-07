@@ -10,17 +10,16 @@ const RecipeCard = props => {
 
   return (
     <Link to={`recipe/${id}`} className="recipe-card">
-      <HeartTag favourite={favourite}/>
+      <HeartTag favourite={favourite} />
 
       <div className={'recipe-card-title'}>
         <p>{title}</p>
       </div>
 
       <div className={'recipe-thumb'}>
-        <img src={`data:image/jpeg;base64, ${img}`} alt="a dish"/>
+        <img src={`data:image/jpeg;base64, ${img}`} alt="a dish" />
       </div>
     </Link>
-
   );
 };
 
