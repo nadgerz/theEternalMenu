@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const fs = require('fs');
 const { recipeModelErrorMsgs: errMsgs } = require('./modelErrorMsgs');
 
 const RecipeSchema = new mongoose.Schema({
@@ -16,10 +17,21 @@ const RecipeSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  img: String,
+  img: {
+    type: String,
+    default: 'default.jpeg',
+  },
   favourite: {
     type: Boolean,
     default: false,
+  },
+  cookingTime: {
+    type: Number,
+    default: 1,
+  },
+  servingSize: {
+    type: Number,
+    default: 1,
   },
   versions: [
     {

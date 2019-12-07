@@ -14,13 +14,14 @@ function randomBetween(min, max) {
 
 const loadDummyData = async () => {
   let debug = false;
-  debug = true;
+  // debug = true;
 
   try {
-    await UserModel.collection.drop();
+    await UserModel.deleteMany();
   } catch (err) {
     if (err.message !== 'ns not found') {
       console.error(err.message);
+
       process.exit(1);
     }
   }
@@ -42,7 +43,7 @@ const loadDummyData = async () => {
 
   const onlyUser = await new UserModel(firstUser);
 
-  onlyUser
+  await onlyUser
     .save()
     .then(rec => {
       if (debug) {
@@ -54,12 +55,12 @@ const loadDummyData = async () => {
   // Promise.all([onlyUser]).then((user) => console.log(user));
 
   const recipe1 = {
-    title: 'Eggs Benny',
+    title: 'Eggs Benedict',
+    img: 'eggsBenny.jpeg',
+    cookingTime: 5,
+    servingSize: randomBetween(1, 12),
     versions: [
       {
-        cookingTime: randomBetween(5, 120),
-        servingSize: randomBetween(1, 12),
-
         directions: ['a string', 'is a string', 'is a string'],
         ingredients: ['a carrot', 'egg', 'another egg'],
         notes: ['a string', 'is a string', 'is a string'],
@@ -69,11 +70,11 @@ const loadDummyData = async () => {
 
   const recipe2 = {
     title: 'Orange Miso Salmon Surpise!',
+    img: 'orangeSalmon.jpeg',
+    cookingTime: randomBetween(5, 90),
+    servingSize: randomBetween(1, 12),
     versions: [
       {
-        cookingTime: randomBetween(5, 120),
-        servingSize: randomBetween(1, 12),
-
         directions: ['a string', 'is a string', 'is a string'],
         ingredients: ['a carrot', 'egg', 'another egg'],
         notes: ['a string', 'is a string', 'is a string'],
@@ -83,11 +84,12 @@ const loadDummyData = async () => {
 
   const recipe3 = {
     title: 'Red Beets Winter Salad',
+    img: 'redBeetSalad.jpeg',
+    cookingTime: randomBetween(5, 90),
+    servingSize: randomBetween(1, 12),
+    favourite: true,
     versions: [
       {
-        cookingTime: randomBetween(5, 120),
-        servingSize: randomBetween(1, 12),
-
         directions: ['a string', 'is a string', 'is a string'],
         ingredients: ['a carrot', 'egg', 'another egg'],
         notes: ['a string', 'is a string', 'is a string'],
@@ -95,49 +97,44 @@ const loadDummyData = async () => {
     ],
   };
 
-  // const recipes = [recipe1, recipe2, recipe3];
-
   const r1 = new RecipeModel(recipe1);
   const r2 = new RecipeModel(recipe2);
   const r3 = new RecipeModel(recipe3);
 
-  // recipes.forEach(recipe => {
-  //   recipe
-  //     .save()
-  //     .then(rec => {
-  //       if (debug) {
-  //         console.log('Saved', rec);
-  //       }
-  //     })
-  //     .catch(err => console.error(err.message));
+  // const recipes = [r1];
+  const recipes = [r1, r2, r3];
+
+  const promiseArr = recipes.map(async recipe => {
+    try {
+      await recipe.save();
+      // .then(rec => onlyUser.recipes.push(rec));
+
+      if (debug) {
+        console.log('Saved', recipe);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+
+  const whatever = recipes.map(async recipe => {
+    try {
+      await onlyUser.recipes.push(recipe);
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+
+  await onlyUser.save();
+  console.log(onlyUser);
+
+  await Promise.all(whatever);
+  Promise.all(promiseArr).then(() => console.log('Dummy data loaded...'));
+
+  // Promise.all(promiseArr).then(() => {
+  //   process.exit(0);
+  //   console.log('Dummy data loaded...');
   // });
-
-  const p1 = r1
-    .save()
-    .then(rec => {
-      if (debug) {
-        console.log('Saved', rec);
-      }
-    })
-    .catch(err => console.error(err.message));
-  const p2 = r2
-    .save()
-    .then(rec => {
-      if (debug) {
-        console.log('Saved', rec);
-      }
-    })
-    .catch(err => console.error(err.message));
-  const p3 = r3
-    .save()
-    .then(rec => {
-      if (debug) {
-        console.log('Saved', rec);
-      }
-    })
-    .catch(err => console.error(err.message));
-
-  Promise.all([p1, p2, p3]).then(() => process.exit(0));
 };
 
 module.exports = loadDummyData;

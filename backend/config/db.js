@@ -31,7 +31,7 @@ const connectDB = async () => {
 
     console.log(`MongoDB Connected to ${dbUrl}`);
 
-    loadDummyData();
+    // loadDummyData();
   } catch (err) {
     console.error(err.message);
     // Exit process with failure
