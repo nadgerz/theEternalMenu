@@ -7,12 +7,9 @@ import HeartTag from '../HeartTag';
 import { CookingTimeIcon, ServingSizeIcon } from '../../assets/SVG/svg';
 import '../../assets/CSS/pages/Recipe.scss';
 
-import mockData from '../../assets/data/data';
-
 class Recipe extends React.Component {
   constructor(props) {
     super(props);
-    // const { path, id } = props;
 
     this.state = {
       id: props.id,
@@ -26,12 +23,9 @@ class Recipe extends React.Component {
         ingredients: [],
       },
     };
-
-    // this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
-    // debugger
     this.fetchData();
   }
 
@@ -55,9 +49,6 @@ class Recipe extends React.Component {
     }
   };
 
-  // recipe2 = mockData.user.recipes[0];
-  // version2 = this.recipe2.versions[0];
-
   titles = {
     directions: 'Directions',
     ingredients: 'Ingredients',
@@ -65,10 +56,7 @@ class Recipe extends React.Component {
   };
 
   render() {
-    // debugger
-
     const { recipe, img, version } = this.state;
-    // const { recipe2, version2 } = this;
 
     return (
       <div id={'recipe'} className={'recipe'}>
