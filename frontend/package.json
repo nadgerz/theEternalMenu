@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "parcel public/index.html",
     "test": "echo no test specified",
-    "format": "pretty-quick --pattern \"**/*.*(js|jsx|scss|sass|css|json|ts|html)\"",
-    "format:full": "prettier --write \"./**/*.{js,jsx,css,htm,json,ts,html,sass,scss}\"",
+    "format": "pretty-quick --pattern \"src/**/*.*(js|jsx|scss|sass|css|json|ts|html)\"",
+    "format:full": "prettier --write \"src/**/*.{js,jsx,css,htm,json,ts,html,sass,scss}\"",
     "lint": "lint-staged"
   },
   "repository": {
