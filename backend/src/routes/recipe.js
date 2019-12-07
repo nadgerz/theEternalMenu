@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
       res.send(recipe);
     }
   } catch (err) {
-    res.send(err.response.data.message);
+    res.send(err.message);
   }
 });
 
