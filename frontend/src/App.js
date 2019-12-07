@@ -26,7 +26,7 @@ const App = () => {
       <main id={'main'}>
         <Router>
           <Overview path={'/'}/>
-          <Recipe path={'/recipe/:id'}/>
+          <Recipe path={'recipe/:id'}/>
         </Router>
         {/*<SearchParams path={'/'}/>*/}
         {/*<Details path={'/details/:id'}/>*/}
