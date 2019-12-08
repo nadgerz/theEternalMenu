@@ -44,7 +44,6 @@ class Overview extends React.Component {
     try {
       let res;
       // fetch user
-      // res = await axios.get(`${serverPath}/user/all`);
       res = await AXIOS.user.GET_ALL;
       const user = res.data[0];
 
@@ -53,6 +52,8 @@ class Overview extends React.Component {
         res = await axios.get(`${serverPath}/recipe/${recipeId}`);
         return res.data;
       });
+      console.log(promisedRecipes);
+
       const recipes = await Promise.all(promisedRecipes);
 
       // get imgs for recipes
@@ -69,7 +70,7 @@ class Overview extends React.Component {
 
       this.setState({ user, recipes, recipeImages });
     } catch (err) {
-      console.log(err.message);
+      console.error(err.message);
     }
   };
 
