@@ -4,7 +4,7 @@ import InputRange from 'react-input-range';
 const { getTrueMiddle } = require('../utils/util');
 import axios from 'axios';
 
-const serverPath = 'http://localhost:3000';
+const serverPath = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 import { AXIOS } from '../utils/util';
 
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';

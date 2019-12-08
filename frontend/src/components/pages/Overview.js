@@ -3,7 +3,7 @@ import React from 'react';
 // const serverPath = config.get('serverPath');
 import axios from 'axios';
 
-const serverPath = 'http://localhost:3000';
+const serverPath = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 import { AXIOS, createKey, getTrueMiddle } from '../../utils/util';
 import AddRecipeCard from '../AddRecipeCard';
