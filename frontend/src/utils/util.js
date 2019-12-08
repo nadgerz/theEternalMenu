@@ -26,6 +26,10 @@ const createKey = (string, index) => {
   return string.toLowerCase().replace(/\s/g, '') + '_' + index;
 };
 
+const getTrueMiddle = (min, max) => {
+  return min + Math.round((max - min) / 2);
+};
+
 const Order = {
   ASC: 1,
   DESC: -1,
@@ -116,4 +120,4 @@ const getMinMax = async (model, field) => {
 //   process.exit(0);
 // });
 
-module.exports = { getMinMax, AXIOS, createKey };
+module.exports = { getMinMax, AXIOS, createKey, getTrueMiddle };
