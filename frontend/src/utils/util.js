@@ -1,10 +1,9 @@
 /* eslint-disable */
 // require('core-js/stable');
 // require('regenerator-runtime/runtime');
-const RecipeModel = require('../../../backend/src/models/recipe');
-const RecipeService = require('../../../backend/src/services/recipe-service');
+
 import axios from 'axios';
-const serverPath = 'http://localhost:3000';
+const serverPath = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 const log = console.log;
 
