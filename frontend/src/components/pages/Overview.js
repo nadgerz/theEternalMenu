@@ -3,9 +3,9 @@ import React from 'react';
 // const serverPath = config.get('serverPath');
 import axios from 'axios';
 
-const serverPath = 'http://localhost:3000';
+const serverPath = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
-import { AXIOS } from '../../utils/util';
+import { AXIOS, createKey, getTrueMiddle } from '../../utils/util';
 import AddRecipeCard from '../AddRecipeCard';
 import Filters from '../Filters';
 import RecipeCard from '../RecipeCard';
@@ -22,6 +22,8 @@ class Overview extends React.Component {
       isLoading: false,
       recipes: [],
       recipeImages: [],
+      cookingTimeValues: {},
+      servingSizeValues: {},
     };
 
     this.handleFilterUpdate = this.handleFilterUpdate.bind(this);
@@ -30,8 +32,38 @@ class Overview extends React.Component {
   componentDidMount() {
     // console.log('did mount');
     // this.getDataFromDbUsingFetch();
-    this.getDataFromDbUsingAxios();
+    this.fetchData();
   }
+
+  fetchData = async () => {
+    try {
+      let res;
+
+      // fetch user
+      res = await AXIOS.user.GET_ALL;
+      const user = res.data[0];
+
+      // get recipes of user
+      const recipes = await this.getRecipes(user);
+
+      // get imgs for recipes
+      const recipeImages = await this.getImages(recipes);
+
+      // set up variables for Filters
+      const cookingTimeValues = this.findValues(recipes, 'cookingTime');
+      const servingSizeValues = this.findValues(recipes, 'servingSize');
+
+      this.setState({
+        user,
+        recipes,
+        recipeImages,
+        cookingTimeValues,
+        servingSizeValues,
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   // fetch data from database
   getDataFromDbUsingFetch = () => {
@@ -40,54 +72,74 @@ class Overview extends React.Component {
       .then(res => this.setState({ data: res.data }));
   };
 
-  getDataFromDbUsingAxios = async () => {
-    try {
-      let res;
-      // fetch user
-      res = await AXIOS.user.GET_ALL;
-      const user = res.data[0];
+  getImages = async recipes => {
+    const promisedImages = recipes.map(async recipe => {
+      const res = await axios
+        .get(`${serverPath}/recipe/${recipe._id}/img/${recipe.img}`, {
+          responseType: 'arraybuffer',
+        })
+        .then(res => Buffer.from(res.data, 'binary').toString('base64'));
 
-      // get recipes of user
-      const promisedRecipes = user.recipes.map(async recipeId => {
-        res = await axios.get(`${serverPath}/recipe/${recipeId}`);
-        return res.data;
-      });
-      console.log(promisedRecipes);
-
-      const recipes = await Promise.all(promisedRecipes);
-
-      // get imgs for recipes
-      const promisedImages = recipes.map(async recipe => {
-        res = await axios
-          .get(`${serverPath}/recipe/${recipe._id}/img/${recipe.img}`, {
-            responseType: 'arraybuffer',
-          })
-          .then(res => Buffer.from(res.data, 'binary').toString('base64'));
-
-        return res;
-      });
-      const recipeImages = await Promise.all(promisedImages);
-
-      this.setState({ user, recipes, recipeImages });
-    } catch (err) {
-      console.error(err.message);
-    }
+      return res;
+    });
+    return Promise.all(promisedImages);
   };
 
-  handleFilterUpdate(recipes) {
+  getRecipes = async user => {
+    const promisedRecipes = user.recipes.map(async recipeId => {
+      const res = await axios.get(`${serverPath}/recipe/${recipeId}`);
+      return res.data;
+    });
+    return Promise.all(promisedRecipes);
+  };
+
+  // F I L T E R  setup
+
+  // cookingTimeValues = {};
+  // servingSizeValues = {};
+
+  findValues(array, key) {
+    const sorted = array.map(item => item[key]).sort((a, b) => a - b);
+
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+
+    const sliderMinMax = {
+      min,
+      max: getTrueMiddle(min, max),
+    };
+
+    return { min, max, sliderMinMax };
+  }
+
+  async handleFilterUpdate(recipes) {
     if (recipes.length === 0) {
       //  TODO: UI error message for NO results
     }
+    const images = await this.getImages(recipes);
 
-    this.setState({ recipes: recipes });
+    // TODO: image will not update after submit
+    // this seems to be a cache problem
+    this.setState({ images, recipes });
   }
 
   render() {
-    const { recipes, recipeImages } = this.state;
+    const {
+      recipes,
+      recipeImages,
+      cookingTimeValues,
+      servingSizeValues,
+    } = this.state;
+    console.log(cookingTimeValues);
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-        <Filters handleFilterUpdate={this.handleFilterUpdate} data={recipes} />
+        <Filters
+          handleFilterUpdate={this.handleFilterUpdate}
+          data={recipes}
+          cookingTimeValues={cookingTimeValues}
+          servingSizeValues={servingSizeValues}
+        />
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
@@ -104,9 +156,7 @@ class Overview extends React.Component {
                   img={recipeImages[index]}
                   title={recipe.title}
                   favourite={recipe.favourite}
-                  key={
-                    recipe.title.toLowerCase().replace(/\s/g, '') + '_' + index
-                  }
+                  key={createKey(recipe.title, index)}
                 />
               );
             })}

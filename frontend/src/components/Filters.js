@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import InputRange from 'react-input-range';
 
-// const getMinMax = require('../utils/util');
+const { getTrueMiddle } = require('../utils/util');
 import axios from 'axios';
 
-const serverPath = 'http://localhost:3000';
+const serverPath = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 import { AXIOS } from '../utils/util';
 
 import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
@@ -15,8 +15,16 @@ class Filters extends Component {
   constructor(props) {
     super(props);
 
+    // console.log(props.cookingTimeValues);
+    const {
+      minValueCookingTime,
+      maxValueCookingTime,
+      cookingTimeValue,
+    } = props.cookingTimeValues;
+    console.log(minValueCookingTime, maxValueCookingTime, cookingTimeValue);
+
     this.state = {
-      minValueCookingTime: 0,
+      minValueCookingTime: props.minValueCookingTime || 0,
       maxValueCookingTime: 120,
       cookingTimeValue: { min: 0, max: 60 },
 
@@ -30,10 +38,6 @@ class Filters extends Component {
 
   sortLowToHigh(array, key) {
     return array.map(item => item[key]).sort((a, b) => a - b);
-  }
-
-  getTrueMiddle(min, max) {
-    return min + Math.round((max - min) / 2);
   }
 
   getMinMaxValues(array, key) {
@@ -58,12 +62,12 @@ class Filters extends Component {
     );
 
     this.setState({
-      minValueCookingTime,
+      // minValueCookingTime,
       maxValueCookingTime,
 
       cookingTimeValue: {
         min: minValueCookingTime,
-        max: this.getTrueMiddle(minValueCookingTime, maxValueCookingTime),
+        max: getTrueMiddle(minValueCookingTime, maxValueCookingTime),
       },
 
       minValueServingSize,
@@ -71,7 +75,7 @@ class Filters extends Component {
 
       servingSizeValue: {
         min: minValueServingSize,
-        max: this.getTrueMiddle(minValueServingSize, maxValueServingSize),
+        max: getTrueMiddle(minValueServingSize, maxValueServingSize),
       },
     });
   }
