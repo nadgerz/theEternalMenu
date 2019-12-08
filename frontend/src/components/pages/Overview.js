@@ -48,7 +48,6 @@ class Overview extends React.Component {
       const recipeImages = await this.getImages(recipes);
 
       this.setState({ user, recipes, recipeImages });
-
     } catch (err) {
       console.error(err.message);
     }
@@ -61,7 +60,7 @@ class Overview extends React.Component {
       .then(res => this.setState({ data: res.data }));
   };
 
-  getImages = async (recipes) => {
+  getImages = async recipes => {
     const promisedImages = recipes.map(async recipe => {
       const res = await axios
         .get(`${serverPath}/recipe/${recipe._id}/img/${recipe.img}`, {
@@ -74,14 +73,13 @@ class Overview extends React.Component {
     return Promise.all(promisedImages);
   };
 
-  getRecipes = async (user) => {
+  getRecipes = async user => {
     const promisedRecipes = user.recipes.map(async recipeId => {
       const res = await axios.get(`${serverPath}/recipe/${recipeId}`);
       return res.data;
     });
     return Promise.all(promisedRecipes);
   };
-
 
   async handleFilterUpdate(recipes) {
     if (recipes.length === 0) {
@@ -99,7 +97,7 @@ class Overview extends React.Component {
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-        <Filters handleFilterUpdate={this.handleFilterUpdate} data={recipes}/>
+        <Filters handleFilterUpdate={this.handleFilterUpdate} data={recipes} />
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
@@ -107,7 +105,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard/>
+            <AddRecipeCard />
 
             {recipes.map((recipe, index) => {
               return (

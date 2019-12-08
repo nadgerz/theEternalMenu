@@ -23,7 +23,7 @@ const AXIOS = {
 };
 
 const createKey = (string, index) => {
-  return string.toLowerCase().replace(/\s/g, '') + '_' + index
+  return string.toLowerCase().replace(/\s/g, '') + '_' + index;
 };
 
 const Order = {
