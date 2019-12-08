@@ -16,7 +16,11 @@ class Filters extends Component {
     super(props);
 
     // console.log(props.cookingTimeValues);
-    const { minValueCookingTime, maxValueCookingTime, cookingTimeValue } = props.cookingTimeValues;
+    const {
+      minValueCookingTime,
+      maxValueCookingTime,
+      cookingTimeValue,
+    } = props.cookingTimeValues;
     console.log(minValueCookingTime, maxValueCookingTime, cookingTimeValue);
 
     this.state = {
@@ -128,7 +132,7 @@ class Filters extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className={'cooking-time'}>
             <div className="filter-title icon-with-text">
-              <CookingTimeIcon/>
+              <CookingTimeIcon />
               <label htmlFor="filter-cooking-time">
                 <h6>Cooking Time</h6>
               </label>
@@ -153,7 +157,7 @@ class Filters extends Component {
 
           <div className={'serving-size'}>
             <div className="filter-title icon-with-text">
-              <ServingSizeIcon/>
+              <ServingSizeIcon />
               <label htmlFor="filter-serving-size">
                 <h6>Serving Size</h6>
               </label>
@@ -175,7 +179,7 @@ class Filters extends Component {
             </div>
           </div>
 
-          <input type="submit" value={'Submit'} className={'btn primary'}/>
+          <input type="submit" value={'Submit'} className={'btn primary'} />
         </form>
       </aside>
     );

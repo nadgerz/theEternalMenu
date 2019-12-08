@@ -53,8 +53,13 @@ class Overview extends React.Component {
       const cookingTimeValues = this.findValues(recipes, 'cookingTime');
       const servingSizeValues = this.findValues(recipes, 'servingSize');
 
-      this.setState({ user, recipes, recipeImages, cookingTimeValues, servingSizeValues });
-
+      this.setState({
+        user,
+        recipes,
+        recipeImages,
+        cookingTimeValues,
+        servingSizeValues,
+      });
     } catch (err) {
       console.error(err.message);
     }
@@ -107,7 +112,6 @@ class Overview extends React.Component {
     return { min, max, sliderMinMax };
   }
 
-
   async handleFilterUpdate(recipes) {
     if (recipes.length === 0) {
       //  TODO: UI error message for NO results
@@ -120,16 +124,21 @@ class Overview extends React.Component {
   }
 
   render() {
-    const { recipes, recipeImages, cookingTimeValues, servingSizeValues } = this.state;
+    const {
+      recipes,
+      recipeImages,
+      cookingTimeValues,
+      servingSizeValues,
+    } = this.state;
     console.log(cookingTimeValues);
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-
-        <Filters handleFilterUpdate={this.handleFilterUpdate}
-                 data={recipes}
-                 cookingTimeValues={cookingTimeValues}
-                 servingSizeValues={servingSizeValues}
+        <Filters
+          handleFilterUpdate={this.handleFilterUpdate}
+          data={recipes}
+          cookingTimeValues={cookingTimeValues}
+          servingSizeValues={servingSizeValues}
         />
 
         <article id="recipes" className={'user-recipes'}>
@@ -138,7 +147,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard/>
+            <AddRecipeCard />
 
             {recipes.map((recipe, index) => {
               return (
