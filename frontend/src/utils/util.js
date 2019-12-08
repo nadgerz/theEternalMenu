@@ -22,23 +22,13 @@ const AXIOS = {
   },
 };
 
-// let model;
-// model = RecipeModel;
+const createKey = (string, index) => {
+  return string.toLowerCase().replace(/\s/g, '') + '_' + index;
+};
 
-// let queryyy;
-// // document = RecipeModel.find();
-// queryyy = RecipeService.findAll({}, function(err, result) {
-//   if (err) return console.error(err);
-//   console.log(result);
-// });
-//
-// let document = queryyy.select('title');
-//
-// console.log(document);
-
-// let field;
-// field = 'servingSize';
-// field = 'cookingTime';
+const getTrueMiddle = (min, max) => {
+  return min + Math.round((max - min) / 2);
+};
 
 const Order = {
   ASC: 1,
@@ -130,4 +120,4 @@ const getMinMax = async (model, field) => {
 //   process.exit(0);
 // });
 
-module.exports = { getMinMax, AXIOS };
+module.exports = { getMinMax, AXIOS, createKey, getTrueMiddle };

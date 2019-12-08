@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InputRange from 'react-input-range';
 
-// const getMinMax = require('../utils/util');
+const { getTrueMiddle } = require('../utils/util');
 import axios from 'axios';
 
 const serverPath = 'http://localhost:3000';
@@ -32,9 +32,9 @@ class Filters extends Component {
     return array.map(item => item[key]).sort((a, b) => a - b);
   }
 
-  getTrueMiddle(min, max) {
-    return min + Math.round((max - min) / 2);
-  }
+  // getTrueMiddle(min, max) {
+  //   return min + Math.round((max - min) / 2);
+  // }
 
   getMinMaxValues(array, key) {
     const sorted = array.map(item => item[key]).sort((a, b) => a - b);
@@ -63,7 +63,7 @@ class Filters extends Component {
 
       cookingTimeValue: {
         min: minValueCookingTime,
-        max: this.getTrueMiddle(minValueCookingTime, maxValueCookingTime),
+        max: getTrueMiddle(minValueCookingTime, maxValueCookingTime),
       },
 
       minValueServingSize,
@@ -71,7 +71,7 @@ class Filters extends Component {
 
       servingSizeValue: {
         min: minValueServingSize,
-        max: this.getTrueMiddle(minValueServingSize, maxValueServingSize),
+        max: getTrueMiddle(minValueServingSize, maxValueServingSize),
       },
     });
   }
@@ -128,7 +128,7 @@ class Filters extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className={'cooking-time'}>
             <div className="filter-title icon-with-text">
-              <CookingTimeIcon />
+              <CookingTimeIcon/>
               <label htmlFor="filter-cooking-time">
                 <h6>Cooking Time</h6>
               </label>
@@ -153,7 +153,7 @@ class Filters extends Component {
 
           <div className={'serving-size'}>
             <div className="filter-title icon-with-text">
-              <ServingSizeIcon />
+              <ServingSizeIcon/>
               <label htmlFor="filter-serving-size">
                 <h6>Serving Size</h6>
               </label>
@@ -175,7 +175,7 @@ class Filters extends Component {
             </div>
           </div>
 
-          <input type="submit" value={'Submit'} className={'btn primary'} />
+          <input type="submit" value={'Submit'} className={'btn primary'}/>
         </form>
       </aside>
     );
