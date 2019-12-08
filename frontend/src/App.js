@@ -9,7 +9,6 @@ import Recipe from './components/pages/Recipe';
 
 import './assets/CSS/App.css';
 
-
 const App = () => {
   return (
     // strictMode will warn you if you try to use a react feature they want to deprecate soon
