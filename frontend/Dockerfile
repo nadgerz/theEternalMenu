@@ -7,5 +7,5 @@ RUN npm install
 
 COPY ./ /app/
 
-#CMD [ "npm", "run", "start", "--", "--host", "0.0.0.0", "--port", "$PORT" ]
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start", "--", "--host", "0.0.0.0", "--port", "$PORT" ]
+#CMD [ "npm", "run", "start" ]
