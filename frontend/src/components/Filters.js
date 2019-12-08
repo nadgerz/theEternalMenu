@@ -15,8 +15,16 @@ class Filters extends Component {
   constructor(props) {
     super(props);
 
+    // console.log(props.cookingTimeValues);
+    const {
+      minValueCookingTime,
+      maxValueCookingTime,
+      cookingTimeValue,
+    } = props.cookingTimeValues;
+    console.log(minValueCookingTime, maxValueCookingTime, cookingTimeValue);
+
     this.state = {
-      minValueCookingTime: 0,
+      minValueCookingTime: props.minValueCookingTime || 0,
       maxValueCookingTime: 120,
       cookingTimeValue: { min: 0, max: 60 },
 
@@ -31,10 +39,6 @@ class Filters extends Component {
   sortLowToHigh(array, key) {
     return array.map(item => item[key]).sort((a, b) => a - b);
   }
-
-  // getTrueMiddle(min, max) {
-  //   return min + Math.round((max - min) / 2);
-  // }
 
   getMinMaxValues(array, key) {
     const sorted = array.map(item => item[key]).sort((a, b) => a - b);
@@ -58,7 +62,7 @@ class Filters extends Component {
     );
 
     this.setState({
-      minValueCookingTime,
+      // minValueCookingTime,
       maxValueCookingTime,
 
       cookingTimeValue: {
@@ -128,7 +132,7 @@ class Filters extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className={'cooking-time'}>
             <div className="filter-title icon-with-text">
-              <CookingTimeIcon/>
+              <CookingTimeIcon />
               <label htmlFor="filter-cooking-time">
                 <h6>Cooking Time</h6>
               </label>
@@ -153,7 +157,7 @@ class Filters extends Component {
 
           <div className={'serving-size'}>
             <div className="filter-title icon-with-text">
-              <ServingSizeIcon/>
+              <ServingSizeIcon />
               <label htmlFor="filter-serving-size">
                 <h6>Serving Size</h6>
               </label>
@@ -175,7 +179,7 @@ class Filters extends Component {
             </div>
           </div>
 
-          <input type="submit" value={'Submit'} className={'btn primary'}/>
+          <input type="submit" value={'Submit'} className={'btn primary'} />
         </form>
       </aside>
     );

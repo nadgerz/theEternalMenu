@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const serverPath = 'http://localhost:3000';
 
-import { AXIOS, createKey } from '../../utils/util';
+import { AXIOS, createKey, getTrueMiddle } from '../../utils/util';
 import AddRecipeCard from '../AddRecipeCard';
 import Filters from '../Filters';
 import RecipeCard from '../RecipeCard';
@@ -22,6 +22,8 @@ class Overview extends React.Component {
       isLoading: false,
       recipes: [],
       recipeImages: [],
+      cookingTimeValues: {},
+      servingSizeValues: {},
     };
 
     this.handleFilterUpdate = this.handleFilterUpdate.bind(this);
@@ -47,7 +49,17 @@ class Overview extends React.Component {
       // get imgs for recipes
       const recipeImages = await this.getImages(recipes);
 
-      this.setState({ user, recipes, recipeImages });
+      // set up variables for Filters
+      const cookingTimeValues = this.findValues(recipes, 'cookingTime');
+      const servingSizeValues = this.findValues(recipes, 'servingSize');
+
+      this.setState({
+        user,
+        recipes,
+        recipeImages,
+        cookingTimeValues,
+        servingSizeValues,
+      });
     } catch (err) {
       console.error(err.message);
     }
@@ -81,6 +93,25 @@ class Overview extends React.Component {
     return Promise.all(promisedRecipes);
   };
 
+  // F I L T E R  setup
+
+  // cookingTimeValues = {};
+  // servingSizeValues = {};
+
+  findValues(array, key) {
+    const sorted = array.map(item => item[key]).sort((a, b) => a - b);
+
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+
+    const sliderMinMax = {
+      min,
+      max: getTrueMiddle(min, max),
+    };
+
+    return { min, max, sliderMinMax };
+  }
+
   async handleFilterUpdate(recipes) {
     if (recipes.length === 0) {
       //  TODO: UI error message for NO results
@@ -88,16 +119,27 @@ class Overview extends React.Component {
     const images = await this.getImages(recipes);
 
     // TODO: image will not update after submit
-    //  this problem seems to be a cache problem
+    // this seems to be a cache problem
     this.setState({ images, recipes });
   }
 
   render() {
-    const { recipes, recipeImages } = this.state;
+    const {
+      recipes,
+      recipeImages,
+      cookingTimeValues,
+      servingSizeValues,
+    } = this.state;
+    console.log(cookingTimeValues);
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-        <Filters handleFilterUpdate={this.handleFilterUpdate} data={recipes}/>
+        <Filters
+          handleFilterUpdate={this.handleFilterUpdate}
+          data={recipes}
+          cookingTimeValues={cookingTimeValues}
+          servingSizeValues={servingSizeValues}
+        />
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
@@ -105,7 +147,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard/>
+            <AddRecipeCard />
 
             {recipes.map((recipe, index) => {
               return (
