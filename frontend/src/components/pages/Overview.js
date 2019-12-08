@@ -85,11 +85,11 @@ class Overview extends React.Component {
     if (recipes.length === 0) {
       //  TODO: UI error message for NO results
     }
-    console.log(recipes[0].img);
     const images = await this.getImages(recipes);
-    console.log(images);
 
-    this.setState({ recipes, images });
+    // TODO: image will not update after submit
+    //  this problem seems to be a cache problem
+    this.setState({ images, recipes });
   }
 
   render() {
@@ -97,7 +97,7 @@ class Overview extends React.Component {
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
-        <Filters handleFilterUpdate={this.handleFilterUpdate} data={recipes} />
+        <Filters handleFilterUpdate={this.handleFilterUpdate} data={recipes}/>
 
         <article id="recipes" className={'user-recipes'}>
           <h2>
@@ -105,7 +105,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard />
+            <AddRecipeCard/>
 
             {recipes.map((recipe, index) => {
               return (
