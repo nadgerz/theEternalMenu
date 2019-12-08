@@ -15,8 +15,12 @@ class Filters extends Component {
   constructor(props) {
     super(props);
 
+    // console.log(props.cookingTimeValues);
+    const { minValueCookingTime, maxValueCookingTime, cookingTimeValue } = props.cookingTimeValues;
+    console.log(minValueCookingTime, maxValueCookingTime, cookingTimeValue);
+
     this.state = {
-      minValueCookingTime: 0,
+      minValueCookingTime: props.minValueCookingTime || 0,
       maxValueCookingTime: 120,
       cookingTimeValue: { min: 0, max: 60 },
 
@@ -31,10 +35,6 @@ class Filters extends Component {
   sortLowToHigh(array, key) {
     return array.map(item => item[key]).sort((a, b) => a - b);
   }
-
-  // getTrueMiddle(min, max) {
-  //   return min + Math.round((max - min) / 2);
-  // }
 
   getMinMaxValues(array, key) {
     const sorted = array.map(item => item[key]).sort((a, b) => a - b);
@@ -58,7 +58,7 @@ class Filters extends Component {
     );
 
     this.setState({
-      minValueCookingTime,
+      // minValueCookingTime,
       maxValueCookingTime,
 
       cookingTimeValue: {
