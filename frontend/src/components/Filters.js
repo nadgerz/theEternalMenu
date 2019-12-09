@@ -30,7 +30,6 @@ class Filters extends Component {
         sliderMinMax: { min: 1, max: 6 },
       },
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentDidMount() {
@@ -64,7 +63,7 @@ class Filters extends Component {
   //   this.setState({ value: event.target.value });
   // };
 
-  async handleSubmit(event) {
+  handleSubmit = async (event) => {
     event.preventDefault();
 
     const cookingTimeSlider = this.state.cookingTimeValues.sliderMinMax;
