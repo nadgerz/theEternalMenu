@@ -30,7 +30,10 @@ const connectDB = async () => {
 
     console.log(`MongoDB Connected to ${dbUrl}`);
 
-    if (process.env.LOAD_SEED_DATA) await loadDummyData();
+    if (process.env.LOAD_SEED_DATA) {
+      await loadDummyData();
+      console.log('Dummy data loaded');
+    }
   } catch (err) {
     console.error(err.message);
     // Exit process with failure
