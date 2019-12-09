@@ -56,7 +56,7 @@ const loadDummyData = async () => {
       'Wine technique snack skewers chuck excess. Oil heat slowly.',
     ],
     ingredients: [
-      '1 carrot',
+      '1 happy carrot',
       '2 Turtle Doves',
       '3 French Hens',
       '4 Calling Birds',
@@ -85,7 +85,7 @@ const loadDummyData = async () => {
   };
 
   const recipe2 = {
-    title: 'Orange Miso Salmon Surpise!',
+    title: 'Orange Miso Salmon Surprise',
     img: 'orangeSalmon.jpeg',
     cookingTime: randomBetween(5, 90),
     servingSize: randomBetween(1, 12),
@@ -199,16 +199,11 @@ const loadDummyData = async () => {
   });
 
   await onlyUser.save();
-  console.log(onlyUser);
-  console.log(onlyUser.recipes.length);
+  // console.log(onlyUser);
 
   await Promise.all(whatever);
-  // Promise.all(promiseArr).then(() => console.log('Dummy data loaded...'));
 
-  Promise.all(promiseArr).then(() => {
-    // process.exit(0);
-    console.log('Dummy data loaded...');
-  });
+  Promise.all(promiseArr);
 };
 
 module.exports = loadDummyData;

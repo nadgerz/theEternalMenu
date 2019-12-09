@@ -29,13 +29,14 @@ const connectDB = async () => {
 
     if (process.env.LOAD_SEED_DATA) {
       await loadDummyData();
-      console.log('Dummy data loaded');
+      console.log('Seed, data loaded');
     }
   } catch (err) {
     console.error(err.message);
     // Exit process with failure
     process.exit(1);
   }
+  console.log('Backend startup complete');
 };
 
 module.exports = connectDB;
