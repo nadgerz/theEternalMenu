@@ -1,11 +1,9 @@
 /* eslint-disable */
 // const faker = require('faker');
 const mongoose = require('mongoose');
-// const { Schema } = mongoose;
 const Chalk = require('chalk');
 const config = require('config');
 process.env['NODE_CONFIG_DIR'] = __dirname;
-// const RecipeModel = require('../src/models/recipe');
 const loadDummyData = require('./utils/load');
 
 const mongoURI = 'mongoURI';
@@ -19,7 +17,8 @@ if (!config.has(mongoURI)) {
   // Exit process with failure
   process.exit(1);
 }
-const dbUrl = config.get(mongoURI);
+
+const dbUrl = process.env.MONGODB_CONNECTION_STRING || config.get(mongoURI);
 
 const connectDB = async () => {
   try {
@@ -31,8 +30,10 @@ const connectDB = async () => {
 
     console.log(`MongoDB Connected to ${dbUrl}`);
 
-    // loadDummyData();
-
+    if (process.env.LOAD_SEED_DATA) {
+      await loadDummyData();
+      console.log('Dummy data loaded');
+    }
   } catch (err) {
     console.error(err.message);
     // Exit process with failure
