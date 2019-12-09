@@ -17,8 +17,8 @@ if (!config.has(mongoURI)) {
   // Exit process with failure
   process.exit(1);
 }
-const dbUrl = config.get(mongoURI);
-// const dbUrl = process.env.mongodb.ports;
+
+const dbUrl = process.env.MONGODB_CONNECTION_STRING || config.get(mongoURI);
 
 const connectDB = async () => {
   try {
