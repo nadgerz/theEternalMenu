@@ -22,6 +22,12 @@ class Overview extends React.Component {
       isLoading: false,
       recipes: [],
       recipeImages: [],
+      //   [
+      //   {
+      //     recipeId: 'id',
+      //     img: 'default.jpg',
+      //   },
+      // ],
       cookingTimeValues: {},
       servingSizeValues: {},
     };
@@ -50,15 +56,15 @@ class Overview extends React.Component {
       const recipeImages = await this.getImages(recipes);
 
       // set up variables for Filters
-      const cookingTimeValues = this.findValues(recipes, 'cookingTime');
-      const servingSizeValues = this.findValues(recipes, 'servingSize');
+      // const cookingTimeValues = this.findValues(recipes, 'cookingTime');
+      // const servingSizeValues = this.findValues(recipes, 'servingSize');
 
       this.setState({
         user,
         recipes,
         recipeImages,
-        cookingTimeValues,
-        servingSizeValues,
+        // cookingTimeValues,
+        // servingSizeValues,
       });
     } catch (err) {
       console.error(err.message);
@@ -82,6 +88,7 @@ class Overview extends React.Component {
 
       return res;
     });
+
     return Promise.all(promisedImages);
   };
 
@@ -98,47 +105,47 @@ class Overview extends React.Component {
   // cookingTimeValues = {};
   // servingSizeValues = {};
 
-  findValues(array, key) {
-    const sorted = array.map(item => item[key]).sort((a, b) => a - b);
-
-    const min = sorted[0];
-    const max = sorted[sorted.length - 1];
-
-    const sliderMinMax = {
-      min,
-      max: getTrueMiddle(min, max),
-    };
-
-    return { min, max, sliderMinMax };
-  }
+  // findValues(array, key) {
+  //   const sorted = array.map(item => item[key]).sort((a, b) => a - b);
+  //
+  //   const min = sorted[0];
+  //   const max = sorted[sorted.length - 1];
+  //
+  //   const sliderMinMax = {
+  //     min,
+  //     max: getTrueMiddle(min, max),
+  //   };
+  //
+  //   return { min, max, sliderMinMax };
+  // }
 
   async handleFilterUpdate(recipes) {
+    let images = [];
+
     if (recipes.length === 0) {
       //  TODO: UI error message for NO results
+    } else {
+      images = await this.getImages(recipes);
     }
-    const images = await this.getImages(recipes);
 
-    // TODO: image will not update after submit
-    // this seems to be a cache problem
-    this.setState({ images, recipes });
+    this.setState({ recipeImages: images, recipes });
   }
 
   render() {
     const {
       recipes,
       recipeImages,
-      cookingTimeValues,
-      servingSizeValues,
+      // cookingTimeValues,
+      // servingSizeValues,
     } = this.state;
-    console.log(cookingTimeValues);
 
     return (
       <div id={'overview'} className={'recipes-and-filter'}>
         <Filters
           handleFilterUpdate={this.handleFilterUpdate}
           data={recipes}
-          cookingTimeValues={cookingTimeValues}
-          servingSizeValues={servingSizeValues}
+          // cookingTimeValues={cookingTimeValues}
+          // servingSizeValues={servingSizeValues}
         />
 
         <article id="recipes" className={'user-recipes'}>
@@ -147,7 +154,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard />
+            <AddRecipeCard/>
 
             {recipes.map((recipe, index) => {
               return (

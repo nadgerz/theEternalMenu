@@ -12,7 +12,7 @@ const userModelErrorMsgs = {
   PASSWORD: {
     REQUIRED: 'Password is required',
     TOO_SHORT: 'the minimum length is 6 characters',
-    TOO_LONG: 'the maximum characters allowed is 30',
+    TOO_LONG: 'the maximum characters allowed is 40',
   },
 };
 
@@ -22,7 +22,7 @@ const recipeModelErrorMsgs = {
   TITLE: {
     REQUIRED: 'Title is required',
     TOO_SHORT: 'Title should be longer than 1 letter',
-    TOO_LONG: 'The maximum characters allowed is 30',
+    TOO_LONG: 'The maximum characters allowed is 40',
   },
 };
 

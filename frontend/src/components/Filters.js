@@ -16,85 +16,68 @@ class Filters extends Component {
     super(props);
 
     // console.log(props.cookingTimeValues);
-    const {
-      minValueCookingTime,
-      maxValueCookingTime,
-      cookingTimeValue,
-    } = props.cookingTimeValues;
-    console.log(minValueCookingTime, maxValueCookingTime, cookingTimeValue);
 
     this.state = {
-      minValueCookingTime: props.minValueCookingTime || 0,
-      maxValueCookingTime: 120,
-      cookingTimeValue: { min: 0, max: 60 },
+      cookingTimeValues: {
+        min: 0,
+        max: 120,
+        sliderMinMax: { min: 0, max: 60 },
+      },
 
-      minValueServingSize: 1,
-      maxValueServingSize: 12,
-      servingSizeValue: { min: 1, max: 6 },
+      servingSizeValues: {
+        min: 1,
+        max: 12,
+        sliderMinMax: { min: 1, max: 6 },
+      },
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  sortLowToHigh(array, key) {
-    return array.map(item => item[key]).sort((a, b) => a - b);
-  }
-
-  getMinMaxValues(array, key) {
-    const sorted = array.map(item => item[key]).sort((a, b) => a - b);
-
-    const min = sorted[0];
-    const max = sorted[sorted.length - 1];
-
-    return [min, max];
   }
 
   async componentDidMount() {
     let res = await AXIOS.recipe.GET_ALL;
 
-    const [minValueCookingTime, maxValueCookingTime] = this.getMinMaxValues(
-      res.data,
-      'cookingTime',
-    );
-    const [minValueServingSize, maxValueServingSize] = this.getMinMaxValues(
-      res.data,
-      'servingSize',
-    );
+    const cookingTimeValues = this.findValues(res.data, 'cookingTime');
+    const servingSizeValues = this.findValues(res.data, 'servingSize');
 
     this.setState({
-      // minValueCookingTime,
-      maxValueCookingTime,
-
-      cookingTimeValue: {
-        min: minValueCookingTime,
-        max: getTrueMiddle(minValueCookingTime, maxValueCookingTime),
-      },
-
-      minValueServingSize,
-      maxValueServingSize,
-
-      servingSizeValue: {
-        min: minValueServingSize,
-        max: getTrueMiddle(minValueServingSize, maxValueServingSize),
-      },
+      cookingTimeValues,
+      servingSizeValues,
     });
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
+  findValues = (array, key) => {
+    const sorted = array.map(item => item[key]).sort((a, b) => a - b);
 
-  async handleSubmit(event) {
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+
+    const sliderMinMax = {
+      min,
+      max: getTrueMiddle(min, max),
+    };
+
+    return { min, max, sliderMinMax };
+  };
+
+  // handleChange = (event) => {
+  //   console.log('handle change');
+  //   this.setState({ value: event.target.value });
+  // };
+
+  handleSubmit = async (event) => {
     event.preventDefault();
 
+    const cookingTimeSlider = this.state.cookingTimeValues.sliderMinMax;
+    const servingSizeSlider = this.state.servingSizeValues.sliderMinMax;
+
+
     let query = {
-      servingSize: {
-        $gte: this.state.servingSizeValue.min,
-        $lte: this.state.servingSizeValue.max,
-      },
       cookingTime: {
-        $gte: this.state.cookingTimeValue.min,
-        $lte: this.state.cookingTimeValue.max,
+        $gte: cookingTimeSlider.min,
+        $lte: cookingTimeSlider.max,
+      },
+      servingSize: {
+        $gte: servingSizeSlider.min,
+        $lte: servingSizeSlider.max,
       },
     };
 
@@ -104,35 +87,31 @@ class Filters extends Component {
       res = await axios.get(`${serverPath}/recipe/`, {
         params: query,
       });
-      console.log('did mount');
-      this.props.handleFilterUpdate(res.data);
+      await this.props.handleFilterUpdate(res.data);
+
     } catch (err) {
       // console.error(err);
+
+      // if NO results, pass up an empty array
       res = [];
-      this.props.handleFilterUpdate(res);
+      await this.props.handleFilterUpdate(res);
     }
   }
 
   render() {
     const {
-      cookingTimeValue,
-      minValueCookingTime,
-      maxValueCookingTime,
-
-      servingSizeValue,
-      minValueServingSize,
-      maxValueServingSize,
+      servingSizeValues,
+      cookingTimeValues,
     } = this.state;
 
     return (
       <aside id={'recipe-filter'}>
         <h2>Filters</h2>
 
-        {/*<form action="submit">*/}
         <form onSubmit={this.handleSubmit}>
           <div className={'cooking-time'}>
             <div className="filter-title icon-with-text">
-              <CookingTimeIcon />
+              <CookingTimeIcon/>
               <label htmlFor="filter-cooking-time">
                 <h6>Cooking Time</h6>
               </label>
@@ -143,12 +122,16 @@ class Filters extends Component {
                 name="filter-cooking-time"
                 formatLabel={value => `${value}m`}
                 step={1}
-                minValue={minValueCookingTime}
-                maxValue={maxValueCookingTime}
-                value={cookingTimeValue}
-                onChange={cookingTimeValue =>
-                  this.setState({ cookingTimeValue })
-                }
+                minValue={cookingTimeValues.min}
+                maxValue={cookingTimeValues.max}
+                value={cookingTimeValues.sliderMinMax}
+                onChange={value => {
+                  // setState doesn't handle nested updates, so the component's state
+                  // is replaced with the updated object
+                  const cookingTimeValues = { ...this.state.cookingTimeValues };
+                  cookingTimeValues.sliderMinMax = value;
+                  this.setState({ cookingTimeValues });
+                }}
                 allowSameValues={true}
                 aria-labelledby={String}
               />
@@ -157,7 +140,7 @@ class Filters extends Component {
 
           <div className={'serving-size'}>
             <div className="filter-title icon-with-text">
-              <ServingSizeIcon />
+              <ServingSizeIcon/>
               <label htmlFor="filter-serving-size">
                 <h6>Serving Size</h6>
               </label>
@@ -167,19 +150,21 @@ class Filters extends Component {
                 name="filter-serving-size"
                 // formatLabel={value => `${value}`}
                 step={1}
-                minValue={minValueServingSize}
-                maxValue={maxValueServingSize}
-                value={servingSizeValue}
-                onChange={servingSizeValue =>
-                  this.setState({ servingSizeValue })
-                }
+                minValue={servingSizeValues.min}
+                maxValue={servingSizeValues.max}
+                value={servingSizeValues.sliderMinMax}
+                onChange={value => {
+                  const servingSizeValues = { ...this.state.servingSizeValues };
+                  servingSizeValues.sliderMinMax = value;
+                  this.setState({ servingSizeValues });
+                }}
                 allowSameValues={true}
                 aria-labelledby={String}
               />
             </div>
           </div>
 
-          <input type="submit" value={'Submit'} className={'btn primary'} />
+          <input type="submit" value={'Submit'} className={'btn primary'}/>
         </form>
       </aside>
     );

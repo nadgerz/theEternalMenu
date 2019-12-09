@@ -16,7 +16,9 @@ module.exports = class Service {
   }
 
   deleteById(id) {
-    return this.model.deleteOne({ _id: id });
+    // return this.model.deleteOne({ _id: id });
+    const document = this.model.findById(id);
+    return (document.deleted = true);
   }
 
   delete(query) {
