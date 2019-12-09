@@ -12,6 +12,7 @@ services:
     environment:
       REACT_APP_API_URL: "http://localhost:3000"
       PORT: "8080"
+      LOAD_SEED_DATA: false
     ports:
       - 8080:8080
   mongodb:
