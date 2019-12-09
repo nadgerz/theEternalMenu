@@ -120,12 +120,15 @@ class Overview extends React.Component {
   // }
 
   async handleFilterUpdate(recipes) {
+    let images = [];
+
     if (recipes.length === 0) {
       //  TODO: UI error message for NO results
+    } else {
+      images = await this.getImages(recipes);
     }
-    const recipeImages = await this.getImages(recipes);
 
-    this.setState({ recipeImages, recipes });
+    this.setState({ recipeImages: images, recipes });
   }
 
   render() {
