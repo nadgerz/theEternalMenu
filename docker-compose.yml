@@ -1,10 +1,11 @@
-version: "3.7"
+version: '3.7'
 services:
   backend:
+    image: tem/backend:latest
     build: backend
     container_name: tem_backend
     environment:
-      # MONGODB_CONNECTION_STRING: 'mongodb://mongodb/tem'
+      MONGODB_CONNECTION_STRING: 'mongodb://mongodb/tem'
       PORT: '3000'
       LOAD_SEED_DATA: 'true'
     ports:
@@ -12,15 +13,17 @@ services:
     depends_on:
       - mongodb
   frontend:
+    image: tem/frontend:latest
     build: frontend
     container_name: tem_frontend
     environment:
-      #      REACT_APP_API_URL: "http://localhost:3000"
-      PORT: "8080"
+      REACT_APP_API_URL: 'http://localhost:3000'
+      PORT: '8080'
     ports:
       - 8080:8080
   mongodb:
-    image: mongo:latest
+    image: mongo:4
+    # image: mongo:latest
     restart: always
     container_name: tem_mongodb
     # environment:

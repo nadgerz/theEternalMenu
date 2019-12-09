@@ -1,24 +1,21 @@
 /* eslint-disable */
-// const faker = require('faker');
 const mongoose = require('mongoose');
 const Chalk = require('chalk');
-const config = require('config');
-process.env['NODE_CONFIG_DIR'] = __dirname;
 const loadDummyData = require('./utils/load');
 
-const mongoURI = 'mongoURI';
+const dbUrl = process.env.MONGODB_CONNECTION_STRING;
 
-if (!config.has(mongoURI)) {
+if (!dbUrl) {
   console.error(
     Chalk.bgRedBright.bold(
-      `Please add a ${Chalk.inverse(mongoURI)} key to the default.json file.`,
+      `Error: Please supply an Env. Var. for ${Chalk.inverse(
+        'MONGODB_CONNECTION_STRING',
+      )}'`,
     ),
   );
   // Exit process with failure
   process.exit(1);
 }
-
-const dbUrl = process.env.MONGODB_CONNECTION_STRING || config.get(mongoURI);
 
 const connectDB = async () => {
   try {
