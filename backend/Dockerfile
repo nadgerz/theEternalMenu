@@ -9,5 +9,4 @@ COPY ./ /app/
 
 EXPOSE 3000
 
-CMD [ "node", "start", "--", "--host", "0.0.0.0", "--port", "$PORT" ]
-
+CMD [ "npm", "start", "--", "--host", "0.0.0.0", "--port", "$PORT" ]

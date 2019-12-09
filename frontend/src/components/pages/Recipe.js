@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const serverPath = 'http://localhost:3000';
+const serverPath = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 import HeartTag from '../HeartTag';
 import { CookingTimeIcon, ServingSizeIcon } from '../../assets/SVG/svg';
