@@ -22,6 +22,12 @@ class Overview extends React.Component {
       isLoading: false,
       recipes: [],
       recipeImages: [],
+      //   [
+      //   {
+      //     recipeId: 'id',
+      //     img: 'default.jpg',
+      //   },
+      // ],
       cookingTimeValues: {},
       servingSizeValues: {},
     };
@@ -82,6 +88,7 @@ class Overview extends React.Component {
 
       return res;
     });
+
     return Promise.all(promisedImages);
   };
 
@@ -116,11 +123,9 @@ class Overview extends React.Component {
     if (recipes.length === 0) {
       //  TODO: UI error message for NO results
     }
-    const images = await this.getImages(recipes);
+    const recipeImages = await this.getImages(recipes);
 
-    // TODO: image will not update after submit
-    // this seems to be a cache problem
-    this.setState({ images, recipes });
+    this.setState({ recipeImages, recipes });
   }
 
   render() {
@@ -146,7 +151,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard />
+            <AddRecipeCard/>
 
             {recipes.map((recipe, index) => {
               return (
