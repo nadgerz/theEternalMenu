@@ -7,7 +7,7 @@ const RecipeSchema = new mongoose.Schema({
     type: String,
     required: [true, errMsgs.TITLE.REQUIRED],
     minlength: [2, errMsgs.TITLE.TOO_SHORT],
-    maxlength: [30, errMsgs.TITLE.TOO_LONG],
+    maxlength: [40, errMsgs.TITLE.TOO_LONG],
   },
   created: {
     type: Date,
