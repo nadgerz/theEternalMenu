@@ -4,8 +4,9 @@ import 'regenerator-runtime/runtime';
 import { Router } from '@reach/router';
 
 import Header from './components/Header';
-import Overview from './components/pages/Overview';
-import Recipe from './components/pages/Recipe';
+// import Overview from './components/pages/Overview';
+// import Recipe from './components/pages/Recipe';
+import SearchParams from './components/SearchParams';
 
 import './assets/CSS/App.css';
 
@@ -17,11 +18,11 @@ const App = () => {
       <Header />
 
       <main id={'main'}>
-        <Router>
-          <Overview path={'/'} />
-          <Recipe path={'recipe/:id'} />
-        </Router>
-        {/*<SearchParams path={'/'}/>*/}
+        {/*<Router>*/}
+        {/*  <Overview path={'/'} />*/}
+        {/*  <Recipe path={'recipe/:id'} />*/}
+        {/*</Router>*/}
+        <SearchParams path={'/'}/>
         {/*<Details path={'/details/:id'}/>*/}
         {/*<FormikLogin />*/}
         {/*<FormikLogin email={'andrew@test.de'}/>*/}
