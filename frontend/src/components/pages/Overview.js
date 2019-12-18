@@ -148,7 +148,7 @@ class Overview extends React.Component {
           </h2>
 
           <div className={'recipe-grid'}>
-            <AddRecipeCard/>
+            <AddRecipeCard />
 
             {recipes.map((recipe, index) => {
               return (
