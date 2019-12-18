@@ -21,9 +21,9 @@ const App = () => {
 
       <main id={'main'}>
         <Router>
+          <Overview path={'/'}/>
           <SearchParams path={'/'}/>
           <Details path={'/details/:id'}/>
-          <Overview path={'/'}/>
           <Recipe path={'recipe/:id'} />
         </Router>
         {/*<FormikLogin />*/}
