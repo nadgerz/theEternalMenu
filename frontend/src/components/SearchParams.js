@@ -4,7 +4,6 @@ import pet, { ANIMALS } from '@frontendmasters/pet';
 import useDropdown from './useDropdown';
 import Results from './Results';
 
-
 const SearchParams = () => {
   const [location, setLocation] = useState('Seattle, WA');
   const [breeds, setBreeds] = useState([]);
@@ -34,31 +33,33 @@ const SearchParams = () => {
 
   return (
     <div className={'search-params'}>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        requestPets();
-      }}>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location">
           Location
-          <input id="location"
-                 value={location}
-                 onChange={event => setLocation(event.target.value)}
-                 placeholder={'Location'}
-                 type="text"
+          <input
+            id="location"
+            value={location}
+            onChange={event => setLocation(event.target.value)}
+            placeholder={'Location'}
+            type="text"
           />
         </label>
-        <br/>
-        <br/>
-        <AnimalDropdown/>
-        <br/>
-        <br/>
-        <BreedDropdown/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <AnimalDropdown />
+        <br />
+        <br />
+        <BreedDropdown />
+        <br />
+        <br />
         <button>Submit</button>
       </form>
-      <Results pets={pets}/>
-
+      <Results pets={pets} />
     </div>
   );
 };

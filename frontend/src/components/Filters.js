@@ -11,23 +11,20 @@ import { CookingTimeIcon, ServingSizeIcon } from '../assets/SVG/svg';
 import '../assets/CSS/components/Filters.scss';
 import '../assets/CSS/components/inputRange.css';
 
-
-const Filters = (props) => {
+const Filters = props => {
   const { handleFilterUpdate, data } = props;
 
-  const [cookingTimeValues, setCookingTimeValues] = useState(
-    {
-      min: 0,
-      max: 120,
-      sliderMinMax: { min: 0, max: 60 },
-    });
+  const [cookingTimeValues, setCookingTimeValues] = useState({
+    min: 0,
+    max: 120,
+    sliderMinMax: { min: 0, max: 60 },
+  });
 
-  const [servingSizeValues, setServingSizeValues] = useState(
-    {
-      min: 1,
-      max: 12,
-      sliderMinMax: { min: 1, max: 6 },
-    });
+  const [servingSizeValues, setServingSizeValues] = useState({
+    min: 1,
+    max: 12,
+    sliderMinMax: { min: 1, max: 6 },
+  });
 
   useEffect(() => {
     console.log('USE_EFFECT');
@@ -45,7 +42,6 @@ const Filters = (props) => {
       setCookingTimeValues(cookingTimeValues);
       setServingSizeValues(servingSizeValues);
     }, console.error);
-
   }, [setCookingTimeValues, setServingSizeValues]);
 
   const findValues = (array, key) => {
@@ -62,7 +58,7 @@ const Filters = (props) => {
     return { min, max, sliderMinMax };
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     const cookingTimeSlider = cookingTimeValues.sliderMinMax;
@@ -86,9 +82,7 @@ const Filters = (props) => {
         params: query,
       });
       await handleFilterUpdate(res.data);
-
     } catch (err) {
-
       // if NO results, pass up an empty array
       res = [];
       await handleFilterUpdate(res);
@@ -102,7 +96,7 @@ const Filters = (props) => {
       <form onSubmit={handleSubmit}>
         <div className={'cooking-time'}>
           <div className="filter-title icon-with-text">
-            <CookingTimeIcon/>
+            <CookingTimeIcon />
             <label htmlFor="filter-cooking-time">
               <h6>Cooking Time</h6>
             </label>
@@ -117,7 +111,10 @@ const Filters = (props) => {
               maxValue={cookingTimeValues.max}
               value={cookingTimeValues.sliderMinMax}
               onChange={value => {
-                setCookingTimeValues({...cookingTimeValues, sliderMinMax: value});
+                setCookingTimeValues({
+                  ...cookingTimeValues,
+                  sliderMinMax: value,
+                });
               }}
               allowSameValues={true}
               aria-labelledby={String}
@@ -127,7 +124,7 @@ const Filters = (props) => {
 
         <div className={'serving-size'}>
           <div className="filter-title icon-with-text">
-            <ServingSizeIcon/>
+            <ServingSizeIcon />
             <label htmlFor="filter-serving-size">
               <h6>Serving Size</h6>
             </label>
@@ -140,7 +137,10 @@ const Filters = (props) => {
               maxValue={servingSizeValues.max}
               value={servingSizeValues.sliderMinMax}
               onChange={value => {
-                setServingSizeValues({...servingSizeValues, sliderMinMax: value});
+                setServingSizeValues({
+                  ...servingSizeValues,
+                  sliderMinMax: value,
+                });
               }}
               allowSameValues={true}
               aria-labelledby={String}
@@ -148,7 +148,7 @@ const Filters = (props) => {
           </div>
         </div>
 
-        <input type="submit" value={'Submit'} className={'btn primary'}/>
+        <input type="submit" value={'Submit'} className={'btn primary'} />
       </form>
     </aside>
   );
