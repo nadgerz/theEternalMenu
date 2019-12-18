@@ -6,7 +6,7 @@ import { Router } from '@reach/router';
 import Header from './components/Header';
 import Overview from './components/pages/Overview';
 import Details from './components/pages/Details';
-// import Recipe from './components/pages/Recipe';
+import Recipe from './components/pages/Recipe';
 import SearchParams from './components/SearchParams';
 
 import './assets/CSS/App.css';
@@ -24,7 +24,7 @@ const App = () => {
           <SearchParams path={'/'}/>
           <Details path={'/details/:id'}/>
           <Overview path={'/'}/>
-          {/*<Recipe path={'recipe/:id'} />*/}
+          <Recipe path={'recipe/:id'} />
         </Router>
         {/*<FormikLogin />*/}
         {/*<FormikLogin email={'andrew@test.de'}/>*/}
