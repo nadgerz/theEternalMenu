@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import InputRange from 'react-input-range';
 
 const { getTrueMiddle } = require('../utils/util');
