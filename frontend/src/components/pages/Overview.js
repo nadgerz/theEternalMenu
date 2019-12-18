@@ -22,12 +22,6 @@ class Overview extends React.Component {
       isLoading: false,
       recipes: [],
       recipeImages: [],
-      //   [
-      //   {
-      //     recipeId: 'id',
-      //     img: 'default.jpg',
-      //   },
-      // ],
       cookingTimeValues: {},
       servingSizeValues: {},
     };
