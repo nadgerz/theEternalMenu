@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Details = (props) => {
-  const Debug = (<pre><code>{JSON.stringify(props, null, 2)}</code></pre>);
+import {DebugDump} from '../../utils/snippets'
 
+const Details = (props) => {
   return (
     <div>
-      <pre><code>{JSON.stringify(props, null, 2)}</code></pre>
+      <DebugDump props={props}/>
       Hey
     </div>
   );
