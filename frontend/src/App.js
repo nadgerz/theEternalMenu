@@ -21,8 +21,8 @@ const App = () => {
 
       <main id={'main'}>
         <Router>
-          <Overview path={'/'}/>
           <SearchParams path={'/'}/>
+          <Overview path={'/'}/>
           <Details path={'/details/:id'}/>
           <Recipe path={'recipe/:id'} />
         </Router>
