@@ -5,7 +5,7 @@ const RecipeService = require('../services/recipe-service');
 router.get('/all', async (req, res) => {
   try {
     const recipes = await RecipeService.findAll();
-    if (recipes.length === 0) res.status(404);
+    if (recipes.length === 0);
     res.send(recipes);
     // res.render('recipes', { recipes });
   } catch (err) {

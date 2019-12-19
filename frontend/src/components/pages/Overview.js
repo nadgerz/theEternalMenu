@@ -11,6 +11,7 @@ import Filters from '../Filters';
 import RecipeCard from '../RecipeCard';
 
 import '../../assets/CSS/pages/Overview.scss';
+import Pet from '../Pet';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -22,12 +23,6 @@ class Overview extends React.Component {
       isLoading: false,
       recipes: [],
       recipeImages: [],
-      //   [
-      //   {
-      //     recipeId: 'id',
-      //     img: 'default.jpg',
-      //   },
-      // ],
       cookingTimeValues: {},
       servingSizeValues: {},
     };
@@ -155,18 +150,22 @@ class Overview extends React.Component {
 
           <div className={'recipe-grid'}>
             <AddRecipeCard/>
-
-            {recipes.map((recipe, index) => {
-              return (
-                <RecipeCard
-                  id={recipe._id}
-                  img={recipeImages[index]}
-                  title={recipe.title}
-                  favourite={recipe.favourite}
-                  key={createKey(recipe.title, index)}
-                />
-              );
-            })}
+            {
+              recipes.length === 0 ? (<h3>No Recipes found</h3>) :
+                (
+                  recipes.map((recipe, index) => {
+                    return (
+                      <RecipeCard
+                        id={recipe._id}
+                        img={recipeImages[index]}
+                        title={recipe.title}
+                        favourite={recipe.favourite}
+                        key={createKey(recipe.title, index)}
+                      />
+                    );
+                  })
+                )
+            }
           </div>
         </article>
       </div>

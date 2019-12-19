@@ -32,7 +32,9 @@ const connectDB = async () => {
       console.log('Seed, data loaded');
     }
   } catch (err) {
+    // console.error(err);
     console.error(err.message);
+    console.error(`MONGODB_CONNECTION_STRING set to >${dbUrl}<`);
     // Exit process with failure
     process.exit(1);
   }
