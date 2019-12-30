@@ -5,7 +5,7 @@ const RecipeService = require('../services/recipe-service');
 router.get('/all', async (req, res) => {
   try {
     const recipes = await RecipeService.findAll();
-    if (recipes.length === 0) res.status(404);
+    if (recipes.length === 0);
     res.send(recipes);
     // res.render('recipes', { recipes });
   } catch (err) {
@@ -40,8 +40,8 @@ router.get('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     let { query, body } = req;
-    console.log('ROUTES');
-    console.log(query);
+    // console.log('ROUTES');
+    // console.log(query);
 
     // Could loop the keys for multiple queries
     const keys = Object.keys(query);
@@ -53,7 +53,7 @@ router.get('/', async (req, res) => {
       json[key] = JSON.parse(value);
     });
 
-    console.log(json);
+    // console.log(json);
 
     // recipes = await RecipeService.find({ servingSize: { '$gte': 0, '$lte': 5 }, cookingTime: { '$gte': 0, '$lte': 120 } }).sort(body.sort);
     const recipes = await RecipeService.find(json).sort(body.sort);

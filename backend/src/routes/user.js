@@ -15,7 +15,7 @@ router.get('/all', async (req, res) => {
     const users = await UserService.findAll();
     res.send(users);
   } catch (err) {
-    res.send(err.response.data.message);
+    res.send(err.message);
   }
 });
 

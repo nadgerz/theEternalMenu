@@ -2,34 +2,30 @@ import React from 'react';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { Router } from '@reach/router';
-// import { Link } from '@reach/router';
 
 import Header from './components/Header';
 import Overview from './components/pages/Overview';
+import Details from './components/pages/Details';
 import Recipe from './components/pages/Recipe';
-
-// import FormikLogin from './Login';
-// import RecipeForm from './RecipeForm';
+import SearchParams from './components/SearchParams';
 
 import './assets/CSS/App.css';
-
-// import SearchParams from './SearchParams';
-// import Recipe from './Recipe';
+import './assets/CSS/styles2.css';
 
 const App = () => {
   return (
     // strictMode will warn you if you try to use a react feature they want to deprecate soon
     // will do nothing in production
     <React.StrictMode>
-      <Header />
+      <Header/>
 
       <main id={'main'}>
         <Router>
-          <Overview path={'/'} />
+          <SearchParams path={'/'}/>
+          <Details path={'/details/:id'}/>
+          <Overview path={'/'}/>
           <Recipe path={'recipe/:id'} />
         </Router>
-        {/*<SearchParams path={'/'}/>*/}
-        {/*<Details path={'/details/:id'}/>*/}
         {/*<FormikLogin />*/}
         {/*<FormikLogin email={'andrew@test.de'}/>*/}
         {/*<RecipeForm />*/}
@@ -39,4 +35,3 @@ const App = () => {
 };
 
 export default App;
-// ReactDOM.render(<App />, document.getElementById('root'));

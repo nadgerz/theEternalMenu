@@ -1,25 +1,21 @@
 /* eslint-disable */
-// const faker = require('faker');
 const mongoose = require('mongoose');
-// const { Schema } = mongoose;
 const Chalk = require('chalk');
-const config = require('config');
-process.env['NODE_CONFIG_DIR'] = __dirname;
-// const RecipeModel = require('../src/models/recipe');
 const loadDummyData = require('./utils/load');
 
-const mongoURI = 'mongoURI';
+const dbUrl = process.env.MONGODB_CONNECTION_STRING;
 
-if (!config.has(mongoURI)) {
+if (!dbUrl) {
   console.error(
     Chalk.bgRedBright.bold(
-      `Please add a ${Chalk.inverse(mongoURI)} key to the default.json file.`,
+      `Error: Please supply an Env. Var. for ${Chalk.inverse(
+        'MONGODB_CONNECTION_STRING',
+      )}'`,
     ),
   );
   // Exit process with failure
   process.exit(1);
 }
-const dbUrl = config.get(mongoURI);
 
 const connectDB = async () => {
   try {
@@ -31,13 +27,18 @@ const connectDB = async () => {
 
     console.log(`MongoDB Connected to ${dbUrl}`);
 
-    // loadDummyData();
-
+    if (process.env.LOAD_SEED_DATA) {
+      await loadDummyData();
+      console.log('Seed, data loaded');
+    }
   } catch (err) {
+    // console.error(err);
     console.error(err.message);
+    console.error(`MONGODB_CONNECTION_STRING set to >${dbUrl}<`);
     // Exit process with failure
     process.exit(1);
   }
+  console.log('Backend startup complete');
 };
 
 module.exports = connectDB;
