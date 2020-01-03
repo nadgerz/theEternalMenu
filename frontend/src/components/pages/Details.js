@@ -5,14 +5,11 @@ import { DebugDump } from '../../utils/snippets';
 
 class Details extends Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    loading: true,
+    name: '',
+  };
 
-    // this is shallow
-    this.state = {
-      loading: true,
-    };
-  }
 
   // runs only on the first start-up
   componentDidMount() {
