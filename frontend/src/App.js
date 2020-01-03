@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Overview from './components/pages/Overview';
 import Details from './components/pages/Details';
 import Recipe from './components/pages/Recipe';
-import SearchParams from './components/SearchParams';
+// import SearchParams from './components/SearchParams';
 
 import './assets/CSS/App.css';
 import './assets/CSS/styles2.css';
@@ -21,7 +21,7 @@ const App = () => {
 
       <main id={'main'}>
         <Router>
-          <SearchParams path={'/'}/>
+          {/*<SearchParams path={'/'}/>*/}
           <Overview path={'/'}/>
           <Details path={'/details/:id'}/>
           <Recipe path={'recipe/:id'} />
